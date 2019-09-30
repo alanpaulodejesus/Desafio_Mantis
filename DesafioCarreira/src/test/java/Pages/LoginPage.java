@@ -19,7 +19,7 @@ public class LoginPage {
     @FindBy(name = "username") private WebElement campoUserName;
     @FindBy(name = "password") private WebElement campoSenha;
     @FindBy(xpath = "//input[@value=\"Entrar\"]") private WebElement comandoEntrar;
-   // @FindBy(xpath = "//*[text()=\""+Propriedades.USUARIO+"\"]") private WebElement validaAcessoUsuario;
+   //@FindBy(xpath = "//*[text()=\""+Propriedades.USUARIO+"\"]") private WebElement validaAcessoUsuario;
     @FindBy(xpath = "//span[text()=\" MantisBT \"]") private WebElement validaAcessoDeUsuario;
     @FindBy(xpath = "//*[text()=\"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.\"]")private WebElement validaAcessoNegado;
     @FindBy(linkText = "Sair")private WebElement comandoSair;

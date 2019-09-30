@@ -9,7 +9,6 @@ public class PropriedadesTarefas {
     public static final String frequenciaBug = "não se tentou";
     public static final String gravidadeBug = "pequeno";
     public static final String prioridadeBug = "normal";
-    public static final String atribuicaoBug = "administrator";
 
     public static final String resumoBug = "Bug grave";
     public static final String descricaoBug = "Este é um Bug grave";

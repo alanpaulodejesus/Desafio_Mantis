@@ -48,6 +48,7 @@ public class CriarTarefasTest {
 
     @After
     public void tearDown(){
+
         logout.euRealizoLogout();
     }
 }
