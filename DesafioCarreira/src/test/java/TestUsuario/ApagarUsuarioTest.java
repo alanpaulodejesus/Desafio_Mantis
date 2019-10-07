@@ -42,6 +42,7 @@ public class ApagarUsuarioTest {
     @After
     public void tearDown(){
 
+        excluirUsuario.excluirTodosUsuarios();
         logout.euRealizoLogout();
     }
 }

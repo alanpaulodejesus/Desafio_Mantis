@@ -17,14 +17,13 @@ public class ExcluirPerfilTest {
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
     PerfilPage perfil = new PerfilPage();
-    CriarPerfilTest criarPerfil = new CriarPerfilTest();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarPerfil.criarPerfil();
+        perfil.verificoSeExistePerfil();
 
     }
 
@@ -38,14 +37,11 @@ public class ExcluirPerfilTest {
         perfil.euSelecionoRadioApagar();
         perfil.euAcionoComandoEnviar();
 
-
-
-
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(perfil.euVerificoPerfilEmGrid());
+        Assert.assertTrue(perfil.euVerificoPerfilNaoEstaEmGrid());
         logout.euRealizoLogout();
     }
 }

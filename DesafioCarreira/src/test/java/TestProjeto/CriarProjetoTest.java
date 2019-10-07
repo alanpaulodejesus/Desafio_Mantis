@@ -24,6 +24,7 @@ public class CriarProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
+        projeto.verificoSeExisteProjetoAExcluir();
 
     }
 
@@ -36,10 +37,6 @@ public class CriarProjetoTest {
         projeto.euAcionoComandoCriarProjetos();
         projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjeto);
         projeto.euAcionoComandoAdicionarProjeto();
-
-
-
-
 
     }
 

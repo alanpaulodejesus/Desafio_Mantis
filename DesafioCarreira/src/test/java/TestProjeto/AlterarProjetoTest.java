@@ -17,14 +17,13 @@ public class AlterarProjetoTest {
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
     ProjetoPage projeto = new ProjetoPage();
-    CriarProjetoTest criarProjeto = new CriarProjetoTest();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarProjeto.criarNovoProjeto();
+        projeto.verificoSeExisteProjeto();
 
     }
 

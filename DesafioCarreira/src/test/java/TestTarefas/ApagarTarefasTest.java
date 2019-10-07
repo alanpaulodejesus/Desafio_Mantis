@@ -14,7 +14,6 @@ import static Core.DriverFactory.getDriver;
 public class ApagarTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    CriarTarefasTest criarTarefa = new CriarTarefasTest();
     PesquisarTarefasTest pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
     TarefasPage excluirTarefas = new TarefasPage();
@@ -24,20 +23,22 @@ public class ApagarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarTarefa.criarNovaTarefa();
+        excluirTarefas.verificoSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void apagarTarefa(){
 
-        Assert.assertTrue((excluirTarefas.euVerificoPesquisaIdTarefaCriada()));
         excluirTarefas.euAcionoComandoApagarTarefas();
-        Assert.assertTrue(excluirTarefas.euVerificoGridVazio());
+
     }
 
     @After
     public void tearDown(){
+
+        excluirTarefas.excluirTodasTarefas();
+        Assert.assertTrue(excluirTarefas.euVerificoGridVazio());
         logout.euRealizoLogout();
     }
 }

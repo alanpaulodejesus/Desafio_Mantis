@@ -15,10 +15,8 @@ import static Core.DriverFactory.getDriver;
 public class AlterarCategoriaTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    CriarTarefasTest criarTarefa = new CriarTarefasTest();
     PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
-    ApagarTarefasTest apagarTarefa = new ApagarTarefasTest();
     TarefasPage alterarTarefas = new TarefasPage();
 
 
@@ -27,7 +25,7 @@ public class AlterarCategoriaTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarTarefa.criarNovaTarefa();
+        alterarTarefas.verificoSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
@@ -43,7 +41,6 @@ public class AlterarCategoriaTarefasTest {
     @After
     public void tearDown(){
 
-        apagarTarefa.apagarTarefa();
         logout.euRealizoLogout();
     }
 }

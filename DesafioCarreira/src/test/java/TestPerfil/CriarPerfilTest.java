@@ -23,6 +23,7 @@ public class CriarPerfilTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
+        perfil.verificoSeExistePerfilAExcluir();
 
     }
 

@@ -43,7 +43,7 @@ public class CriarUsuarioTest {
 
     @After
     public void tearDown(){
-
+        criarUsuario.excluirTodosUsuarios();
         logout.euRealizoLogout();
     }
 }

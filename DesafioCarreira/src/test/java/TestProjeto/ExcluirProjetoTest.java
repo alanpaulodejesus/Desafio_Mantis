@@ -5,6 +5,7 @@ import Pages.LoginPage;
 import Pages.ProjetoPage;
 import TestLogin.LoginValidoTest;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,20 +16,20 @@ public class ExcluirProjetoTest {
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
     ProjetoPage projeto = new ProjetoPage();
-    CriarProjetoTest criarProjeto = new CriarProjetoTest();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarProjeto.criarNovoProjeto();
+        projeto.verificoSeExisteProjeto();
 
     }
 
 
     @Test
     public void excluirProjeto(){
+
 
         projeto.euAcionoMenuGerenciar();
         projeto.euAcionoMenuGerenciarProjetos();
@@ -40,7 +41,7 @@ public class ExcluirProjetoTest {
 
     @After
     public void tearDown(){
-        //Assert.assertTrue(projeto.euVerificoProjetoNaoEstaEmGrid());
-        //logout.euRealizoLogout();
+        Assert.assertTrue(projeto.euVerificoProjetoNaoEstaEmGrid());
+        logout.euRealizoLogout();
     }
 }

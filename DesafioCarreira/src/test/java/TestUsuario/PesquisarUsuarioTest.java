@@ -42,6 +42,7 @@ public class PesquisarUsuarioTest {
     @After
     public void tearDown(){
 
+        pesquisaUsuario.excluirTodosUsuarios();
         logout.euRealizoLogout();
     }
 }

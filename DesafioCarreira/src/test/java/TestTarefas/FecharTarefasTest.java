@@ -15,10 +15,8 @@ import static Core.DriverFactory.getDriver;
 public class FecharTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    CriarTarefasTest criarTarefa = new CriarTarefasTest();
     PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
-    ApagarTarefasTest apagarTarefa = new ApagarTarefasTest();
     TarefasPage fecharTarefas = new TarefasPage();
 
 
@@ -27,12 +25,12 @@ public class FecharTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarTarefa.criarNovaTarefa();
+        fecharTarefas.verificoSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
-    public void alterarAtividade(){
+    public void fecharAtividade(){
 
         fecharTarefas.euAcionoComandoFecharTarefa();
         fecharTarefas.euAdicionoInformacaoTarefa(PropriedadesTarefas.informacaoAdicionadaEmTarefa);
@@ -44,7 +42,6 @@ public class FecharTarefasTest {
     @After
     public void tearDown(){
 
-        apagarTarefa.apagarTarefa();
         logout.euRealizoLogout();
     }
 }

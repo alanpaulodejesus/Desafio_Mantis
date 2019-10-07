@@ -6,6 +6,7 @@ import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
+import TestUsuario.ApagarUsuarioTest;
 import Utils.Tempo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -132,6 +133,19 @@ public class UsuarioPage {
     public void euAcionoComandoAtualizarUsuario(){
         Comando.clicar(comandoAtualizarUsuario);
         DriverFactory.getDriver().navigate().refresh();
+    }
+
+    public void excluirTodosUsuarios(){
+
+        if(Label.textoPresente(nomeUsuarioEmGrid)){
+            ApagarUsuarioTest excluiUsuarios = new ApagarUsuarioTest();
+            excluiUsuarios.excluirUsuario();
+        }else if(Label.textoPresente(nomeUsuarioEmGridAlterado)){
+            euAcionoNomeDeUsuarioEmGridAlterado();
+            euAcionoComandoApagarUsuario();
+            euAcionoComandoApagarConta();
+        }
+
     }
 
 

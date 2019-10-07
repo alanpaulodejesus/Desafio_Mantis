@@ -17,14 +17,13 @@ public class AlterarPerfilTest {
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
     PerfilPage perfil = new PerfilPage();
-    CriarPerfilTest criarPerfil = new CriarPerfilTest();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarPerfil.criarPerfil();
+        perfil.verificoSeExistePerfil();
 
     }
 

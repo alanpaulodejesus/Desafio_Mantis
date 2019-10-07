@@ -4,6 +4,8 @@ import Core.PropriedadesProjeto;
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Label;
+import TestProjeto.CriarProjetoTest;
+import TestProjeto.ExcluirProjetoTest;
 import Utils.Tempo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,7 +66,6 @@ public class ProjetoPage {
 
     }
     public Boolean euVerificoProjetoNaoEstaEmGrid(){
-        Tempo.aguardar(1, projetoEmGrid);
         try {
             Label.textoPresente(projetoEmGrid);
             projetoEmGrid.getSize();
@@ -82,6 +83,7 @@ public class ProjetoPage {
     }
 
     public void euPreenchoDescricaoProjeto(String texto){
+        CampoTexto.limpar(campoDescricaoProjeto);
         CampoTexto.preencher(campoDescricaoProjeto, texto);
     }
     public void euAcionoProjetoEmGrid() {
@@ -90,5 +92,47 @@ public class ProjetoPage {
 
     public void euAcionoComandoApagarProjeto() {
         Comando.clicar(comandoApagarProjeto);
+    }
+
+
+    public void excluirTodosProjetos(){
+
+
+        while(Label.textoPresente(projetoEmGrid)){
+              ExcluirProjetoTest exlui = new ExcluirProjetoTest();
+               exlui.excluirProjeto();
+
+        }
+
+    }
+
+    public void verificoSeExisteProjetoAExcluir(){
+
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarProjetos);
+        CriarProjetoTest criaProjeto = new CriarProjetoTest();
+        ExcluirProjetoTest excluirProjeto = new ExcluirProjetoTest();
+
+        if(Label.textoPresente(projetoEmGrid)){
+            excluirProjeto.excluirProjeto();
+        }else {
+            //criaProjeto.criarNovoProjeto();
+
+        }
+    }
+
+    public void verificoSeExisteProjeto(){
+
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarProjetos);
+        CriarProjetoTest criaProjeto = new CriarProjetoTest();
+
+
+        if(Label.textoPresente(projetoEmGrid)){
+            //cria.criarNovaTarefa();
+        }else {
+            criaProjeto.criarNovoProjeto();
+
+        }
     }
 }

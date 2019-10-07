@@ -14,31 +14,29 @@ import static Core.DriverFactory.getDriver;
 public class PesquisarTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    CriarTarefasTest criarTarefa = new CriarTarefasTest();
     TarefasPage pesquisaTarefa = new TarefasPage();
     LoginPage logout = new LoginPage();
-    ApagarTarefasTest excluirTarefa = new ApagarTarefasTest();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        criarTarefa.criarNovaTarefa();
+        pesquisaTarefa.verificoSeExisteTarefa();
     }
 
     @Test
     public void pesquisarAtividade(){
 
         pesquisaTarefa.euPesquisoTarefa(pesquisaTarefa.euVerificoIdTarefaCriada());
-        Assert.assertTrue((pesquisaTarefa.euVerificoPesquisaIdTarefaCriada()));
+
 
     }
 
     @After
     public void tearDown(){
 
-        excluirTarefa.apagarTarefa();
+        Assert.assertTrue((pesquisaTarefa.euVerificoPesquisaIdTarefaCriada()));
         logout.euRealizoLogout();
     }
 }

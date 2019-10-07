@@ -4,6 +4,8 @@ import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
+import TestPerfil.CriarPerfilTest;
+import TestPerfil.ExcluirPerfilTest;
 import Utils.Tempo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -63,7 +65,20 @@ public class PerfilPage {
 
 
     public Boolean euVerificoPerfilEmGrid(){
-        Tempo.aguardar(1, comboSelecionarPerfil);
+        Tempo.aguardar(5, comboSelecionarPerfil);
+        try {
+            Label.textoPresente(comboSelecionarPerfil);
+            comboSelecionarPerfil.getSize();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+    public Boolean euVerificoPerfilNaoEstaEmGrid(){
+        //Tempo.aguardar(5, comboSelecionarPerfil);
+
+
         try {
             Label.textoPresente(comboSelecionarPerfil);
             comboSelecionarPerfil.getSize();
@@ -100,5 +115,33 @@ public class PerfilPage {
 
     public void euPreenchoCampoVersaoOSAlteracao(String texto) {
         CampoTexto.preencher(campoVersaoOSAlteracao, texto);
+    }
+
+    public void verificoSeExistePerfilAExcluir(){
+
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarPerfisGlobais);
+        ExcluirPerfilTest excluiPerfil = new ExcluirPerfilTest();
+
+        if(Label.textoPresente(comboSelecionarPerfil)){
+            excluiPerfil.excluirPerfil();
+        }else {
+
+        }
+    }
+
+    public void verificoSeExistePerfil(){
+
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarPerfisGlobais);
+        CriarPerfilTest criaPerfil = new CriarPerfilTest();
+
+
+        if(Label.textoPresente(comboSelecionarPerfil)){
+            //cria.criarNovaTarefa();
+        }else {
+            criaPerfil.criarPerfil();
+
+        }
     }
 }

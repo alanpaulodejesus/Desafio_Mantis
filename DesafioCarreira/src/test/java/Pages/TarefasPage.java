@@ -1,8 +1,10 @@
 package Pages;
+
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
+import TestTarefas.CriarTarefasTest;
 import Utils.Tempo;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -18,7 +20,8 @@ public class TarefasPage {
     @FindBy(id = "category_id")private WebElement categoriaBug;
     @FindBy(xpath = "//input[@value=\"Fechar\"]")private WebElement comandoFecharTarefa;
     @FindBy(xpath = "//input[@value=\"Fechar Tarefa\"]")private WebElement comandoDeConfirmaFecharTarefa;
-
+    @FindBy(xpath = "//input[@value=\"OK\"]")private WebElement comandoOk;
+    @FindBy(id = "bug_arr_all")private WebElement selectExclusao;
 
     @FindBy(id = "reproducibility")private WebElement frequenciaBug;
     @FindBy(id = "severity")private WebElement gravidadeBug;
@@ -44,7 +47,8 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Atualizar Informação\"]") private WebElement comandoAtualizacaoTarefaRealizada;
     @FindBy(xpath = "//td[@class=\"bug-category\"]")private WebElement informacaoCategoria;
     @FindBy(id = "bugnote_text")private WebElement campoAdicionarInformacaoTarefa;
-
+    @FindBy(xpath = "//span[@class=\"lbl\"]")private WebElement atividadeGrid;
+    @FindBy(name = "action") private WebElement comboApagar;
 
     public TarefasPage() {
         PageFactory.initElements(getDriver(), this);
@@ -109,7 +113,7 @@ public class TarefasPage {
         return  Label.textoPresente(confirmoCadastroTarefaRealizada);
     }
     public String euVerificoIdTarefaCriada(){
-        Tempo.aguardar(20, confirmoCadastroTarefaRealizada);
+        Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
         return Label.recuperaTexto(confirmoCadastroTarefaRealizada);
     }
 
@@ -125,7 +129,7 @@ public class TarefasPage {
 
 
     public void euPesquisoTarefa(String pesquisa){
-        Tempo.aguardar(20,campoPesquisaTarefa);
+        Tempo.aguardar(5,campoPesquisaTarefa);
         CampoTexto.preencher(campoPesquisaTarefa,pesquisa);
         campoPesquisaTarefa.sendKeys(Keys.ENTER);
 
@@ -164,16 +168,36 @@ public class TarefasPage {
         CampoTexto.preencher(campoAdicionarInformacaoTarefa, texto);
     }
 
-    public void euVerificoTarefaParaExclusaoEmLote(){
 
-        /*
-        List<WebElement> lista= DriverFactory.getDriver().findElements(By.className(selecionarTarefaParaAcao));
-        for (int i = 1; i <= lista.size(); i++) {
+    public void excluirTodasTarefas(){
 
-            selecionarTarefaParaAcao.click();
+        Comando.clicar(menuVerTarefas);
+        Tempo.aguardar(5, atividadeGrid);
+
+        if(Label.textoPresente(atividadeGrid)) {
+            while (Label.textoPresente(atividadeGrid)) {
+                Tempo.aguardar(5, selecionarTarefaParaAcao);
+                Comando.clicar(selecionarTarefaParaAcao);
+                Tempo.aguardar(2, comboApagar);
+                Combo.selecionarCombo(comboApagar, "Apagar");
+                Tempo.aguardar(2, comandoOk);
+                Comando.clicar(comandoOk);
+                Comando.clicar(comandoConfirmacaoApagar);
+            }
         }
-        Label.tarefaPresenteExcluida(selecionarTarefaParaAcao);
-
-        */
     }
+
+    public void verificoSeExisteTarefa(){
+
+        euAcessoMenuVerTarefas();
+        CriarTarefasTest criaTarefa = new CriarTarefasTest();
+
+        if(Label.textoPresente(atividadeGrid)){
+            criaTarefa.criarNovaTarefa();
+        }else {
+
+        }
+    }
+
+
 }
