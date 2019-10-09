@@ -5,6 +5,8 @@ import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
 import TestTarefas.CriarTarefasTest;
+import TestTarefas.DesmarcarTarefaPegajosaTest;
+import TestTarefas.MarcarTarefaPegajosaTest;
 import Utils.Tempo;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -49,6 +51,11 @@ public class TarefasPage {
     @FindBy(id = "bugnote_text")private WebElement campoAdicionarInformacaoTarefa;
     @FindBy(xpath = "//span[@class=\"lbl\"]")private WebElement atividadeGrid;
     @FindBy(name = "action") private WebElement comboApagar;
+    @FindBy(xpath= "//input[@value=\"Criar Clone\"]")private WebElement comandoCriarCloneTarefa;
+    @FindBy(xpath = "//td[@class='column-id']")private WebElement cliqueTarefaEmGrid;
+    @FindBy(xpath = "//input[@value=\"Marcar como Pegajoso\"]")private WebElement comandoMarcarComoPegajosa;
+    @FindBy(xpath = "//input[@value=\"Desmarcar como Pegajoso\"]")private WebElement comandoDesmarcarComoPegajosa;
+
 
     public TarefasPage() {
         PageFactory.initElements(getDriver(), this);
@@ -140,6 +147,13 @@ public class TarefasPage {
         Comando.clicar(comandoConfirmacaoApagar);
     }
 
+    public void euAcionoComandoMarcarTarefasPegajosa(){
+        Comando.clicar(comandoMarcarComoPegajosa);
+    }
+    public void euAcionoComandoDesmarcarTarefasPegajosa(){
+        Comando.clicar(comandoDesmarcarComoPegajosa);
+    }
+
     public Boolean euVerificoGridVazio(){
 
         try {
@@ -148,6 +162,31 @@ public class TarefasPage {
             return false;
         }catch (Exception e){
             return true;
+        }
+
+    }
+
+    public Boolean euVerificoTarefaMarcarda(){
+
+        try {
+            //Tempo.aguardar(5,comandoDesmarcarComoPegajosa);
+            Label.textoPresente(comandoDesmarcarComoPegajosa);
+            comandoDesmarcarComoPegajosa.getSize();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+    public Boolean euVerificoTarefaDesmarcarda(){
+
+        try {
+            //Tempo.aguardar(5,comandoMarcarComoPegajosa);
+            Label.textoPresente(comandoMarcarComoPegajosa);
+            comandoMarcarComoPegajosa.getSize();
+            return true;
+        }catch (Exception e){
+            return false;
         }
 
     }
@@ -172,7 +211,6 @@ public class TarefasPage {
     public void excluirTodasTarefas(){
 
         Comando.clicar(menuVerTarefas);
-        Tempo.aguardar(5, atividadeGrid);
 
         if(Label.textoPresente(atividadeGrid)) {
             while (Label.textoPresente(atividadeGrid)) {
@@ -193,11 +231,38 @@ public class TarefasPage {
         CriarTarefasTest criaTarefa = new CriarTarefasTest();
 
         if(Label.textoPresente(atividadeGrid)){
-            criaTarefa.criarNovaTarefa();
+            Comando.clicar(cliqueTarefaEmGrid);
         }else {
+            criaTarefa.criarNovaTarefa();
+        }
+    }
+
+    public void verificoSeTarefaEstaMarcada(){
+
+
+        if(Label.textoPresente(comandoDesmarcarComoPegajosa)){
+
+        }else {
+            MarcarTarefaPegajosaTest marcarTarefa = new MarcarTarefaPegajosaTest();
+
+            marcarTarefa.marcarTarefaPegajosa();
 
         }
     }
 
+    public void verificoSeTarefaEstaDesmarcada(){
+
+
+        if(Label.textoPresente(comandoMarcarComoPegajosa)){
+
+        }else {
+            DesmarcarTarefaPegajosaTest desmarcarTarefa = new DesmarcarTarefaPegajosaTest();
+            desmarcarTarefa.desmarcarTarefaPegajosa();
+        }
+    }
+
+    public void euAcionoComandoCriarCloneTarefa(){
+        Comando.clicar(comandoCriarCloneTarefa);
+    }
 
 }
