@@ -1,9 +1,11 @@
 package Pages;
 
 import Core.PropriedadesCampoPersonalizado;
+import Core.PropriedadesProjeto;
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Label;
+import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
 import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
 import TestCampoPersonalizado.ExcluirCampoPersonalizadoTest;
 import Utils.Tempo;
@@ -24,6 +26,10 @@ public class CampoPersonalizadoPage {
     @FindBy(xpath = "//input[@value=\"Atualizar Campo Personalizado\"]") private WebElement comandoNovoCampoPersonalizaoAlterar;
     @FindBy(xpath = "//input[@value=\"Apagar Campo Personalizado\"]") private WebElement comandoApagarCampoPersonalizado;
     @FindBy(xpath = "//input[@value=\"Apagar Campo\"]") private WebElement comandoConfirmaApagarCampoPersonalizado;
+    @FindBy(xpath = "//option[text()=\""+ PropriedadesProjeto.nomeProjeto+"\"]") private WebElement projetoParaCampoPersonalizado;
+    @FindBy(xpath = "//input[@value=\"Vincular Campo Personalizado\"]") private WebElement comandoVincularProjeto;
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-white btn-round btn-xs']") private WebElement comandoRemover;
+    @FindBy(xpath = "//input[@value=\"Remover Campo\"]") private WebElement comandoConfirmaRemover;
 
     public CampoPersonalizadoPage() {
         PageFactory.initElements(getDriver(), this);
@@ -62,6 +68,15 @@ public class CampoPersonalizadoPage {
     }
 
     public void euAcionoCampoPersonalizadoEmGrid(){
+
+        if(Label.textoPresente(campoPersonalizadoEmGrid)){
+            Comando.clicar(campoPersonalizadoEmGrid);
+        }else Comando.clicar(campoPersonalizadoAlteradoEmGrid);
+
+    }
+
+    public void euAcionoCampoPersonalizadoParaAdicionarEmGrid(){
+
 
         if(Label.textoPresente(campoPersonalizadoEmGrid)){
             Comando.clicar(campoPersonalizadoEmGrid);
@@ -135,5 +150,51 @@ public class CampoPersonalizadoPage {
         }
     }
 
+    public void euAcionoProjetoParaCampoPersonalizado(){
+            Comando.clicar(projetoParaCampoPersonalizado);
 
+
+    }
+
+    public void euAcionoComandoVincularProjeto(){
+        Comando.clicar(comandoVincularProjeto);
+    }
+
+
+    public Boolean euVerificoCampoVinculadoEmGrid() {
+        //Tempo.aguardar(15, comandoRemover);
+        try {
+            Label.textoPresente(comandoRemover);
+            comandoRemover.getSize();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void euAcionoComandoRemover(){
+        Comando.clicar(comandoRemover);
+    }
+
+    public void euAcionoComandoConfirmaRemover(){
+        Comando.clicar(comandoConfirmaRemover);
+    }
+
+    public void verificoSeExisteCampoPersonalizadoAdicionado() {
+
+        AdicionarCampoPersonalizadoEmProjetoTest adicionar = new AdicionarCampoPersonalizadoEmProjetoTest();
+        Comando.clicar(campoPersonalizadoEmGrid);
+
+        if(Label.textoPresente(comandoRemover)){
+
+        }else {
+            adicionar.adicionaCampoPersonalizadoEmProjeto();
+        }
+    }
+
+    /*
+    public void euAcionoProjetoEmGrid(){
+        Comando.clicar(projetoParaCampoPersonalizado);
+    }
+    */
 }

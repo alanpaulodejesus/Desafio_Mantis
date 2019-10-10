@@ -24,23 +24,17 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Fechar Tarefa\"]")private WebElement comandoDeConfirmaFecharTarefa;
     @FindBy(xpath = "//input[@value=\"OK\"]")private WebElement comandoOk;
     @FindBy(id = "bug_arr_all")private WebElement selectExclusao;
-
     @FindBy(id = "reproducibility")private WebElement frequenciaBug;
     @FindBy(id = "severity")private WebElement gravidadeBug;
     @FindBy(id = "priority")private WebElement prioridadeBug;
     @FindBy(id = "handler_id")private WebElement atribuicaoBug;
-
     @FindBy(id = "summary")private WebElement resumoBug;
     @FindBy(id = "description")private WebElement descriçãoBug;
     @FindBy(id = "steps_to_reproduce")private WebElement reproduzirBug;
-
     @FindBy(xpath = "//input[@value=\"Criar Nova Tarefa\"]")private WebElement comandoCriarNovaTarefa;
     @FindBy(xpath= "//td[@class=\"bug-id\"]")public WebElement confirmoCadastroTarefaRealizada;
     @FindBy(xpath= "//td[@class=\"bug-status\"]")public WebElement confirmoStatusFechado;
-
-
     @FindBy(xpath= "//input[@name=\"bug_id\"][@placeholder]")private WebElement campoPesquisaTarefa;
-
     @FindBy(className = "lbl")private WebElement selecionarTarefaParaAcao;
     @FindBy(xpath = "//input[@value=\"Apagar\"]") private WebElement comandoApagar;
     @FindBy(xpath = "//input[@value=\"Apagar Tarefas\"]") private WebElement comandoConfirmacaoApagar;
@@ -55,6 +49,7 @@ public class TarefasPage {
     @FindBy(xpath = "//td[@class='column-id']")private WebElement cliqueTarefaEmGrid;
     @FindBy(xpath = "//input[@value=\"Marcar como Pegajoso\"]")private WebElement comandoMarcarComoPegajosa;
     @FindBy(xpath = "//input[@value=\"Desmarcar como Pegajoso\"]")private WebElement comandoDesmarcarComoPegajosa;
+    @FindBy(linkText = "Imprimir Tarefas")private WebElement comandoImprimirTarefa;
 
 
     public TarefasPage() {
@@ -237,6 +232,20 @@ public class TarefasPage {
         }
     }
 
+    public void verificoSeExisteTarefaParaImprimir(){
+
+        euAcessoMenuVerTarefas();
+        CriarTarefasTest criaTarefa = new CriarTarefasTest();
+
+        if(Label.textoPresente(atividadeGrid)){
+
+        }else {
+            criaTarefa.criarNovaTarefa();
+            euAcessoMenuVerTarefas();
+
+        }
+    }
+
     public void verificoSeTarefaEstaMarcada(){
 
 
@@ -265,4 +274,21 @@ public class TarefasPage {
         Comando.clicar(comandoCriarCloneTarefa);
     }
 
+    public void euAcionoComandoImprimirTarefa() {
+        Comando.clicar(comandoImprimirTarefa);
+    }
+
+    public Boolean tarefaEmGriImprimir(){
+        try{
+            Label.textoPresente(confirmoCadastroTarefaRealizada);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public void euRetornoImpressao() {
+        getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
+        getDriver().navigate().refresh();
+    }
 }
