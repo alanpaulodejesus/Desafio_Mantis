@@ -1,9 +1,12 @@
 package Pages;
 
+import Core.PropriedadesMarcador;
+import Core.PropriedadesTarefas;
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
+import TestTarefas.AdicionarMarcadorEmTarefasTest;
 import TestTarefas.CriarTarefasTest;
 import TestTarefas.DesmarcarTarefaPegajosaTest;
 import TestTarefas.MarcarTarefaPegajosaTest;
@@ -50,7 +53,12 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Marcar como Pegajoso\"]")private WebElement comandoMarcarComoPegajosa;
     @FindBy(xpath = "//input[@value=\"Desmarcar como Pegajoso\"]")private WebElement comandoDesmarcarComoPegajosa;
     @FindBy(linkText = "Imprimir Tarefas")private WebElement comandoImprimirTarefa;
-
+    @FindBy(xpath = "//td[@class='column-edit']")private WebElement iconeEditar;
+    @FindBy(xpath = "//td[@class=\"bug-severity\"][text()=\""+ PropriedadesTarefas.gravidadeBugObstaculo+"\"]") private WebElement alteracaoStatusGravidade;
+    @FindBy(name = "tag_select")private WebElement comboMarcador;
+    @FindBy(xpath = "//input[@value=\"Aplicar\"]") private WebElement comandoAplicar;
+    @FindBy(xpath = "//a[@class=\"btn btn-xs btn-primary btn-white btn-round\"][text()=\""+ PropriedadesMarcador.nomeMacador+"\"]") private WebElement macardorEmTarefa;
+    @FindBy(xpath = "//a[@title=\"Remover 'Marcador em teste'\"]") private WebElement iconeExlusao;
 
     public TarefasPage() {
         PageFactory.initElements(getDriver(), this);
@@ -66,6 +74,30 @@ public class TarefasPage {
         Comando.clicar(menuCriarTarefas);
     }
 
+    public void euAcionoComandoAplicar(){
+        Comando.clicar(comandoAplicar);
+    }
+
+    public void euSelecionoMarcador(String texto){
+        Combo.selecionarCombo(comboMarcador, texto);
+    }
+
+    public Boolean euVerificoAlteracaoStatusEmAtividade(){
+        return Label.textoPresente(alteracaoStatusGravidade);
+    }
+
+    public Boolean euVerificoMarcadorEmTarefa(){
+            if(Label.textoPresente(macardorEmTarefa)){
+                return true;
+            }else return false;
+    }
+
+    public void euAcionoIconeEditar(){
+        Comando.clicar(iconeEditar);
+    }
+    public void euSelecionoGravidadeObstaculoBug(String texto){
+        Combo.selecionarCombo(gravidadeBug,texto );
+    }
     public void euAcionoComandoCriarTarefa(){
         Comando.clicar(comandoCriarNovaTarefa);
     }
@@ -129,6 +161,10 @@ public class TarefasPage {
         return Label.textoPresente(confirmoCadastroTarefaRealizada);
     }
 
+
+    public void euAcionoIconeExluirMarcador(){
+        Comando.clicar(iconeExlusao);
+    }
 
     public void euPesquisoTarefa(String pesquisa){
         Tempo.aguardar(5,campoPesquisaTarefa);
@@ -290,5 +326,24 @@ public class TarefasPage {
     public void euRetornoImpressao() {
         getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
         getDriver().navigate().refresh();
+    }
+
+    public void verificoSeTarefaPossuiMarcador() {
+
+        AdicionarMarcadorEmTarefasTest adicionarMarcador = new AdicionarMarcadorEmTarefasTest();
+        MarcadorPage marcador = new MarcadorPage();
+        TarefasPage tarefa = new TarefasPage();
+
+        marcador.verificoSeExisteMarcador();
+        Comando.clicar(menuVerTarefas);
+        tarefa.verificoSeExisteTarefa();
+
+        if (Label.textoPresente(iconeExlusao)){
+
+        }else{
+
+            adicionarMarcador.adicionarMarcadorEmAtividade();
+        }
+
     }
 }

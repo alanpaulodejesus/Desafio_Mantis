@@ -1,12 +1,15 @@
 package Pages;
 
 import Core.DriverFactory;
+import Core.PropriedadesProjeto;
 import Core.PropriedadesUsuario;
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
 import TestUsuario.ApagarUsuarioTest;
+import TestUsuario.CriarUsuarioTest;
+import TestUsuario.PesquisarUsuarioTest;
 import Utils.Tempo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +37,9 @@ public class UsuarioPage {
     @FindBy(xpath = "//input[@value=\"Apagar Usuário\"]") private WebElement comandoApagarUsuario;
     @FindBy(xpath = "//input[@value=\"Apagar Conta\"]") private WebElement comandoApagarConta;
     @FindBy(xpath = "//input[@value=\"Atualizar Usuário\"]") private WebElement comandoAtualizarUsuario;
-
+    @FindBy(xpath = "//option[text()=\""+ PropriedadesProjeto.nomeProjeto+"\"]")private WebElement projetoCombo;
+    @FindBy(xpath = "//input[@value=\"Adicionar Usuário\"]")private WebElement comandoAdicionarUsuario;
+    @FindBy(xpath = "//input[@value=\"Remover\"]") private WebElement comandoRemover;
 
     public UsuarioPage() {
         PageFactory.initElements(getDriver(), this);
@@ -56,8 +61,19 @@ public class UsuarioPage {
         CampoTexto.preencher(campoEmail, texto);
     }
 
+    public void euAcionoComandoAdicionarUsuario(){
+        Comando.clicar(comandoAdicionarUsuario);
+    }
     public void euSelecionoNivelAcesso(String texto){
         Combo.selecionarCombo(campoNivelAcesso, texto);
+    }
+
+    public void euSelecionoProjetoAUsuario(){
+        Comando.clicar(projetoCombo);
+    }
+
+    public void euAcionoComandoRemover(){
+        Comando.clicar(comandoRemover);
     }
 
     public void euAcionoComandoCriarUsuario(){
@@ -137,6 +153,9 @@ public class UsuarioPage {
 
     public void excluirTodosUsuarios(){
 
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarUsuario);
+
         if(Label.textoPresente(nomeUsuarioEmGrid)){
             ApagarUsuarioTest excluiUsuarios = new ApagarUsuarioTest();
             excluiUsuarios.excluirUsuario();
@@ -149,4 +168,24 @@ public class UsuarioPage {
     }
 
 
+    public void euVerificoSeExisteUsuarioCriado() {
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarUsuario);
+        CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
+        PesquisarUsuarioTest pesquisaUsuario = new PesquisarUsuarioTest();
+
+
+        if(Label.textoPresente(verificoUsuarioCriadoEmGrid)){
+
+            pesquisaUsuario.pesquisaUsuario();
+        }else {
+            criarUsuario.criarNovoUsuario();
+            pesquisaUsuario.pesquisaUsuario();
+
+        }
+    }
+
+    public boolean euVerificoUsuarioAdicionadoEmProjeto() {
+        return Label.textoPresente(comandoRemover);
+    }
 }

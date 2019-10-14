@@ -7,7 +7,9 @@ public class PropriedadesTarefas {
     public static final String categoriaBug = "[Todos os Projetos] Bug";
     public static final String categoriaDúvida = "[Todos os Projetos] Dúvida";
     public static final String frequenciaBug = "não se tentou";
-    public static final String gravidadeBug = "pequeno";
+    public static final String gravidadeBugPequeno = "pequeno";
+    public static final String gravidadeBugObstaculo = "obstáculo";
+
     public static final String prioridadeBug = "normal";
 
     public static final String resumoBug = "Bug grave";

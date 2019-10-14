@@ -38,7 +38,7 @@ public class CriarTarefasTest {
         criarTarefa.euAcessoMenuCriarTarefas();
         criarTarefa.euAcessoCategoriaTarefa(PropriedadesTarefas.categoriaBug);
         criarTarefa.euAcessoFrequenciaTarefa(PropriedadesTarefas.frequenciaBug);
-        criarTarefa.euAcessoGravidadeTarefa(PropriedadesTarefas.gravidadeBug);
+        criarTarefa.euAcessoGravidadeTarefa(PropriedadesTarefas.gravidadeBugPequeno);
         criarTarefa.euAcessoPrioridadeTarefa(PropriedadesTarefas.prioridadeBug);
         criarTarefa.euAcessoAtribuicaoTarefa(Propriedades.USUARIO);
         criarTarefa.euInformoResumoTarefa(PropriedadesTarefas.resumoBug);
