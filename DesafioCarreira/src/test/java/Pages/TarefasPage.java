@@ -6,10 +6,7 @@ import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
-import TestTarefas.AdicionarMarcadorEmTarefasTest;
-import TestTarefas.CriarTarefasTest;
-import TestTarefas.DesmarcarTarefaPegajosaTest;
-import TestTarefas.MarcarTarefaPegajosaTest;
+import TestTarefas.*;
 import Utils.Tempo;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -59,6 +56,16 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Aplicar\"]") private WebElement comandoAplicar;
     @FindBy(xpath = "//a[@class=\"btn btn-xs btn-primary btn-white btn-round\"][text()=\""+ PropriedadesMarcador.nomeMacador+"\"]") private WebElement macardorEmTarefa;
     @FindBy(xpath = "//a[@title=\"Remover 'Marcador em teste'\"]") private WebElement iconeExlusao;
+    @FindBy(linkText = "Relator") private WebElement filtroRelator;
+    @FindBy(id = "reporter_id_filter_target") private WebElement validarRedefinir;
+    @FindBy(xpath= "//select[@class=\"input-xs\"]")private WebElement comboAdministrador;
+    @FindBy(xpath= "//input[@value=\"Aplicar Filtro\"]")private WebElement comandoAplicarFiltro;
+    @FindBy(linkText = "Redefinir") private WebElement comandoRedefinir;
+    @FindBy(xpath = "//input[@value=\"Mover\"]")private WebElement comandoMover;
+    @FindBy(xpath = "//input[@value=\"Mover Tarefas\"]")private WebElement comandoMoverTarefas;
+    @FindBy(name = "project_id")private WebElement comboMoverProjeto;
+    @FindBy(xpath = "//input[@value=\"Monitorar\"]")private WebElement comandoMonitorar;
+    @FindBy(xpath = "//input[@value=\"Parar de Monitorar\"]")private WebElement comandoPararDeMonitorar;
 
     public TarefasPage() {
         PageFactory.initElements(getDriver(), this);
@@ -222,6 +229,10 @@ public class TarefasPage {
 
     }
 
+    public void euAcionoComandoAplicaFiltro(){
+        Tempo.aguardar(3, comandoAplicarFiltro);
+        Comando.clicar(comandoAplicarFiltro);
+    }
     public String euVerificoAlteracaoCategoria(){
         return Label.recuperaTexto(informacaoCategoria);
     }
@@ -323,6 +334,10 @@ public class TarefasPage {
         }
     }
 
+    public Boolean euVerificoTarefaEmGrid(){
+        return Label.textoPresente(atividadeGrid);
+    }
+
     public void euRetornoImpressao() {
         getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
         getDriver().navigate().refresh();
@@ -345,5 +360,100 @@ public class TarefasPage {
             adicionarMarcador.adicionarMarcadorEmAtividade();
         }
 
+    }
+
+    public void euAcionoRelatorGrid(){
+        Comando.clicar(filtroRelator);
+    }
+
+    public void euSelecionoRelator(String texto) {
+        Tempo.aguardar(2, comboAdministrador);
+        Combo.selecionarCombo(comboAdministrador, texto);
+    }
+
+    public void verificoSeExisteFiltroTarefa() {
+
+        euAcessoMenuVerTarefas();
+        if (Label.textoPresente(validarRedefinir)){
+
+
+            AdicionarFiltroTarefasTest adicionaFiltro = new AdicionarFiltroTarefasTest();
+
+            adicionaFiltro.adicionarFiltroAtividade();
+
+        }else{
+
+        }
+
+    }
+
+    public void euAcionoComandoRedefinir(){
+        Comando.clicar(comandoRedefinir);
+    }
+
+    public boolean euVerificoRedefinicaoTarefa() {
+
+        try {
+            if(Label.textoPresente(validarRedefinir)){
+                return true;
+            }
+        }catch (Exception e){
+            return false;
+        }
+        return euVerificoRedefinicaoTarefa();
+    }
+
+    public void euAcionoComandoMoverAtividade() {
+        Comando.clicar(comandoMover);
+    }
+
+    public void euAcionoComandoConfirmarMoverAtividade() {
+        Comando.clicar(comandoMoverTarefas);
+    }
+
+    public void euSelecionoTarefaParaRemover(String texto){
+        Tempo.aguardar(3, comboMoverProjeto);
+        Combo.selecionarCombo(comboMoverProjeto, texto);
+    }
+
+    public void euAcionoComandoMonitorar() {
+        if(Label.textoPresente(comandoMonitorar)){
+            Comando.clicar(comandoMonitorar);
+        }else{
+            Comando.clicar(comandoPararDeMonitorar);
+            Comando.clicar(comandoMonitorar);
+        }
+    }
+
+
+
+    public void euAcionoComandoPararDeMonitorar() {
+
+        if(Label.textoPresente(comandoPararDeMonitorar)){
+            Comando.clicar(comandoPararDeMonitorar);
+        }else{
+            Comando.clicar(comandoMonitorar);
+            Comando.clicar(comandoPararDeMonitorar);
+        }
+    }
+
+    public boolean euVerificoTarefaMonitorada() {
+
+        try{
+            Label.textoPresente(comandoPararDeMonitorar);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean euVerificoTarefaSemEstarMonitorada() {
+
+        try{
+            Label.textoPresente(comandoMonitorar);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

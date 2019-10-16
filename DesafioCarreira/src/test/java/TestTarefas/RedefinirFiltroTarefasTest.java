@@ -11,12 +11,12 @@ import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
 
-public class ApagarMarcadorEmTarefasTest {
+public class RedefinirFiltroTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
     PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
-    TarefasPage apagarMarcadorEmTarefa = new TarefasPage();
+    TarefasPage redefinirFiltroTarefa = new TarefasPage();
 
 
     @Before
@@ -24,21 +24,22 @@ public class ApagarMarcadorEmTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        apagarMarcadorEmTarefa.verificoSeTarefaPossuiMarcador();
-        pesquisaTarefa.pesquisarAtividade();
+        redefinirFiltroTarefa.verificoSeExisteTarefa();
+        redefinirFiltroTarefa.verificoSeExisteFiltroTarefa();
+
     }
 
     @Test
-    public void apagarMarcadorEmAtividade(){
+    public void redefinirFiltroAtividade(){
 
-        apagarMarcadorEmTarefa.euAcionoIconeExluirMarcador();
+        redefinirFiltroTarefa.euAcionoComandoRedefinir();
+
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(apagarMarcadorEmTarefa.euVerificoMarcadorEmTarefa());
-        apagarMarcadorEmTarefa.excluirTodasTarefas();
+        Assert.assertTrue(redefinirFiltroTarefa.euVerificoRedefinicaoTarefa());
         logout.euRealizoLogout();
     }
 }

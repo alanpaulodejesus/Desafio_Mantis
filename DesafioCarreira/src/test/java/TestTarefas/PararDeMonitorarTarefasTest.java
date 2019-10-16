@@ -11,34 +11,33 @@ import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
 
-public class ApagarMarcadorEmTarefasTest {
+public class PararDeMonitorarTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
+    PesquisarTarefasTest pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
-    TarefasPage apagarMarcadorEmTarefa = new TarefasPage();
-
+    TarefasPage monitorarTarefa = new TarefasPage();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        apagarMarcadorEmTarefa.verificoSeTarefaPossuiMarcador();
+        monitorarTarefa.verificoSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
-    public void apagarMarcadorEmAtividade(){
+    public void monitorarTarefa(){
 
-        apagarMarcadorEmTarefa.euAcionoIconeExluirMarcador();
+        monitorarTarefa.euAcionoComandoPararDeMonitorar();
+
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(apagarMarcadorEmTarefa.euVerificoMarcadorEmTarefa());
-        apagarMarcadorEmTarefa.excluirTodasTarefas();
+        Assert.assertTrue(monitorarTarefa.euVerificoTarefaSemEstarMonitorada());
         logout.euRealizoLogout();
     }
 }

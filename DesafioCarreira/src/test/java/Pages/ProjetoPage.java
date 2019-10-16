@@ -21,10 +21,12 @@ public class ProjetoPage {
     @FindBy(id = "project-name") private WebElement campoNomeProjeto;
     @FindBy(xpath = "//input[@value=\"Adicionar projeto\"]") private WebElement comandoAdicionarProjeto;
     @FindBy(linkText = PropriedadesProjeto.nomeProjeto) private WebElement projetoEmGrid;
+    @FindBy(linkText = PropriedadesProjeto.nomeProjetoMoverTarefa) private WebElement projetoEmGridParaMoverTarefa;
     @FindBy(id = "project-description") private WebElement campoDescricaoProjeto;
     @FindBy(xpath = "//input[@value=\"Atualizar Projeto\"]") private WebElement comandoAtualizarProjeto;
     @FindBy(xpath = "//input[@value=\"Apagar Projeto\"]") private WebElement comandoApagarProjeto;
-
+    @FindBy(xpath = "//i[@class=\"ace-icon fa fa-angle-down bigger-110\"]") private WebElement selecionarProjeto;
+    @FindBy(linkText = ""+PropriedadesProjeto.nomeProjetoMoverTarefa+"") private WebElement projetoTarefaMovida;
 
     public ProjetoPage() {
         PageFactory.initElements(getDriver(), this);
@@ -129,10 +131,38 @@ public class ProjetoPage {
 
 
         if(Label.textoPresente(projetoEmGrid)){
-            //cria.criarNovaTarefa();
+
         }else {
             criaProjeto.criarNovoProjeto();
 
         }
     }
+
+    public void verificoSeExisteProjetoParaMoverTarefa() {
+
+        Comando.clicar(menuGerenciar);
+        Comando.clicar(menuGerenciarProjetos);
+
+        if(Label.textoPresente(projetoEmGridParaMoverTarefa)){
+
+        }else {
+            euAcionoMenuGerenciar();
+            euAcionoMenuGerenciarProjetos();
+            euAcionoComandoCriarProjetos();
+            euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoMoverTarefa);
+            euAcionoComandoAdicionarProjeto();
+
+        }
+    }
+
+    public void euSelecionoProjetoComTarefaMovida(){
+        Comando.clicar(selecionarProjeto);
+        Comando.clicar(projetoTarefaMovida);
+    }
+
+    public void euSelecionoProjeto(){
+        Comando.clicar(selecionarProjeto);
+        Comando.clicar(projetoEmGrid);
+    }
+
 }

@@ -30,7 +30,7 @@ public class AlterarCategoriaTarefasTest {
     }
 
     @Test
-    public void alterarAtividade(){
+    public void alterarCategoriaAtividade(){
 
         alterarTarefas.euAcionoComandoAtualizar();
         alterarTarefas.euAcessoCategoriaTarefa(PropriedadesTarefas.categoriaDúvida);

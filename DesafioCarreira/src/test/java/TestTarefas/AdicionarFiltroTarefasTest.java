@@ -1,6 +1,7 @@
 package TestTarefas;
 
 import Core.Propriedades;
+import Core.PropriedadesTarefas;
 import Pages.LoginPage;
 import Pages.TarefasPage;
 import TestLogin.LoginValidoTest;
@@ -11,12 +12,12 @@ import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
 
-public class ApagarMarcadorEmTarefasTest {
+public class AdicionarFiltroTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
     PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
-    TarefasPage apagarMarcadorEmTarefa = new TarefasPage();
+    TarefasPage adicionarFiltroTarefa = new TarefasPage();
 
 
     @Before
@@ -24,21 +25,23 @@ public class ApagarMarcadorEmTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        apagarMarcadorEmTarefa.verificoSeTarefaPossuiMarcador();
-        pesquisaTarefa.pesquisarAtividade();
+        adicionarFiltroTarefa.verificoSeExisteTarefa();
     }
 
     @Test
-    public void apagarMarcadorEmAtividade(){
+    public void adicionarFiltroAtividade(){
 
-        apagarMarcadorEmTarefa.euAcionoIconeExluirMarcador();
+        adicionarFiltroTarefa.euAcessoMenuVerTarefas();
+        adicionarFiltroTarefa.euAcionoRelatorGrid();
+        adicionarFiltroTarefa.euSelecionoRelator(PropriedadesTarefas.relatorAdministrador);
+        adicionarFiltroTarefa.euAcionoComandoAplicaFiltro();
+
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(apagarMarcadorEmTarefa.euVerificoMarcadorEmTarefa());
-        apagarMarcadorEmTarefa.excluirTodasTarefas();
+        Assert.assertTrue(adicionarFiltroTarefa.euVerificoTarefaEmGrid());
         logout.euRealizoLogout();
     }
 }

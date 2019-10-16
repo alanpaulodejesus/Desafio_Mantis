@@ -19,4 +19,5 @@ public class PropriedadesTarefas {
                                                 +"3 - Bug";
 
     public static final String informacaoAdicionadaEmTarefa = "Tarefa Fechada!";
+    public static final String relatorAdministrador = "administrator";
 }
