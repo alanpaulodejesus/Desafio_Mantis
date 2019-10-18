@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
 
-public class AlterarCategoriaTarefasTest {
+public class AlterarCategoriaEmTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
     PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();

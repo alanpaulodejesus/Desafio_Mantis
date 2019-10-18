@@ -11,7 +11,7 @@ import org.junit.runners.Suite;
 
         LoginInvalidoTest.class,
         LoginValidoTest.class,
-        AlterarCategoriaTarefasTest.class,
+        AlterarCategoriaEmTarefasTest.class,
         ApagarTarefasTest.class,
         CriarTarefasTest.class,
         FecharTarefasTest.class,
