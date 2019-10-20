@@ -35,13 +35,24 @@ public class PesquisarUsuarioTest {
         pesquisaUsuario.euAcionoMenuGerenciarUsuario();
         pesquisaUsuario.euPreenchoFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
         pesquisaUsuario.euAcionoComandoPesquisa();
-        Assert.assertTrue(pesquisaUsuario.euVerificoUsuarioCriadoEmGrid());
+
+
+    }
+
+    public void pesquisaUsuarioDesabilitado(){
+
+        pesquisaUsuario.euAcionoMenuGerenciar();
+        pesquisaUsuario.euAcionoMenuGerenciarUsuario();
+        pesquisaUsuario.euAcionoSelectPesquisaUsuarioDesabilitado();
+        pesquisaUsuario.euPreenchoFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
+        pesquisaUsuario.euAcionoComandoPesquisa();
+
 
     }
 
     @After
     public void tearDown(){
-
+        Assert.assertTrue(pesquisaUsuario.euVerificoUsuarioCriadoEmGrid());
         pesquisaUsuario.excluirTodosUsuarios();
         logout.euRealizoLogout();
     }

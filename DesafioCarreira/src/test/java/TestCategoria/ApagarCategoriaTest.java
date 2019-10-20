@@ -42,6 +42,6 @@ public class ApagarCategoriaTest {
     public void tearDown(){
 
         Assert.assertFalse(categoria.euVerificoCategoriaEmGrid());
-        logout.euRealizoLogout();
+        //logout.euRealizoLogout();
     }
 }

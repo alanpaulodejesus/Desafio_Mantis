@@ -38,6 +38,18 @@ public class CriarUsuarioTest {
         criarUsuario.euAcionoMenuGerenciarUsuario();
         Assert.assertTrue(criarUsuario.euVerificoUsuarioCriadoEmGrid());
 
+    }
+
+    public void criarNovoUsuarioDesativado(){
+
+        criarUsuario.euAcionoComandoConvidarUsuario();
+        criarUsuario.euPreenchoCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
+        criarUsuario.euPreenchoCampoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiro);
+        criarUsuario.euPreenchoCampoEmail(PropriedadesUsuario.email);
+        criarUsuario.euSelecionoNivelAcesso(PropriedadesUsuario.nivelAcesso);
+        criarUsuario.euAcionoSelectParaUsuarioDesabilitado();
+        criarUsuario.euAcionoComandoCriarUsuario();
+        criarUsuario.euAcionoMenuGerenciarUsuario();
 
     }
 

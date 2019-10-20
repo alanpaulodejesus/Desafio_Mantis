@@ -46,6 +46,6 @@ public class AlterarCategoriaTest {
     public void tearDown(){
 
         Assert.assertTrue(categoria.euVerificoCategoriaEmGrid());
-        logout.euRealizoLogout();
+        //logout.euRealizoLogout();
     }
 }

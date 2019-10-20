@@ -43,6 +43,6 @@ public class CadastrarCategoriaTest {
     public void tearDown(){
 
         Assert.assertTrue(categoria.euVerificoCategoriaEmGrid());
-        logout.euRealizoLogout();
+        //logout.euRealizoLogout();
     }
 }

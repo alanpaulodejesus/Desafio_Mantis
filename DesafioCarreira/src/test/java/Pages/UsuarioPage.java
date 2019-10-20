@@ -40,6 +40,15 @@ public class UsuarioPage {
     @FindBy(xpath = "//option[text()=\""+ PropriedadesProjeto.nomeProjeto+"\"]")private WebElement projetoCombo;
     @FindBy(xpath = "//input[@value=\"Adicionar Usuário\"]")private WebElement comandoAdicionarUsuario;
     @FindBy(xpath = "//input[@value=\"Remover\"]") private WebElement comandoRemover;
+    @FindBy(xpath = "//span[@class=\"lbl\"]") private WebElement campoSelectHabilitado;
+    @FindBy(xpath = "//i[@class=\"fa fa-check fa-lg\"]")private WebElement validacaoUsuarioAtivo;
+    @FindBy(xpath = "//tr[2]//td[5]")private WebElement validacaoUsuarioNaoAtivo;
+    @FindBy(xpath = "//input[@value=\"Redefinir Senha\"]") private WebElement comandoRedefinirSenha;
+    @FindBy(xpath = "//span[text()=\"Mostrar desativados\"]")private WebElement selectPesquisaUsuarioDesabilitado;
+    @FindBy(xpath = "//div[@class=\"alert alert-success center\"]") private WebElement mensagemEnvio;
+    @FindBy(xpath = "//p[text()=\"Operação realizada com sucesso.\"]") private WebElement mensagemRepresentacaoUsuario;
+    @FindBy(xpath = "//a[text()=\"Clique aqui para prosseguir\"]") private WebElement comandoProsseguir;
+    @FindBy(xpath = "//input[@value=\"Representar Usuário\"]")private WebElement comandoRepresentarUsuario;
 
     public UsuarioPage() {
         PageFactory.initElements(getDriver(), this);
@@ -187,5 +196,55 @@ public class UsuarioPage {
 
     public boolean euVerificoUsuarioAdicionadoEmProjeto() {
         return Label.textoPresente(comandoRemover);
+    }
+
+    public void euAcionoSelectParaUsuarioDesabilitado() {
+        Tempo.aguardar(2, campoSelectHabilitado);
+        Comando.clicar(campoSelectHabilitado);
+    }
+
+    public boolean euVerificoUsuarioAtivoEmGrid() {
+        return Label.textoPresente(validacaoUsuarioAtivo);
+    }
+
+    public boolean euVerificoUsuarioNaoAtivoEmGrid() {
+        return Label.textoPresente(validacaoUsuarioNaoAtivo);
+    }
+
+    public void euAcionoSelectPesquisaUsuarioDesabilitado() {
+        Comando.clicar(selectPesquisaUsuarioDesabilitado);
+    }
+
+    public void euAcionoComandoRedefinirSenha() {
+        Comando.clicar(comandoRedefinirSenha);
+    }
+
+    public boolean euVerificoMensagemValidacaoEnvioEmail() {
+        Tempo.aguardar(10, mensagemEnvio);
+        try {
+            Label.textoPresente(mensagemEnvio);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean euVerificoMensagemRepresentacaoRealizada() {
+        Tempo.aguardar(10, mensagemRepresentacaoUsuario);
+        try {
+            Label.textoPresente(mensagemRepresentacaoUsuario);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+
+    public void euAcionoComandoRepresentarUsuario(){
+        Comando.clicar(comandoRepresentarUsuario);
+    }
+
+    public void euAcionoComandoProsseguir(){
+        Comando.clicar(comandoProsseguir);
     }
 }
