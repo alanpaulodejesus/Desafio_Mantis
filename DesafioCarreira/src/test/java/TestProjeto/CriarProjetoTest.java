@@ -40,6 +40,29 @@ public class CriarProjetoTest {
 
     }
 
+    public void criarNovoProjetoPublico(){
+
+        projeto.euAcionoMenuGerenciar();
+        projeto.euAcionoMenuGerenciarProjetos();
+        projeto.euAcionoComandoCriarProjetos();
+        projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPublico);
+        projeto.euSelecionoComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPublico);
+        projeto.euAcionoComandoAdicionarProjeto();
+
+    }
+
+
+    public void criarNovoProjetoPrivado(){
+
+        projeto.euAcionoMenuGerenciar();
+        projeto.euAcionoMenuGerenciarProjetos();
+        projeto.euAcionoComandoCriarProjetos();
+        projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPrivado);
+        projeto.euSelecionoComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPrivado);
+        projeto.euAcionoComandoAdicionarProjeto();
+
+    }
+
     @After
     public void tearDown(){
         Assert.assertTrue(projeto.euVerificoProjetoEmGrid());
