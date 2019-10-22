@@ -27,7 +27,7 @@ public class CriarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        validarProjeto.verificoSeExisteProjeto();
+        validarProjeto.verificarSeExisteProjeto();
 
     }
 
@@ -35,23 +35,23 @@ public class CriarTarefasTest {
     @Test
     public void criarNovaTarefa(){
 
-        criarTarefa.euAcessoMenuCriarTarefas();
-        criarTarefa.euAcessoCategoriaTarefa(PropriedadesTarefas.categoriaBug);
-        criarTarefa.euAcessoFrequenciaTarefa(PropriedadesTarefas.frequenciaBug);
-        criarTarefa.euAcessoGravidadeTarefa(PropriedadesTarefas.gravidadeBugPequeno);
-        criarTarefa.euAcessoPrioridadeTarefa(PropriedadesTarefas.prioridadeBug);
-        criarTarefa.euAcessoAtribuicaoTarefa(Propriedades.USUARIO);
-        criarTarefa.euInformoResumoTarefa(PropriedadesTarefas.resumoBug);
-        criarTarefa.euInformoDescricaoBug(PropriedadesTarefas.descricaoBug);
-        criarTarefa.euInformoReproducaoBug(PropriedadesTarefas.reproduzirBug);
-        criarTarefa.euAcionoComandoCriarTarefa();
-        criarTarefa.euVerificoIdTarefaCriada();
-        Assert.assertTrue(criarTarefa.euConfirmoCadastroComSucesso());
+        criarTarefa.acessarMenuCriarTarefas();
+        criarTarefa.acionarCategoriaTarefa(PropriedadesTarefas.categoriaBug);
+        criarTarefa.acessarFrequenciaTarefa(PropriedadesTarefas.frequenciaBug);
+        criarTarefa.acessarGravidadeTarefa(PropriedadesTarefas.gravidadeBugPequeno);
+        criarTarefa.acessarPrioridadeTarefa(PropriedadesTarefas.prioridadeBug);
+        criarTarefa.acessarAtribuicaoTarefa(Propriedades.USUARIO);
+        criarTarefa.informarResumoTarefa(PropriedadesTarefas.resumoBug);
+        criarTarefa.informarDescricaoBug(PropriedadesTarefas.descricaoBug);
+        criarTarefa.informarReproducaoBug(PropriedadesTarefas.reproduzirBug);
+        criarTarefa.acionarComandoCriarTarefa();
+        criarTarefa.verificarIdTarefaCriada();
+        Assert.assertTrue(criarTarefa.confirmarCadastroComSucesso());
     }
 
     @After
     public void tearDown(){
 
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

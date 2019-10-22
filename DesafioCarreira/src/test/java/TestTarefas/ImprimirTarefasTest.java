@@ -14,7 +14,6 @@ import static Core.DriverFactory.getDriver;
 public class ImprimirTarefasTest {
 
     LoginValidoTest login = new LoginValidoTest();
-    //PesquisarTarefasTest  pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
     TarefasPage imprimirTarefas = new TarefasPage();
 
@@ -24,14 +23,14 @@ public class ImprimirTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        imprimirTarefas.verificoSeExisteTarefaParaImprimir();
+        imprimirTarefas.verificarSeExisteTarefaParaImprimir();
 
     }
 
     @Test
     public void imprimirAtividade(){
 
-        imprimirTarefas.euAcionoComandoImprimirTarefa();
+        imprimirTarefas.acionarComandoImprimirTarefa();
 
     }
 
@@ -39,8 +38,8 @@ public class ImprimirTarefasTest {
     public void tearDown(){
 
         Assert.assertTrue(imprimirTarefas.tarefaEmGriImprimir());
-        imprimirTarefas.euRetornoImpressao();
+        imprimirTarefas.retornarImpressao();
         imprimirTarefas.excluirTodasTarefas();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

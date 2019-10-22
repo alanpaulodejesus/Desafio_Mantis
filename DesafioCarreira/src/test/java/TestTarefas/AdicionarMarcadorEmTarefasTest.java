@@ -27,22 +27,22 @@ public class AdicionarMarcadorEmTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        marcadorDeTarefas.verificoSeExisteMarcador();
-        adicionarMarcadorEmTarefa.verificoSeExisteTarefa();
+        marcadorDeTarefas.verificarSeExisteMarcador();
+        adicionarMarcadorEmTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void adicionarMarcadorEmAtividade(){
 
-        adicionarMarcadorEmTarefa.euSelecionoMarcador(PropriedadesMarcador.nomeMacador);
-        adicionarMarcadorEmTarefa.euAcionoComandoAplicar();
+        adicionarMarcadorEmTarefa.selecionarMarcador(PropriedadesMarcador.nomeMacador);
+        adicionarMarcadorEmTarefa.acionarComandoAplicar();
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(adicionarMarcadorEmTarefa.euVerificoMarcadorEmTarefa());
-        logout.euRealizoLogout();
+        Assert.assertTrue(adicionarMarcadorEmTarefa.verificarMarcadorEmTarefa());
+        logout.realizarLogout();
     }
 }

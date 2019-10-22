@@ -24,8 +24,8 @@ public class AdicionarUsuarioEmProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
-        adicionaUsuarioEmProjeto.euVerificoSeExisteUsuarioCriado();
+        projeto.verificarSeExisteProjeto();
+        adicionaUsuarioEmProjeto.verificarSeExisteUsuarioCriado();
 
     }
 
@@ -33,9 +33,9 @@ public class AdicionarUsuarioEmProjetoTest {
     @Test
     public void adicionarUsuarioEmProjeto(){
 
-        adicionaUsuarioEmProjeto.euAcionoNomeDeUsuarioEmGrid();
-        adicionaUsuarioEmProjeto.euSelecionoProjetoAUsuario();
-        adicionaUsuarioEmProjeto.euAcionoComandoAdicionarUsuario();
+        adicionaUsuarioEmProjeto.acionarNomeDeUsuarioEmGrid();
+        adicionaUsuarioEmProjeto.selecionarProjetoAUsuario();
+        adicionaUsuarioEmProjeto.acionarComandoAdicionarUsuario();
 
 
     }
@@ -43,8 +43,8 @@ public class AdicionarUsuarioEmProjetoTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(adicionaUsuarioEmProjeto.euVerificoUsuarioAdicionadoEmProjeto());
+        Assert.assertTrue(adicionaUsuarioEmProjeto.verificarUsuarioAdicionadoEmProjeto());
         adicionaUsuarioEmProjeto.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

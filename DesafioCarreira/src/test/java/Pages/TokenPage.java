@@ -32,35 +32,35 @@ public class TokenPage {
         return Label.recuperaTexto(tokenGerado);
     }
 
-    public void euAcionoComandoSair()  {
+    public void acionarComandoSair()  {
         Comando.clicar(comandoSairUsuario);
     }
 
-    public void euAcionoComandoMinhaConta(){
+    public void acionarComandoMinhaConta(){
         Comando.clicar(comandoMinhaConta);
     }
 
-    public void euAcionoComandoTokenApi(){
+    public void acionarComandoTokenApi(){
         Comando.clicar(comandoTokenApi);
     }
 
-    public void euPreenchoCampoNomeToken(String texto){
+    public void preencherCampoNomeToken(String texto){
         CampoTexto.preencher(campoNOmeToken, texto);
     }
 
-    public void euAcionoComandoCriarToken(){
+    public void acionarComandoCriarToken(){
         Comando.clicar(comandoCriarToken);
     }
 
-    public boolean euVerificoTokenEmGrid(){
+    public boolean verificarTokenEmGrid(){
         return Label.textoPresente(tokenEmGrid);
     }
 
-    public void euVerificoSeExisteToken() {
+    public void verificarSeExisteToken() {
 
-        euAcionoComandoSair();
-        euAcionoComandoMinhaConta();
-        euAcionoComandoTokenApi();
+        acionarComandoSair();
+        acionarComandoMinhaConta();
+        acionarComandoTokenApi();
         GerarTokenTest gerarToken = new GerarTokenTest();
         if(Label.textoPresente(tokenEmGrid)){
 
@@ -69,11 +69,11 @@ public class TokenPage {
         }
     }
 
-    public void euVerificoSeExisteTokenParaGerar() {
+    public void verificarSeExisteTokenParaGerar() {
 
-        euAcionoComandoSair();
-        euAcionoComandoMinhaConta();
-        euAcionoComandoTokenApi();
+        acionarComandoSair();
+        acionarComandoMinhaConta();
+        acionarComandoTokenApi();
 
         RevogarTokenTest revogarToken = new RevogarTokenTest();
         if(Label.textoPresente(tokenEmGrid)){
@@ -83,7 +83,7 @@ public class TokenPage {
         }
     }
 
-    public void euAcionoComandoRevogarToken(){
+    public void acionarComandoRevogarToken(){
         Comando.clicar(comandoRevogarToken);
     }
 }

@@ -23,7 +23,7 @@ public class AlterarProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
+        projeto.verificarSeExisteProjeto();
 
     }
 
@@ -31,18 +31,18 @@ public class AlterarProjetoTest {
     @Test
     public void AlterarProjeto(){
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoProjetoEmGrid();
-        projeto.euPreenchoDescricaoProjeto(PropriedadesProjeto.descricaoProjeto);
-        projeto.euAcionoComandoAtualizarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarProjetoEmGrid();
+        projeto.preencherDescricaoProjeto(PropriedadesProjeto.descricaoProjeto);
+        projeto.acionarComandoAtualizarProjeto();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(projeto.euVerificoProjetoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(projeto.verificarProjetoEmGrid());
+        logout.realizarLogout();
     }
 }

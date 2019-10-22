@@ -23,7 +23,7 @@ public class CriarMarcadorTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        marcador.verificoSeExisteMarcadorAExcluir();
+        marcador.verificarSeExisteMarcadorAExcluir();
 
     }
 
@@ -31,18 +31,18 @@ public class CriarMarcadorTest {
     @Test
     public void criarMarcador(){
 
-        marcador.euAcionoMenuGerenciar();
-        marcador.euAcionoMenuGerenciaMarcador();
-        marcador.euPreenchoCampoNomeMarcador(PropriedadesMarcador.nomeMacador);
-        marcador.euPreenchoCampoDescricaoMarcador(PropriedadesMarcador.nomeDescricaoMarcador);
-        marcador.euAcionoComandoCriarMarcador();
+        marcador.acionarMenuGerenciar();
+        marcador.acionarMenuGerenciaMarcador();
+        marcador.preencherCampoNomeMarcador(PropriedadesMarcador.nomeMacador);
+        marcador.preencherCampoDescricaoMarcador(PropriedadesMarcador.nomeDescricaoMarcador);
+        marcador.acionarComandoCriarMarcador();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(marcador.euVerificoMarcadorEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(marcador.verificarMarcadorEmGrid());
+        logout.realizarLogout();
     }
 }

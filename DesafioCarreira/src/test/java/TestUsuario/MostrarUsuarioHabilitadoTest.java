@@ -32,7 +32,7 @@ public class MostrarUsuarioHabilitadoTest {
     @Test
     public void mostrarUsuarioAtivo(){
 
-        Assert.assertTrue(mostrarUsuarioAtivo.euVerificoUsuarioAtivoEmGrid());
+        Assert.assertTrue(mostrarUsuarioAtivo.verificarUsuarioAtivoEmGrid());
 
     }
 
@@ -41,7 +41,7 @@ public class MostrarUsuarioHabilitadoTest {
 
 
         mostrarUsuarioAtivo.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
 
     }
 }

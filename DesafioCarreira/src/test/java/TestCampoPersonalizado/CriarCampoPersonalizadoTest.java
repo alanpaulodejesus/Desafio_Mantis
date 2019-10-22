@@ -24,7 +24,7 @@ public class CriarCampoPersonalizadoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        campoPersonalizado.verificoSeExisteCampoPersonalidadoAExcluir();
+        campoPersonalizado.verificarSeExisteCampoPersonalidadoAExcluir();
 
     }
 
@@ -32,11 +32,11 @@ public class CriarCampoPersonalizadoTest {
     @Test
     public void criarCampoPersonalizado(){
 
-        campoPersonalizado.euAcionoComandoMenuGerenciar();
-        campoPersonalizado.euAcionoMenuCampoPersonalizado();
-        campoPersonalizado.euPreenchoCampoNomePersonalizado(PropriedadesCampoPersonalizado.nomeCampoPersonalizado);
+        campoPersonalizado.acionarComandoMenuGerenciar();
+        campoPersonalizado.acionarMenuCampoPersonalizado();
+        campoPersonalizado.preencherCampoNomePersonalizado(PropriedadesCampoPersonalizado.nomeCampoPersonalizado);
         campoPersonalizado.euAcionoComandoNovoCampoPersonalizado();
-        campoPersonalizado.euAcionoMenuCampoPersonalizado();
+        campoPersonalizado.acionarMenuCampoPersonalizado();
 
 
     }
@@ -44,7 +44,7 @@ public class CriarCampoPersonalizadoTest {
 
     @After
     public void tearDown(){
-        Assert.assertTrue(campoPersonalizado.euVerificoCampoPersonalizadoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoEmGrid());
+        logout.realizarLogout();
     }
 }

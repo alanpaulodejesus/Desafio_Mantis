@@ -23,7 +23,7 @@ public class CriarPerfilTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        perfil.verificoSeExistePerfilAExcluir();
+        perfil.verificarSeExistePerfilAExcluir();
 
     }
 
@@ -31,19 +31,19 @@ public class CriarPerfilTest {
     @Test
     public void criarPerfil(){
 
-        perfil.euAcionoComandoMenuGerenciar();
-        perfil.euAcionoComandoMenuGerenciarPerfisGlobais();
-        perfil.euPreenchoCampoPlataforma(PropriedadesPerfil.PLATAFORMA);
-        perfil.euPreenchoCampoOS(PropriedadesPerfil.SO);
-        perfil.euPreenchoCampoVersaoOS(PropriedadesPerfil.VERSAOSO);
-        perfil.euAcionoComandoAdicionarPerfil();
+        perfil.acionarComandoMenuGerenciar();
+        perfil.acionarComandoMenuGerenciarPerfisGlobais();
+        perfil.preencherCampoPlataforma(PropriedadesPerfil.PLATAFORMA);
+        perfil.preencherCampoOS(PropriedadesPerfil.SO);
+        perfil.preencherCampoVersaoOS(PropriedadesPerfil.VERSAOSO);
+        perfil.acionarComandoAdicionarPerfil();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(perfil.euVerificoPerfilEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(perfil.verificarPerfilEmGrid());
+        logout.realizarLogout();
     }
 }

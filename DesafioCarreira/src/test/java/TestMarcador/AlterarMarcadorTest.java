@@ -23,7 +23,7 @@ public class AlterarMarcadorTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        alterarMarcador.verificoSeExisteMarcador();
+        alterarMarcador.verificarSeExisteMarcador();
 
     }
 
@@ -31,21 +31,21 @@ public class AlterarMarcadorTest {
     @Test
     public void alterarMarcador(){
 
-        alterarMarcador.euAcionoMenuGerenciar();
-        alterarMarcador.euAcionoMenuGerenciaMarcador();
-        alterarMarcador.euAcionoMarcadorEmGrid();
-        alterarMarcador.euAcionoComandoAtualizarMarcador();
-        alterarMarcador.euPreenchoCampoDescricaoMarcador(PropriedadesMarcador.nomeDescricaoMarcadorAtualizado);
-        alterarMarcador.euAcionoComandoAtualizarMarcador();
-        alterarMarcador.euAcionoMenuGerenciar();
-        alterarMarcador.euAcionoMenuGerenciaMarcador();
+        alterarMarcador.acionarMenuGerenciar();
+        alterarMarcador.acionarMenuGerenciaMarcador();
+        alterarMarcador.acionarMarcadorEmGrid();
+        alterarMarcador.acionarComandoAtualizarMarcador();
+        alterarMarcador.preencherCampoDescricaoMarcador(PropriedadesMarcador.nomeDescricaoMarcadorAtualizado);
+        alterarMarcador.acionarComandoAtualizarMarcador();
+        alterarMarcador.acionarMenuGerenciar();
+        alterarMarcador.acionarMenuGerenciaMarcador();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(alterarMarcador.euVerificoMarcadorEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(alterarMarcador.verificarMarcadorEmGrid());
+        logout.realizarLogout();
     }
 }

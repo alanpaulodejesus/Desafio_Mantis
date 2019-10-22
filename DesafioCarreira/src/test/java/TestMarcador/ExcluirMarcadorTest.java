@@ -22,7 +22,7 @@ public class ExcluirMarcadorTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        marcador.verificoSeExisteMarcador();
+        marcador.verificarSeExisteMarcador();
 
     }
 
@@ -30,18 +30,18 @@ public class ExcluirMarcadorTest {
     @Test
     public void excluirMarcador(){
 
-        marcador.euAcionoMenuGerenciar();
-        marcador.euAcionoMenuGerenciaMarcador();
-        marcador.euAcionoMarcadorEmGrid();
-        marcador.euAcionoComandoApagarMarcador();
-        marcador.euAcionoComandoApagarMarcador();
+        marcador.acionarMenuGerenciar();
+        marcador.acionarMenuGerenciaMarcador();
+        marcador.acionarMarcadorEmGrid();
+        marcador.acionarComandoApagarMarcador();
+        marcador.acionarComandoApagarMarcador();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(marcador.euVerificoMarcadorNaoEstaEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(marcador.verificarMarcadorNaoEstaEmGrid());
+        logout.realizarLogout();
     }
 }

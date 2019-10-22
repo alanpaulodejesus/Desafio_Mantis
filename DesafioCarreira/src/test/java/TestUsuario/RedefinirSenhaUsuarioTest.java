@@ -32,8 +32,8 @@ public class RedefinirSenhaUsuarioTest {
     @Test
     public void redefinirSenhaUsuario(){
 
-        redefinirSenha.euAcionoNomeDeUsuarioEmGrid();
-        redefinirSenha.euAcionoComandoRedefinirSenha();
+        redefinirSenha.acionarNomeDeUsuarioEmGrid();
+        redefinirSenha.acionarComandoRedefinirSenha();
 
     }
 
@@ -41,8 +41,8 @@ public class RedefinirSenhaUsuarioTest {
     public void tearDown(){
 
 
-        Assert.assertTrue(redefinirSenha.euVerificoMensagemValidacaoEnvioEmail());
+        Assert.assertTrue(redefinirSenha.verificarMensagemValidacaoEnvioEmail());
         redefinirSenha.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

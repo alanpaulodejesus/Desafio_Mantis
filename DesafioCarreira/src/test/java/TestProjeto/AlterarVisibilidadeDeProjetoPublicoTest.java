@@ -23,7 +23,7 @@ public class AlterarVisibilidadeDeProjetoPublicoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjetoPublico();
+        projeto.verificarSeExisteProjetoPublico();
 
     }
 
@@ -32,20 +32,20 @@ public class AlterarVisibilidadeDeProjetoPublicoTest {
     public void alterarProjetoPrivadoParaPublico(){
 
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoProjetoPrivadoEmGrid();
-        projeto.euSelecionoComboVisibilidadeProjetoPrivado(PropriedadesProjeto.projetoPublico);
-        projeto.euAcionoComandoAtualizarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarProjetoPrivadoEmGrid();
+        projeto.selecionarComboVisibilidadeProjetoPrivado(PropriedadesProjeto.projetoPublico);
+        projeto.acionarComandoAtualizarProjeto();
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(projeto.euVerificoProjetoPublicoEmGrid());
-        projeto.euAcionoProjetoPrivadoEmGrid();
-        projeto.euAcionoComandoApagarProjeto();
-        projeto.euAcionoComandoApagarProjeto();
-        logout.euRealizoLogout();
+        Assert.assertTrue(projeto.verificarProjetoPublicoEmGrid());
+        projeto.acionarProjetoPrivadoEmGrid();
+        projeto.acionarComandoApagarProjeto();
+        projeto.acionarComandoApagarProjeto();
+        logout.realizarLogout();
     }
 }

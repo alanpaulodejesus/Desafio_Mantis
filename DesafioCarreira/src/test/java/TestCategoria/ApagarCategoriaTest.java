@@ -22,7 +22,7 @@ public class ApagarCategoriaTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        categoria.euVerificoSeExisteCategoriaAExcluir();
+        categoria.verificarSeExisteCategoriaAExcluir();
 
     }
 
@@ -30,10 +30,10 @@ public class ApagarCategoriaTest {
     @Test
     public void apagarCategoria(){
 
-        categoria.euAcionoMenuGerenciar();
-        categoria.euAcionoMenuGerenciarProjetos();
-        categoria.euAcionoExcluirCategoria();
-        categoria.euConfirmoExcluirCategoria();
+        categoria.acionarMenuGerenciar();
+        categoria.acionarMenuGerenciarProjetos();
+        categoria.acionarExcluirCategoria();
+        categoria.confirmarExcluirCategoria();
 
     }
 
@@ -41,7 +41,7 @@ public class ApagarCategoriaTest {
     @After
     public void tearDown(){
 
-        Assert.assertFalse(categoria.euVerificoCategoriaEmGrid());
-        //logout.euRealizoLogout();
+        Assert.assertFalse(categoria.verificarCategoriaEmGrid());
+        logout.realizarLogout();
     }
 }

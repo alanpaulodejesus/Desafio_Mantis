@@ -24,8 +24,8 @@ public class RemoverUsuarioEmProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
-        removerUsuarioEmProjeto.euVerificoSeExisteUsuarioCriado();
+        projeto.verificarSeExisteProjeto();
+        removerUsuarioEmProjeto.verificarSeExisteUsuarioCriado();
         adicionaUsuario.adicionarUsuarioEmProjeto();
 
     }
@@ -34,15 +34,15 @@ public class RemoverUsuarioEmProjetoTest {
     @Test
     public void RemoverUsuarioEmProjeto(){
 
-        removerUsuarioEmProjeto.euAcionoComandoRemover();
+        removerUsuarioEmProjeto.acionarComandoRemover();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(removerUsuarioEmProjeto.euVerificoUsuarioAdicionadoEmProjeto());
+        Assert.assertFalse(removerUsuarioEmProjeto.verificarUsuarioAdicionadoEmProjeto());
         removerUsuarioEmProjeto.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

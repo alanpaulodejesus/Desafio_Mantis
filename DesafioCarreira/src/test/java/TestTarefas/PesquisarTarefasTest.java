@@ -22,13 +22,13 @@ public class PesquisarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        pesquisaTarefa.verificoSeExisteTarefa();
+        pesquisaTarefa.verificarSeExisteTarefa();
     }
 
     @Test
     public void pesquisarAtividade(){
 
-        pesquisaTarefa.euPesquisoTarefa(pesquisaTarefa.euVerificoIdTarefaCriada());
+        pesquisaTarefa.euPesquisoTarefa(pesquisaTarefa.verificarIdTarefaCriada());
 
 
     }
@@ -36,7 +36,7 @@ public class PesquisarTarefasTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue((pesquisaTarefa.euVerificoPesquisaIdTarefaCriada()));
-        logout.euRealizoLogout();
+        Assert.assertTrue((pesquisaTarefa.verificarPesquisaIdTarefaCriada()));
+        logout.realizarLogout();
     }
 }

@@ -25,23 +25,23 @@ public class FecharTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        fecharTarefas.verificoSeExisteTarefa();
+        fecharTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void fecharAtividade(){
 
-        fecharTarefas.euAcionoComandoFecharTarefa();
-        fecharTarefas.euAdicionoInformacaoTarefa(PropriedadesTarefas.informacaoAdicionadaEmTarefa);
-        fecharTarefas.euConfirmoFechamentoComandoFecharTarefa();
-        Assert.assertTrue(fecharTarefas.euVerificoStatusFechado());
+        fecharTarefas.acionarComandoFecharTarefa();
+        fecharTarefas.adicionarInformacaoTarefa(PropriedadesTarefas.informacaoAdicionadaEmTarefa);
+        fecharTarefas.confirmarFechamentoComandoFecharTarefa();
+        Assert.assertTrue(fecharTarefas.verificarStatusFechado());
 
     }
 
     @After
     public void tearDown(){
 
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

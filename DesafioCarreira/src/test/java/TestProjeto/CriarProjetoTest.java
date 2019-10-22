@@ -24,7 +24,7 @@ public class CriarProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjetoAExcluir();
+        projeto.verificarSeExisteProjetoAExcluir();
 
     }
 
@@ -32,40 +32,40 @@ public class CriarProjetoTest {
     @Test
     public void criarNovoProjeto(){
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoComandoCriarProjetos();
-        projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjeto);
-        projeto.euAcionoComandoAdicionarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarComandoCriarProjetos();
+        projeto.preencherCampoNomeProjeto(PropriedadesProjeto.nomeProjeto);
+        projeto.acionarComandoAdicionarProjeto();
 
     }
 
     public void criarNovoProjetoPublico(){
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoComandoCriarProjetos();
-        projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPublico);
-        projeto.euSelecionoComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPublico);
-        projeto.euAcionoComandoAdicionarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarComandoCriarProjetos();
+        projeto.preencherCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPublico);
+        projeto.selecionarComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPublico);
+        projeto.acionarComandoAdicionarProjeto();
 
     }
 
 
     public void criarNovoProjetoPrivado(){
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoComandoCriarProjetos();
-        projeto.euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPrivado);
-        projeto.euSelecionoComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPrivado);
-        projeto.euAcionoComandoAdicionarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarComandoCriarProjetos();
+        projeto.preencherCampoNomeProjeto(PropriedadesProjeto.nomeProjetoPrivado);
+        projeto.selecionarComboVisibilidadeProjetoPublico(PropriedadesProjeto.projetoPrivado);
+        projeto.acionarComandoAdicionarProjeto();
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(projeto.euVerificoProjetoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(projeto.verificarProjetoEmGrid());
+        logout.realizarLogout();
     }
 }

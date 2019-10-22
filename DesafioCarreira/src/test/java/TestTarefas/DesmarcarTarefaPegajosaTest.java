@@ -23,23 +23,23 @@ public class DesmarcarTarefaPegajosaTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        desMarcarTarefa.verificoSeExisteTarefa();
+        desMarcarTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
-        desMarcarTarefa.verificoSeTarefaEstaMarcada();
+        desMarcarTarefa.verificarSeTarefaEstaMarcada();
 
     }
 
     @Test
     public void desmarcarTarefaPegajosa(){
 
-        desMarcarTarefa.euAcionoComandoDesmarcarTarefasPegajosa();
+        desMarcarTarefa.acionarComandoDesmarcarTarefasPegajosa();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(desMarcarTarefa.euVerificoTarefaDesmarcarda());
-        logout.euRealizoLogout();
+        Assert.assertTrue(desMarcarTarefa.verificarTarefaDesmarcarda());
+        logout.realizarLogout();
     }
 }

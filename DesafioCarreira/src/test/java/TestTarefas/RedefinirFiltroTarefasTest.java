@@ -24,22 +24,22 @@ public class RedefinirFiltroTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        redefinirFiltroTarefa.verificoSeExisteTarefa();
-        redefinirFiltroTarefa.verificoSeExisteFiltroTarefa();
+        redefinirFiltroTarefa.verificarSeExisteTarefa();
+        redefinirFiltroTarefa.verificarSeExisteFiltroTarefa();
 
     }
 
     @Test
     public void redefinirFiltroAtividade(){
 
-        redefinirFiltroTarefa.euAcionoComandoRedefinir();
+        redefinirFiltroTarefa.acionarComandoRedefinir();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(redefinirFiltroTarefa.euVerificoRedefinicaoTarefa());
-        logout.euRealizoLogout();
+        Assert.assertTrue(redefinirFiltroTarefa.verificarRedefinicaoTarefa());
+        logout.realizarLogout();
     }
 }

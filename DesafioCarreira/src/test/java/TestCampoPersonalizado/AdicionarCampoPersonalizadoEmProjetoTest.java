@@ -25,8 +25,8 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
-        adicionarCampoPersonalizado.verificoSeExisteCampoPersonalidado();
+        projeto.verificarSeExisteProjeto();
+        adicionarCampoPersonalizado.verificarSeExisteCampoPersonalidado();
 
     }
 
@@ -34,11 +34,11 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
     @Test
     public void adicionaCampoPersonalizadoEmProjeto(){
 
-        adicionarCampoPersonalizado.euAcionoComandoMenuGerenciar();
-        adicionarCampoPersonalizado.euAcionoMenuCampoPersonalizado();
-        adicionarCampoPersonalizado.euAcionoCampoPersonalizadoParaAdicionarEmGrid();
-        adicionarCampoPersonalizado.euAcionoProjetoParaCampoPersonalizado();
-        adicionarCampoPersonalizado.euAcionoComandoVincularProjeto();
+        adicionarCampoPersonalizado.acionarComandoMenuGerenciar();
+        adicionarCampoPersonalizado.acionarMenuCampoPersonalizado();
+        adicionarCampoPersonalizado.acionarCampoPersonalizadoParaAdicionarEmGrid();
+        adicionarCampoPersonalizado.acionarProjetoParaCampoPersonalizado();
+        adicionarCampoPersonalizado.acionarComandoVincularProjeto();
 
 
     }
@@ -46,7 +46,7 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
 
     @After
     public void tearDown(){
-        Assert.assertTrue(adicionarCampoPersonalizado.euVerificoCampoVinculadoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(adicionarCampoPersonalizado.verificarCampoVinculadoEmGrid());
+        logout.realizarLogout();
     }
 }

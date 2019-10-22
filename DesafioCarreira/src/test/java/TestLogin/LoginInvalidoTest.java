@@ -22,18 +22,19 @@ public class LoginInvalidoTest {
     @Test
     public void realizarLoginInvalido()  {
 
-        login.euPreenchoCampoUsername(Propriedades.USUARIO);
-        login.euAcionoComandoEntrar();
-        login.euPreenchoCampoSenha(Propriedades.SENHA_INVALIDA);
-        login.euAcionoComandoEntrar();
-        Assert.assertEquals(login.mensagemAcessoInvalido,login.euValidoAcessoNegado());
-        login.euRegistroLoginInvalido();
+        login.preencherCampoUsername(Propriedades.USUARIO);
+        login.acionarComandoEntrar();
+        login.preencherCampoSenha(Propriedades.SENHA_INVALIDA);
+        login.acionarComandoEntrar();
+
 
 
     }
 
     @After
     public void tearDown(){
+        Assert.assertEquals(login.mensagemAcessoInvalido,login.validarAcessoNegado());
+        login.registrarLoginInvalido();
     }
 
 }

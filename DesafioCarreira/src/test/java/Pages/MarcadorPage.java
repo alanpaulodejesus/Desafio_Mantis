@@ -29,39 +29,40 @@ public class MarcadorPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euAcionoMenuGerenciar()  {
+    public void acionarMenuGerenciar()  {
         Comando.clicar(menuGerenciar);
     }
-    public void euAcionoMenuGerenciaMarcador()  {
+
+    public void acionarMenuGerenciaMarcador()  {
         Comando.clicar(menuGerenciarMarcadores);
     }
-    public void euAcionoComandoAtualizarMarcador()  {
+
+    public void acionarComandoAtualizarMarcador()  {
         Comando.clicar(comandoAtualizarMarcador);
     }
 
-
-    public void euAcionoMarcadorEmGrid()  {
+    public void acionarMarcadorEmGrid()  {
         Comando.clicar(marcadorEmGrid);
     }
 
-    public void euAcionoComandoApagarMarcador()  {
+    public void acionarComandoApagarMarcador()  {
         Comando.clicar(comandoApagarMarcador);
     }
 
-    public void euPreenchoCampoNomeMarcador(String texto){
+    public void preencherCampoNomeMarcador(String texto){
         CampoTexto.preencher(campoNomeMarcador,texto );
     }
 
-    public void euPreenchoCampoDescricaoMarcador(String texto){
+    public void preencherCampoDescricaoMarcador(String texto){
         CampoTexto.limpar(campoDescricaoMarcador);
         CampoTexto.preencher(campoDescricaoMarcador, texto);
     }
 
-    public void euAcionoComandoCriarMarcador(){
+    public void acionarComandoCriarMarcador(){
         Comando.clicar(comandoCriarMarcador);
     }
 
-    public void verificoSeExisteMarcadorAExcluir(){
+    public void verificarSeExisteMarcadorAExcluir(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarMarcadores);
@@ -74,7 +75,7 @@ public class MarcadorPage {
         }
     }
 
-    public Boolean euVerificoMarcadorEmGrid(){
+    public Boolean verificarMarcadorEmGrid(){
         Tempo.aguardar(5, marcadorEmGrid);
         try {
             Label.textoPresente(marcadorEmGrid);
@@ -86,9 +87,7 @@ public class MarcadorPage {
 
     }
 
-    public Boolean euVerificoMarcadorNaoEstaEmGrid(){
-        //Tempo.aguardar(5, comboSelecionarPerfil);
-
+    public Boolean verificarMarcadorNaoEstaEmGrid(){
 
         try {
             Label.textoPresente(marcadorEmGrid);
@@ -100,12 +99,11 @@ public class MarcadorPage {
 
     }
 
-    public void verificoSeExisteMarcador(){
+    public void verificarSeExisteMarcador(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarMarcadores);
         CriarMarcadorTest criarMarcador = new CriarMarcadorTest();
-
 
         if(Label.textoPresente(marcadorEmGrid)){
 

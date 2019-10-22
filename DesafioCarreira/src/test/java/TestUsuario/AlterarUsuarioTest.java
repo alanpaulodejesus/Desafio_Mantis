@@ -34,20 +34,20 @@ public class AlterarUsuarioTest {
     @Test
     public void alterarUsuario(){
 
-        alterarUsuario.euAcionoNomeDeUsuarioEmGrid();
-        alterarUsuario.euLimpoCamposDeDadosUsuarios();
-        alterarUsuario.euPreenchoAlteracaoNomeUsuario(PropriedadesUsuario.nomeUsuarioAlterado);
-        alterarUsuario.euPreenchoAlteracaoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiroAlterado);
-        alterarUsuario.euAcionoComandoAtualizarUsuario();
-        alterarUsuario.euAcionoMenuGerenciarUsuario();
-        alterarUsuario.euVerificoUsuarioCriadoEmGridAlterado();
+        alterarUsuario.acionarNomeDeUsuarioEmGrid();
+        alterarUsuario.limparCamposDeDadosUsuarios();
+        alterarUsuario.preencherAlteracaoNomeUsuario(PropriedadesUsuario.nomeUsuarioAlterado);
+        alterarUsuario.preencherAlteracaoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiroAlterado);
+        alterarUsuario.acionarComandoAtualizarUsuario();
+        alterarUsuario.acionarMenuGerenciarUsuario();
+        alterarUsuario.verificarUsuarioCriadoEmGridAlterado();
     }
 
     @After
     public void tearDown(){
 
         alterarUsuario.excluirTodosUsuarios();
-        Assert.assertTrue(alterarUsuario.euVerificoQueNomeUsuarioNaoEstaEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(alterarUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
+        logout.realizarLogout();
     }
 }

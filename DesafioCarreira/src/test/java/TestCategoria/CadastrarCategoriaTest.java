@@ -23,17 +23,17 @@ public class CadastrarCategoriaTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        categoria.euVerificoSeExisteCategoriaCriada();
+        categoria.verificarSeExisteCategoriaCriada();
     }
 
 
     @Test
     public void cadastraCategoria(){
 
-        categoria.euAcionoMenuGerenciar();
-        categoria.euAcionoMenuGerenciarProjetos();
-        categoria.euPreenchoCampoNomeCategoria(PropriedadesCategoria.categoria);
-        categoria.euAcionoComandoAdicionarCategoria();
+        categoria.acionarMenuGerenciar();
+        categoria.acionarMenuGerenciarProjetos();
+        categoria.preencherCampoNomeCategoria(PropriedadesCategoria.categoria);
+        categoria.acionarComandoAdicionarCategoria();
 
 
     }
@@ -42,7 +42,7 @@ public class CadastrarCategoriaTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(categoria.euVerificoCategoriaEmGrid());
-        //logout.euRealizoLogout();
+        Assert.assertTrue(categoria.verificarCategoriaEmGrid());
+        logout.realizarLogout();
     }
 }

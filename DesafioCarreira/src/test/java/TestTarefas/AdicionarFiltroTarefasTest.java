@@ -25,23 +25,23 @@ public class AdicionarFiltroTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        adicionarFiltroTarefa.verificoSeExisteTarefa();
+        adicionarFiltroTarefa.verificarSeExisteTarefa();
     }
 
     @Test
     public void adicionarFiltroAtividade(){
 
-        adicionarFiltroTarefa.euAcessoMenuVerTarefas();
-        adicionarFiltroTarefa.euAcionoRelatorGrid();
-        adicionarFiltroTarefa.euSelecionoRelator(PropriedadesTarefas.relatorAdministrador);
-        adicionarFiltroTarefa.euAcionoComandoAplicaFiltro();
+        adicionarFiltroTarefa.acionarMenuVerTarefas();
+        adicionarFiltroTarefa.acionarRelatorGrid();
+        adicionarFiltroTarefa.selecionarRelator(PropriedadesTarefas.relatorAdministrador);
+        adicionarFiltroTarefa.acionarComandoAplicaFiltro();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(adicionarFiltroTarefa.euVerificoTarefaEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(adicionarFiltroTarefa.verificarTarefaEmGrid());
+        logout.realizarLogout();
     }
 }

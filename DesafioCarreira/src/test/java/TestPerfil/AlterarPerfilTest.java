@@ -23,7 +23,7 @@ public class AlterarPerfilTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        perfil.verificoSeExistePerfil();
+        perfil.verificarSeExistePerfil();
 
     }
 
@@ -31,18 +31,16 @@ public class AlterarPerfilTest {
     @Test
     public void alterarPerfil(){
 
-        perfil.euAcionoComandoMenuGerenciar();
-        perfil.euAcionoComandoMenuGerenciarPerfisGlobais();
-        perfil.euSelecionoComboPerfil(PropriedadesPerfil.PLATAFORMA+" "+PropriedadesPerfil.SO+" "+PropriedadesPerfil.VERSAOSO);
-        perfil.euSelecionoRadioAlterar();
-        perfil.euAcionoComandoEnviar();
-
-        perfil.euPreenchoCampoPlataforma(PropriedadesPerfil.PLATAFORMA);
-        perfil.euPreenchoCampoOS(PropriedadesPerfil.SO);
-        perfil.euPreenchoCampoVersaoOSAlteracao(PropriedadesPerfil.VERSAOSO);
-
-        perfil.euPreenchoDescricaoAdicionalAlteracao(PropriedadesPerfil.DESCRICAO_ADICIONAL);
-        perfil.euAcionoComandoAtualizarPerfil();
+        perfil.acionarComandoMenuGerenciar();
+        perfil.acionarComandoMenuGerenciarPerfisGlobais();
+        perfil.selecionarComboPerfil(PropriedadesPerfil.PLATAFORMA+" "+PropriedadesPerfil.SO+" "+PropriedadesPerfil.VERSAOSO);
+        perfil.selecionarRadioAlterar();
+        perfil.acionarComandoEnviar();
+        perfil.preencherCampoPlataforma(PropriedadesPerfil.PLATAFORMA);
+        perfil.preencherCampoOS(PropriedadesPerfil.SO);
+        perfil.preencherCampoVersaoOSAlteracao(PropriedadesPerfil.VERSAOSO);
+        perfil.preencherDescricaoAdicionalAlteracao(PropriedadesPerfil.DESCRICAO_ADICIONAL);
+        perfil.acionarComandoAtualizarPerfil();
 
 
 
@@ -50,8 +48,8 @@ public class AlterarPerfilTest {
 
     @After
     public void tearDown(){
-        Assert.assertTrue(perfil.euVerificoPerfilEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(perfil.verificarPerfilEmGrid());
+        logout.realizarLogout();
     }
 
 }

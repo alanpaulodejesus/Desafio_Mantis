@@ -31,29 +31,29 @@ public class PesquisarUsuarioTest {
     @Test
     public void pesquisaUsuario(){
 
-        pesquisaUsuario.euAcionoMenuGerenciar();
-        pesquisaUsuario.euAcionoMenuGerenciarUsuario();
-        pesquisaUsuario.euPreenchoFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
-        pesquisaUsuario.euAcionoComandoPesquisa();
+        pesquisaUsuario.acionarMenuGerenciar();
+        pesquisaUsuario.acionarMenuGerenciarUsuario();
+        pesquisaUsuario.preencherFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
+        pesquisaUsuario.acionarComandoPesquisa();
 
 
     }
 
     public void pesquisaUsuarioDesabilitado(){
 
-        pesquisaUsuario.euAcionoMenuGerenciar();
-        pesquisaUsuario.euAcionoMenuGerenciarUsuario();
-        pesquisaUsuario.euAcionoSelectPesquisaUsuarioDesabilitado();
-        pesquisaUsuario.euPreenchoFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
-        pesquisaUsuario.euAcionoComandoPesquisa();
+        pesquisaUsuario.acionarMenuGerenciar();
+        pesquisaUsuario.acionarMenuGerenciarUsuario();
+        pesquisaUsuario.acionarSelectPesquisaUsuarioDesabilitado();
+        pesquisaUsuario.preencherFiltroUsuario(PropriedadesUsuario.nomeVerdadeiro);
+        pesquisaUsuario.acionarComandoPesquisa();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(pesquisaUsuario.euVerificoUsuarioCriadoEmGrid());
+        Assert.assertTrue(pesquisaUsuario.verificarUsuarioCriadoEmGrid());
         pesquisaUsuario.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

@@ -72,104 +72,104 @@ public class TarefasPage {
     }
 
 
-    public void euAcessoMenuVerTarefas(){
+    public void acionarMenuVerTarefas(){
         Comando.clicar(menuVerTarefas);
     }
 
-    public void euAcessoMenuCriarTarefas(){
+    public void acessarMenuCriarTarefas(){
 
         Comando.clicar(menuCriarTarefas);
     }
 
-    public void euAcionoComandoAplicar(){
+    public void acionarComandoAplicar(){
         Comando.clicar(comandoAplicar);
     }
 
-    public void euSelecionoMarcador(String texto){
+    public void selecionarMarcador(String texto){
         Combo.selecionarCombo(comboMarcador, texto);
     }
 
-    public Boolean euVerificoAlteracaoStatusEmAtividade(){
+    public Boolean verificarAlteracaoStatusEmAtividade(){
         return Label.textoPresente(alteracaoStatusGravidade);
     }
 
-    public Boolean euVerificoMarcadorEmTarefa(){
+    public Boolean verificarMarcadorEmTarefa(){
             if(Label.textoPresente(macardorEmTarefa)){
                 return true;
             }else return false;
     }
 
-    public void euAcionoIconeEditar(){
+    public void acionarIconeEditar(){
         Comando.clicar(iconeEditar);
     }
-    public void euSelecionoGravidadeObstaculoBug(String texto){
+    public void selecionarGravidadeObstaculoBug(String texto){
         Combo.selecionarCombo(gravidadeBug,texto );
     }
-    public void euAcionoComandoCriarTarefa(){
+    public void acionarComandoCriarTarefa(){
         Comando.clicar(comandoCriarNovaTarefa);
     }
 
-    public void euAcessoCategoriaTarefa(String tipo){
+    public void acionarCategoriaTarefa(String tipo){
         Combo.selecionarCombo(categoriaBug, tipo);
     }
 
-    public void euAcionoComandoFecharTarefa(){
+    public void acionarComandoFecharTarefa(){
         Comando.clicar(comandoFecharTarefa);
     }
 
-    public void euConfirmoFechamentoComandoFecharTarefa(){
+    public void confirmarFechamentoComandoFecharTarefa(){
         Comando.clicar(comandoDeConfirmaFecharTarefa);
     }
 
-    public void euAcessoFrequenciaTarefa(String tipo){
+    public void acessarFrequenciaTarefa(String tipo){
         Combo.selecionarCombo(frequenciaBug, tipo);
     }
 
-    public void euAcessoGravidadeTarefa(String tipo){
+    public void acessarGravidadeTarefa(String tipo){
         Combo.selecionarCombo(gravidadeBug, tipo);
     }
 
-    public void euAcessoPrioridadeTarefa(String tipo){
+    public void acessarPrioridadeTarefa(String tipo){
         Combo.selecionarCombo(prioridadeBug, tipo);
     }
 
-    public void euAcessoAtribuicaoTarefa(String tipo){
+    public void acessarAtribuicaoTarefa(String tipo){
         Combo.selecionarCombo(atribuicaoBug, tipo);
     }
 
-    public void euInformoResumoTarefa(String tipo){
+    public void informarResumoTarefa(String tipo){
         CampoTexto.preencher(resumoBug, tipo);
     }
 
-    public void euInformoDescricaoBug(String tipo){
+    public void informarDescricaoBug(String tipo){
         CampoTexto.preencher(descriçãoBug, tipo);
     }
 
-    public void euInformoReproducaoBug(String tipo){
+    public void informarReproducaoBug(String tipo){
         CampoTexto.preencher(reproduzirBug, tipo);
     }
 
-    public Boolean euConfirmoCadastroComSucesso(){
+    public Boolean confirmarCadastroComSucesso(){
         Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
         return  Label.textoPresente(confirmoCadastroTarefaRealizada);
     }
-    public String euVerificoIdTarefaCriada(){
+    public String verificarIdTarefaCriada(){
         Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
         return Label.recuperaTexto(confirmoCadastroTarefaRealizada);
     }
 
-    public Boolean euVerificoStatusFechado(){
+    public Boolean verificarStatusFechado(){
         Tempo.aguardar(20, confirmoStatusFechado);
         return Label.textoPresente(confirmoStatusFechado);
     }
 
-    public Boolean euVerificoPesquisaIdTarefaCriada(){
+    public Boolean verificarPesquisaIdTarefaCriada(){
         Tempo.aguardar(20, confirmoCadastroTarefaRealizada);
         return Label.textoPresente(confirmoCadastroTarefaRealizada);
     }
 
 
-    public void euAcionoIconeExluirMarcador(){
+    public void acionarIconeExluirMarcador(){
         Comando.clicar(iconeExlusao);
     }
 
@@ -180,19 +180,19 @@ public class TarefasPage {
 
     }
 
-    public void euAcionoComandoApagarTarefas(){
+    public void acionarComandoApagarTarefas(){
         Comando.clicar(comandoApagar);
         Comando.clicar(comandoConfirmacaoApagar);
     }
 
-    public void euAcionoComandoMarcarTarefasPegajosa(){
+    public void acionarComandoMarcarTarefasPegajosa(){
         Comando.clicar(comandoMarcarComoPegajosa);
     }
-    public void euAcionoComandoDesmarcarTarefasPegajosa(){
+    public void acionarComandoDesmarcarTarefasPegajosa(){
         Comando.clicar(comandoDesmarcarComoPegajosa);
     }
 
-    public Boolean euVerificoGridVazio(){
+    public Boolean verificarGridVazio(){
 
         try {
             Label.textoPresente(selecionarTarefaParaAcao);
@@ -204,10 +204,9 @@ public class TarefasPage {
 
     }
 
-    public Boolean euVerificoTarefaMarcarda(){
+    public Boolean verificarTarefaMarcarda(){
 
         try {
-            //Tempo.aguardar(5,comandoDesmarcarComoPegajosa);
             Label.textoPresente(comandoDesmarcarComoPegajosa);
             comandoDesmarcarComoPegajosa.getSize();
             return true;
@@ -216,10 +215,9 @@ public class TarefasPage {
         }
 
     }
-    public Boolean euVerificoTarefaDesmarcarda(){
+    public Boolean verificarTarefaDesmarcarda(){
 
         try {
-            //Tempo.aguardar(5,comandoMarcarComoPegajosa);
             Label.textoPresente(comandoMarcarComoPegajosa);
             comandoMarcarComoPegajosa.getSize();
             return true;
@@ -229,23 +227,23 @@ public class TarefasPage {
 
     }
 
-    public void euAcionoComandoAplicaFiltro(){
+    public void acionarComandoAplicaFiltro(){
         Tempo.aguardar(3, comandoAplicarFiltro);
         Comando.clicar(comandoAplicarFiltro);
     }
-    public String euVerificoAlteracaoCategoria(){
+    public String verificarAlteracaoCategoria(){
         return Label.recuperaTexto(informacaoCategoria);
     }
 
-    public void euAcionoComandoAtualizar(){
+    public void acionarComandoAtualizar(){
         Comando.clicar(comandoAtualizar);
     }
 
-    public void euAcionoComandoAtualizacaoInformacaoEmTarefa(){
+    public void acionarComandoAtualizacaoInformacaoEmTarefa(){
         Comando.clicar(comandoAtualizacaoTarefaRealizada);
     }
 
-    public void euAdicionoInformacaoTarefa(String texto){
+    public void adicionarInformacaoTarefa(String texto){
         CampoTexto.preencher(campoAdicionarInformacaoTarefa, texto);
     }
 
@@ -267,9 +265,9 @@ public class TarefasPage {
         }
     }
 
-    public void verificoSeExisteTarefa(){
+    public void verificarSeExisteTarefa(){
 
-        euAcessoMenuVerTarefas();
+        acionarMenuVerTarefas();
         CriarTarefasTest criaTarefa = new CriarTarefasTest();
 
         if(Label.textoPresente(atividadeGrid)){
@@ -279,22 +277,21 @@ public class TarefasPage {
         }
     }
 
-    public void verificoSeExisteTarefaParaImprimir(){
+    public void verificarSeExisteTarefaParaImprimir(){
 
-        euAcessoMenuVerTarefas();
+        acionarMenuVerTarefas();
         CriarTarefasTest criaTarefa = new CriarTarefasTest();
 
         if(Label.textoPresente(atividadeGrid)){
 
         }else {
             criaTarefa.criarNovaTarefa();
-            euAcessoMenuVerTarefas();
+            acionarMenuVerTarefas();
 
         }
     }
 
-    public void verificoSeTarefaEstaMarcada(){
-
+    public void verificarSeTarefaEstaMarcada(){
 
         if(Label.textoPresente(comandoDesmarcarComoPegajosa)){
 
@@ -306,8 +303,7 @@ public class TarefasPage {
         }
     }
 
-    public void verificoSeTarefaEstaDesmarcada(){
-
+    public void verificarSeTarefaEstaDesmarcada(){
 
         if(Label.textoPresente(comandoMarcarComoPegajosa)){
 
@@ -317,11 +313,11 @@ public class TarefasPage {
         }
     }
 
-    public void euAcionoComandoCriarCloneTarefa(){
+    public void acionarComandoCriarCloneTarefa(){
         Comando.clicar(comandoCriarCloneTarefa);
     }
 
-    public void euAcionoComandoImprimirTarefa() {
+    public void acionarComandoImprimirTarefa() {
         Comando.clicar(comandoImprimirTarefa);
     }
 
@@ -334,48 +330,45 @@ public class TarefasPage {
         }
     }
 
-    public Boolean euVerificoTarefaEmGrid(){
+    public Boolean verificarTarefaEmGrid(){
         return Label.textoPresente(atividadeGrid);
     }
 
-    public void euRetornoImpressao() {
+    public void retornarImpressao() {
         getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
         getDriver().navigate().refresh();
     }
 
-    public void verificoSeTarefaPossuiMarcador() {
+    public void verificarSeTarefaPossuiMarcador() {
 
         AdicionarMarcadorEmTarefasTest adicionarMarcador = new AdicionarMarcadorEmTarefasTest();
         MarcadorPage marcador = new MarcadorPage();
         TarefasPage tarefa = new TarefasPage();
 
-        marcador.verificoSeExisteMarcador();
+        marcador.verificarSeExisteMarcador();
         Comando.clicar(menuVerTarefas);
-        tarefa.verificoSeExisteTarefa();
+        tarefa.verificarSeExisteTarefa();
 
         if (Label.textoPresente(iconeExlusao)){
-
         }else{
-
             adicionarMarcador.adicionarMarcadorEmAtividade();
         }
 
     }
 
-    public void euAcionoRelatorGrid(){
+    public void acionarRelatorGrid(){
         Comando.clicar(filtroRelator);
     }
 
-    public void euSelecionoRelator(String texto) {
+    public void selecionarRelator(String texto) {
         Tempo.aguardar(2, comboAdministrador);
         Combo.selecionarCombo(comboAdministrador, texto);
     }
 
-    public void verificoSeExisteFiltroTarefa() {
+    public void verificarSeExisteFiltroTarefa() {
 
-        euAcessoMenuVerTarefas();
+        acionarMenuVerTarefas();
         if (Label.textoPresente(validarRedefinir)){
-
 
             AdicionarFiltroTarefasTest adicionaFiltro = new AdicionarFiltroTarefasTest();
 
@@ -387,11 +380,11 @@ public class TarefasPage {
 
     }
 
-    public void euAcionoComandoRedefinir(){
+    public void acionarComandoRedefinir(){
         Comando.clicar(comandoRedefinir);
     }
 
-    public boolean euVerificoRedefinicaoTarefa() {
+    public boolean verificarRedefinicaoTarefa() {
 
         try {
             if(Label.textoPresente(validarRedefinir)){
@@ -400,23 +393,23 @@ public class TarefasPage {
         }catch (Exception e){
             return false;
         }
-        return euVerificoRedefinicaoTarefa();
+        return verificarRedefinicaoTarefa();
     }
 
-    public void euAcionoComandoMoverAtividade() {
+    public void acionarComandoMoverAtividade() {
         Comando.clicar(comandoMover);
     }
 
-    public void euAcionoComandoConfirmarMoverAtividade() {
+    public void acionarComandoConfirmarMoverAtividade() {
         Comando.clicar(comandoMoverTarefas);
     }
 
-    public void euSelecionoTarefaParaRemover(String texto){
+    public void selecionarTarefaParaRemover(String texto){
         Tempo.aguardar(3, comboMoverProjeto);
         Combo.selecionarCombo(comboMoverProjeto, texto);
     }
 
-    public void euAcionoComandoMonitorar() {
+    public void acionarComandoMonitorar() {
         if(Label.textoPresente(comandoMonitorar)){
             Comando.clicar(comandoMonitorar);
         }else{
@@ -426,8 +419,7 @@ public class TarefasPage {
     }
 
 
-
-    public void euAcionoComandoPararDeMonitorar() {
+    public void acionarComandoPararDeMonitorar() {
 
         if(Label.textoPresente(comandoPararDeMonitorar)){
             Comando.clicar(comandoPararDeMonitorar);
@@ -437,7 +429,7 @@ public class TarefasPage {
         }
     }
 
-    public boolean euVerificoTarefaMonitorada() {
+    public boolean verificarTarefaMonitorada() {
 
         try{
             Label.textoPresente(comandoPararDeMonitorar);
@@ -447,7 +439,7 @@ public class TarefasPage {
         }
     }
 
-    public boolean euVerificoTarefaSemEstarMonitorada() {
+    public boolean verificarTarefaSemEstarMonitorada() {
 
         try{
             Label.textoPresente(comandoMonitorar);

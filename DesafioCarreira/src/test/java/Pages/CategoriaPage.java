@@ -32,32 +32,32 @@ public class CategoriaPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euAcionoMenuGerenciar()  {
+    public void acionarMenuGerenciar()  {
         Comando.clicar(menuGerenciar);
     }
 
 
-    public void euAcionoMenuGerenciarProjetos(){
+    public void acionarMenuGerenciarProjetos(){
         Comando.clicar(menuGerenciarProjetos);
     }
 
-    public void euPreenchoCampoNomeCategoria(String texto){
+    public void preencherCampoNomeCategoria(String texto){
         CampoTexto.limpar(campoNomeCategoria);
         CampoTexto.preencher(campoNomeCategoria, texto);
     }
 
-    public void euAcionoComandoAdicionarCategoria(){
+    public void acionarComandoAdicionarCategoria(){
         Comando.clicar(comandoAdicionarCategoria);
     }
 
-    public Boolean euVerificoCategoriaEmGrid(){
+    public Boolean verificarCategoriaEmGrid(){
         Tempo.aguardar(5, menuGerenciarProjetos);
         if(Label.textoPresente(categoriaTesteEmGrid) || Label.textoPresente(categoriaAlteradaTesteEmGrid)){
             return true;
         }else return false;
     }
 
-    public void euVerificoSeExisteCategoriaCriada(){
+    public void verificarSeExisteCategoriaCriada(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -69,7 +69,7 @@ public class CategoriaPage {
 
         }
     }
-    public void euVerificoSeExisteCategoriaAExcluir(){
+    public void verificarSeExisteCategoriaAExcluir(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -81,7 +81,7 @@ public class CategoriaPage {
             cadastrarCategoria.cadastraCategoria();
         }
     }
-    public void euVerificoSeExisteCategoriaAAlterar(){
+    public void verificarSeExisteCategoriaAAlterar(){
 
         ApagarCategoriaTest apagarCategoria = new ApagarCategoriaTest();
         CadastrarCategoriaTest cadastrarCategoria = new CadastrarCategoriaTest();
@@ -100,19 +100,19 @@ public class CategoriaPage {
         }
     }
 
-    public void euAcionoAlterarCategoria() {
+    public void acionarAlterarCategoria() {
         Comando.clicar(comandoAlterarCategoria);
     }
 
-    public void euAcionoExcluirCategoria() {
+    public void acionarExcluirCategoria() {
         Comando.clicar(comandoApagarCategoria);
     }
 
-    public void euConfirmoExcluirCategoria(){
+    public void confirmarExcluirCategoria(){
         Comando.clicar(confirmarExclusao);
     }
 
-    public void euAcionoComandoAtualizarCategoria() {
+    public void acionarComandoAtualizarCategoria() {
         Comando.clicar(comandoAtualizarCategoria);
     }
 }

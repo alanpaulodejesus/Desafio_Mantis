@@ -24,25 +24,25 @@ public class AlterarStatusTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        alterarStatusTarefas.verificoSeExisteTarefa();
+        alterarStatusTarefas.verificarSeExisteTarefa();
 
     }
 
     @Test
     public void alterarStatusAtividade(){
 
-        alterarStatusTarefas.euAcessoMenuVerTarefas();
-        alterarStatusTarefas.euAcionoIconeEditar();
-        alterarStatusTarefas.euSelecionoGravidadeObstaculoBug(PropriedadesTarefas.gravidadeBugObstaculo);
-        alterarStatusTarefas.euAcionoComandoAtualizacaoInformacaoEmTarefa();
+        alterarStatusTarefas.acionarMenuVerTarefas();
+        alterarStatusTarefas.acionarIconeEditar();
+        alterarStatusTarefas.selecionarGravidadeObstaculoBug(PropriedadesTarefas.gravidadeBugObstaculo);
+        alterarStatusTarefas.acionarComandoAtualizacaoInformacaoEmTarefa();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(alterarStatusTarefas.euVerificoAlteracaoStatusEmAtividade());
+        Assert.assertTrue(alterarStatusTarefas.verificarAlteracaoStatusEmAtividade());
         alterarStatusTarefas.excluirTodasTarefas();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

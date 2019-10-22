@@ -27,28 +27,28 @@ public class MoverTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        verProjeto.verificoSeExisteProjeto();
-        verProjeto.verificoSeExisteProjetoParaMoverTarefa();
-        verProjeto.euSelecionoProjeto();
-        moverTarefas.verificoSeExisteTarefa();
+        verProjeto.verificarSeExisteProjeto();
+        verProjeto.verificarSeExisteProjetoParaMoverTarefa();
+        verProjeto.selecionarProjeto();
+        moverTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void moverAtividade() {
 
-        moverTarefas.euAcionoComandoMoverAtividade();
-        moverTarefas.euSelecionoTarefaParaRemover(PropriedadesProjeto.nomeProjetoMoverTarefa);
-        moverTarefas.euAcionoComandoConfirmarMoverAtividade();
-        verProjeto.euSelecionoProjetoComTarefaMovida();
+        moverTarefas.acionarComandoMoverAtividade();
+        moverTarefas.selecionarTarefaParaRemover(PropriedadesProjeto.nomeProjetoMoverTarefa);
+        moverTarefas.acionarComandoConfirmarMoverAtividade();
+        verProjeto.selecionarProjetoComTarefaMovida();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(moverTarefas.euVerificoTarefaEmGrid());
+        Assert.assertTrue(moverTarefas.verificarTarefaEmGrid());
         moverTarefas.excluirTodasTarefas();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

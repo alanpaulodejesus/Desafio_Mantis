@@ -39,30 +39,30 @@ public class ProjetoPage {
     }
 
 
-    public void euAcionoMenuGerenciar(){
+    public void acionarMenuGerenciar(){
 
         Comando.clicar(menuGerenciar);
     }
 
-    public void euAcionoMenuGerenciarProjetos(){
+    public void acionarMenuGerenciarProjetos(){
 
         Comando.clicar(menuGerenciarProjetos);
     }
-    public void euAcionoComandoCriarProjetos(){
+    public void acionarComandoCriarProjetos(){
 
         Comando.clicar(comandoCriarProjeto);
     }
-    public void euPreenchoCampoNomeProjeto(String texto){
+    public void preencherCampoNomeProjeto(String texto){
 
         CampoTexto.preencher(campoNomeProjeto, texto);
     }
 
-    public void euAcionoComandoAdicionarProjeto(){
+    public void acionarComandoAdicionarProjeto(){
 
         Comando.clicar(comandoAdicionarProjeto);
     }
 
-    public Boolean euVerificoProjetoEmGrid(){
+    public Boolean verificarProjetoEmGrid(){
         Tempo.aguardar(5, projetoEmGrid);
         try {
             Label.textoPresente(projetoEmGrid);
@@ -73,7 +73,7 @@ public class ProjetoPage {
         }
 
     }
-    public Boolean euVerificoProjetoNaoEstaEmGrid(){
+    public Boolean verificarProjetoNaoEstaEmGrid(){
         try {
             Label.textoPresente(projetoEmGrid);
             projetoEmGrid.getSize();
@@ -85,7 +85,7 @@ public class ProjetoPage {
 
     }
 
-    public Boolean euVerificoProjetoPrivadoEmGrid(){
+    public Boolean verificarProjetoPrivadoEmGrid(){
 
         if (Label.textoPresente(projetoPublicoEmGrid) && Label.textoPresente(projetoPrivado)){
             return true;
@@ -95,7 +95,7 @@ public class ProjetoPage {
 
     }
 
-    public Boolean euVerificoProjetoPublicoEmGrid(){
+    public Boolean verificarProjetoPublicoEmGrid(){
 
         if (Label.textoPresente(projetoPrivadoEmGrid) && Label.textoPresente(projetoPublico)){
             return true;
@@ -105,44 +105,32 @@ public class ProjetoPage {
 
     }
 
-
-    public void euAcionoComandoAtualizarProjeto(){
+    public void acionarComandoAtualizarProjeto(){
         Comando.clicar(comandoAtualizarProjeto);
     }
 
-    public void euPreenchoDescricaoProjeto(String texto){
+    public void preencherDescricaoProjeto(String texto){
         CampoTexto.limpar(campoDescricaoProjeto);
         CampoTexto.preencher(campoDescricaoProjeto, texto);
     }
-    public void euAcionoProjetoEmGrid() {
+    public void acionarProjetoEmGrid() {
         Comando.clicar(projetoEmGrid);
     }
 
-    public void euAcionoProjetoPrivadoEmGrid() {
+    public void acionarProjetoPrivadoEmGrid() {
         Comando.clicar(projetoPrivadoEmGrid);
     }
 
-    public void euAcionoProjetoPublicoEmGrid() {
+    public void acionarProjetoPublicoEmGrid() {
         Comando.clicar(projetoPublicoEmGrid);
     }
 
-    public void euAcionoComandoApagarProjeto() {
+    public void acionarComandoApagarProjeto() {
         Comando.clicar(comandoApagarProjeto);
     }
 
 
-    public void excluirTodosProjetos(){
-
-
-        while(Label.textoPresente(projetoEmGrid)){
-              ExcluirProjetoTest exlui = new ExcluirProjetoTest();
-               exlui.excluirProjeto();
-
-        }
-
-    }
-
-    public void verificoSeExisteProjetoAExcluir(){
+    public void verificarSeExisteProjetoAExcluir(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -152,12 +140,11 @@ public class ProjetoPage {
         if(Label.textoPresente(projetoEmGrid)){
             excluirProjeto.excluirProjeto();
         }else {
-            //criaProjeto.criarNovoProjeto();
 
         }
     }
 
-    public void verificoSeExisteProjeto(){
+    public void verificarSeExisteProjeto(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -172,7 +159,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificoSeExisteProjetoPrivado(){
+    public void verificarSeExisteProjetoPrivado(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -187,7 +174,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificoSeExisteProjetoPublico(){
+    public void verificarSeExisteProjetoPublico(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -203,7 +190,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificoSeExisteProjetoParaMoverTarefa() {
+    public void verificarSeExisteProjetoParaMoverTarefa() {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -211,30 +198,30 @@ public class ProjetoPage {
         if(Label.textoPresente(projetoEmGridParaMoverTarefa)){
 
         }else {
-            euAcionoMenuGerenciar();
-            euAcionoMenuGerenciarProjetos();
-            euAcionoComandoCriarProjetos();
-            euPreenchoCampoNomeProjeto(PropriedadesProjeto.nomeProjetoMoverTarefa);
-            euAcionoComandoAdicionarProjeto();
+            acionarMenuGerenciar();
+            acionarMenuGerenciarProjetos();
+            acionarComandoCriarProjetos();
+            preencherCampoNomeProjeto(PropriedadesProjeto.nomeProjetoMoverTarefa);
+            acionarComandoAdicionarProjeto();
 
         }
     }
 
-    public void euSelecionoProjetoComTarefaMovida(){
+    public void selecionarProjetoComTarefaMovida(){
         Comando.clicar(selecionarProjeto);
         Comando.clicar(projetoTarefaMovida);
     }
 
-    public void euSelecionoProjeto(){
+    public void selecionarProjeto(){
         Comando.clicar(selecionarProjeto);
         Comando.clicar(projetoEmGrid);
     }
 
-    public void euSelecionoComboVisibilidadeProjetoPublico(String texto){
+    public void selecionarComboVisibilidadeProjetoPublico(String texto){
         Combo.selecionarCombo(comboVisibilidadeProjeto, texto);
     }
 
-    public void euSelecionoComboVisibilidadeProjetoPrivado(String texto){
+    public void selecionarComboVisibilidadeProjetoPrivado(String texto){
         Combo.selecionarCombo(comboVisibilidadeProjeto, texto);
     }
 }

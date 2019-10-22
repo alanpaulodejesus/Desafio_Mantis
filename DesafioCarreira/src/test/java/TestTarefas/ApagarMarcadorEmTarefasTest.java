@@ -24,21 +24,21 @@ public class ApagarMarcadorEmTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        apagarMarcadorEmTarefa.verificoSeTarefaPossuiMarcador();
+        apagarMarcadorEmTarefa.verificarSeTarefaPossuiMarcador();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void apagarMarcadorEmAtividade(){
 
-        apagarMarcadorEmTarefa.euAcionoIconeExluirMarcador();
+        apagarMarcadorEmTarefa.acionarIconeExluirMarcador();
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(apagarMarcadorEmTarefa.euVerificoMarcadorEmTarefa());
+        Assert.assertFalse(apagarMarcadorEmTarefa.verificarMarcadorEmTarefa());
         apagarMarcadorEmTarefa.excluirTodasTarefas();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

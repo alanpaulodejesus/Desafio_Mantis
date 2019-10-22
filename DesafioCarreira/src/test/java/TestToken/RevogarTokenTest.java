@@ -22,23 +22,23 @@ public class RevogarTokenTest {
     public void setUp(){
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        token.euVerificoSeExisteToken();
+        token.verificarSeExisteToken();
     }
 
 
     @Test
     public void revogarToken()  {
 
-        token.euAcionoComandoRevogarToken();
-        token.euAcionoComandoTokenApi();
+        token.acionarComandoRevogarToken();
+        token.acionarComandoTokenApi();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertFalse(token.euVerificoTokenEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertFalse(token.verificarTokenEmGrid());
+        logout.realizarLogout();
     }
 
 }

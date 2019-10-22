@@ -24,28 +24,28 @@ public class GerarTokenTest {
     public void setUp(){
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        token.euVerificoSeExisteTokenParaGerar();
+        token.verificarSeExisteTokenParaGerar();
     }
 
 
     @Test
     public void gerarToken()  {
 
-        token.euAcionoComandoSair();
-        token.euAcionoComandoMinhaConta();
-        token.euAcionoComandoTokenApi();
-        token.euPreenchoCampoNomeToken(PropriedadesToken.Token);
-        token.euAcionoComandoCriarToken();
+        token.acionarComandoSair();
+        token.acionarComandoMinhaConta();
+        token.acionarComandoTokenApi();
+        token.preencherCampoNomeToken(PropriedadesToken.Token);
+        token.acionarComandoCriarToken();
         token.tokenGerado();
-        token.euAcionoComandoTokenApi();
+        token.acionarComandoTokenApi();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(token.euVerificoTokenEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(token.verificarTokenEmGrid());
+        logout.realizarLogout();
 
     }
 

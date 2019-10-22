@@ -23,7 +23,7 @@ public class ExcluirPerfilTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        perfil.verificoSeExistePerfil();
+        perfil.verificarSeExistePerfil();
 
     }
 
@@ -31,17 +31,17 @@ public class ExcluirPerfilTest {
     @Test
     public void excluirPerfil(){
 
-        perfil.euAcionoComandoMenuGerenciar();
-        perfil.euAcionoComandoMenuGerenciarPerfisGlobais();
-        perfil.euSelecionoComboPerfil(PropriedadesPerfil.PLATAFORMA+" "+PropriedadesPerfil.SO+" "+PropriedadesPerfil.VERSAOSO);
-        perfil.euSelecionoRadioApagar();
-        perfil.euAcionoComandoEnviar();
+        perfil.acionarComandoMenuGerenciar();
+        perfil.acionarComandoMenuGerenciarPerfisGlobais();
+        perfil.selecionarComboPerfil(PropriedadesPerfil.PLATAFORMA+" "+PropriedadesPerfil.SO+" "+PropriedadesPerfil.VERSAOSO);
+        perfil.selecionarRadioApagar();
+        perfil.acionarComandoEnviar();
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(perfil.euVerificoPerfilNaoEstaEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(perfil.verificarPerfilNaoEstaEmGrid());
+        logout.realizarLogout();
     }
 }

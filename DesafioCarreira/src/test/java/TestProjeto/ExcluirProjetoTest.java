@@ -22,7 +22,7 @@ public class ExcluirProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
+        projeto.verificarSeExisteProjeto();
 
     }
 
@@ -31,17 +31,17 @@ public class ExcluirProjetoTest {
     public void excluirProjeto(){
 
 
-        projeto.euAcionoMenuGerenciar();
-        projeto.euAcionoMenuGerenciarProjetos();
-        projeto.euAcionoProjetoEmGrid();
-        projeto.euAcionoComandoApagarProjeto();
-        projeto.euAcionoComandoApagarProjeto();
+        projeto.acionarMenuGerenciar();
+        projeto.acionarMenuGerenciarProjetos();
+        projeto.acionarProjetoEmGrid();
+        projeto.acionarComandoApagarProjeto();
+        projeto.acionarComandoApagarProjeto();
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(projeto.euVerificoProjetoNaoEstaEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(projeto.verificarProjetoNaoEstaEmGrid());
+        logout.realizarLogout();
     }
 }

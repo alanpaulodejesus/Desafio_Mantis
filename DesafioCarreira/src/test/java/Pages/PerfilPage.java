@@ -25,46 +25,44 @@ public class PerfilPage {
     @FindBy(id = "select-profile") private WebElement comboSelecionarPerfil;
     @FindBy(xpath = "//span[@class=\"lbl\"]") private WebElement comandoRadioAlterar;
     @FindBy(xpath = "//tr[2]//td[2]//label[1]//span[1]") private WebElement comandoRadioApagar;
-
     @FindBy(xpath = "//input[@value=\"Enviar\"]") private WebElement comandoEnviar;
     @FindBy(id = "description") private WebElement campoDescricaoAdicional;
     @FindBy(name= "description") private WebElement campoDescricaoAdicionalAlteracao;
-
     @FindBy(name = "os_build") private WebElement campoVersaoOSAlteracao;
 
     public PerfilPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euAcionoComandoMenuGerenciar()  {
+    public void acionarComandoMenuGerenciar()  {
         Comando.clicar(menuGerenciar);
     }
 
-    public void euAcionoComandoMenuGerenciarPerfisGlobais()  {
+    public void acionarComandoMenuGerenciarPerfisGlobais()  {
         Comando.clicar(menuGerenciarPerfisGlobais);
     }
 
-    public void euPreenchoCampoPlataforma(String texto)  {
+    public void preencherCampoPlataforma(String texto)  {
         CampoTexto.preencher(campoPlataforma, texto);
     }
 
-    public void euPreenchoCampoOS(String texto)  {
+    public void preencherCampoOS(String texto)  {
         CampoTexto.preencher(campoOS, texto);
     }
 
-    public void euPreenchoCampoVersaoOS(String texto)  {
+    public void preencherCampoVersaoOS(String texto)  {
         CampoTexto.preencher(campoVersaoOS, texto);
     }
 
-    public void euAcionoComandoAdicionarPerfil()  {
+    public void acionarComandoAdicionarPerfil()  {
         Comando.clicar(comandoAdicionarPerfil);
     }
-    public void euAcionoComandoAtualizarPerfil()  {
+    public void acionarComandoAtualizarPerfil()  {
         Comando.clicar(comandoAlterarPerfil);
     }
 
 
-    public Boolean euVerificoPerfilEmGrid(){
+    public Boolean verificarPerfilEmGrid(){
         Tempo.aguardar(5, comboSelecionarPerfil);
         try {
             Label.textoPresente(comboSelecionarPerfil);
@@ -75,10 +73,7 @@ public class PerfilPage {
         }
 
     }
-    public Boolean euVerificoPerfilNaoEstaEmGrid(){
-        //Tempo.aguardar(5, comboSelecionarPerfil);
-
-
+    public Boolean verificarPerfilNaoEstaEmGrid(){
         try {
             Label.textoPresente(comboSelecionarPerfil);
             comboSelecionarPerfil.getSize();
@@ -89,35 +84,31 @@ public class PerfilPage {
 
     }
 
-    public void euSelecionoComboPerfil(String texto){
+    public void selecionarComboPerfil(String texto){
         Combo.selecionarCombo(comboSelecionarPerfil,texto);
     }
 
-    public void euSelecionoRadioAlterar(){
+    public void selecionarRadioAlterar(){
         Comando.clicar(comandoRadioAlterar);
     }
 
-    public void euSelecionoRadioApagar(){
+    public void selecionarRadioApagar(){
         Comando.clicar(comandoRadioApagar);
     }
 
-    public void euAcionoComandoEnviar(){
+    public void acionarComandoEnviar(){
         Comando.clicar(comandoEnviar);
     }
 
-    public void euPreenchoDescricaoAdicional(String texto){
-        CampoTexto.preencher(campoDescricaoAdicional, texto);
-    }
-
-    public void euPreenchoDescricaoAdicionalAlteracao(String texto){
+    public void preencherDescricaoAdicionalAlteracao(String texto){
         CampoTexto.preencher(campoDescricaoAdicionalAlteracao, texto);
     }
 
-    public void euPreenchoCampoVersaoOSAlteracao(String texto) {
+    public void preencherCampoVersaoOSAlteracao(String texto) {
         CampoTexto.preencher(campoVersaoOSAlteracao, texto);
     }
 
-    public void verificoSeExistePerfilAExcluir(){
+    public void verificarSeExistePerfilAExcluir(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarPerfisGlobais);
@@ -130,7 +121,7 @@ public class PerfilPage {
         }
     }
 
-    public void verificoSeExistePerfil(){
+    public void verificarSeExistePerfil(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarPerfisGlobais);
@@ -138,7 +129,6 @@ public class PerfilPage {
 
 
         if(Label.textoPresente(comboSelecionarPerfil)){
-            //cria.criarNovaTarefa();
         }else {
             criaPerfil.criarPerfil();
 

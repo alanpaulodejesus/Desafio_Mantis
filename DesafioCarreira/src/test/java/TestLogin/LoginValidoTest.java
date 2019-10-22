@@ -22,11 +22,11 @@ public class LoginValidoTest {
     @Test
     public void realizarLoginValido()  {
 
-        login.euPreenchoCampoUsername(Propriedades.USUARIO);
-        login.euAcionoComandoEntrar();
-        login.euPreenchoCampoSenha(Propriedades.SENHA);
-        login.euAcionoComandoEntrar();
-        Assert.assertTrue(login.euValidoAcessoLogin());
+        login.preencherCampoUsername(Propriedades.USUARIO);
+        login.acionarComandoEntrar();
+        login.preencherCampoSenha(Propriedades.SENHA);
+        login.acionarComandoEntrar();
+        Assert.assertTrue(login.validarAcessoLogin());
         //login.euRegistroLoginValido();
 
     }
@@ -34,7 +34,7 @@ public class LoginValidoTest {
     @After
     public void tearDown(){
 
-        login.euRealizoLogout();
+        login.realizarLogout();
     }
 
 }

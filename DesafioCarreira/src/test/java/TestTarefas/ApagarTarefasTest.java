@@ -23,14 +23,14 @@ public class ApagarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        excluirTarefas.verificoSeExisteTarefa();
+        excluirTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void apagarTarefa(){
 
-        excluirTarefas.euAcionoComandoApagarTarefas();
+        excluirTarefas.acionarComandoApagarTarefas();
 
     }
 
@@ -38,7 +38,7 @@ public class ApagarTarefasTest {
     public void tearDown(){
 
         excluirTarefas.excluirTodasTarefas();
-        Assert.assertTrue(excluirTarefas.euVerificoGridVazio());
-        logout.euRealizoLogout();
+        Assert.assertTrue(excluirTarefas.verificarGridVazio());
+        logout.realizarLogout();
     }
 }

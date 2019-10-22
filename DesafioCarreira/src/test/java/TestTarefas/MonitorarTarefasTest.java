@@ -23,14 +23,14 @@ public class MonitorarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        monitorarTarefa.verificoSeExisteTarefa();
+        monitorarTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void monitorarTarefa(){
 
-        monitorarTarefa.euAcionoComandoMonitorar();
+        monitorarTarefa.acionarComandoMonitorar();
 
 
     }
@@ -38,7 +38,7 @@ public class MonitorarTarefasTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(monitorarTarefa.euVerificoTarefaMonitorada());
-        logout.euRealizoLogout();
+        Assert.assertTrue(monitorarTarefa.verificarTarefaMonitorada());
+        logout.realizarLogout();
     }
 }

@@ -23,21 +23,21 @@ public class PararDeMonitorarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        monitorarTarefa.verificoSeExisteTarefa();
+        monitorarTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void monitorarTarefa(){
 
-        monitorarTarefa.euAcionoComandoPararDeMonitorar();
+        monitorarTarefa.acionarComandoPararDeMonitorar();
 
     }
 
     @After
     public void tearDown(){
 
-        Assert.assertTrue(monitorarTarefa.euVerificoTarefaSemEstarMonitorada());
-        logout.euRealizoLogout();
+        Assert.assertTrue(monitorarTarefa.verificarTarefaSemEstarMonitorada());
+        logout.realizarLogout();
     }
 }

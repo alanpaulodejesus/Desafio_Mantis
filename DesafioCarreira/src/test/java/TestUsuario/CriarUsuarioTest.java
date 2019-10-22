@@ -29,33 +29,33 @@ public class CriarUsuarioTest {
     @Test
     public void criarNovoUsuario(){
 
-        criarUsuario.euAcionoComandoConvidarUsuario();
-        criarUsuario.euPreenchoCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
-        criarUsuario.euPreenchoCampoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiro);
-        criarUsuario.euPreenchoCampoEmail(PropriedadesUsuario.email);
-        criarUsuario.euSelecionoNivelAcesso(PropriedadesUsuario.nivelAcesso);
-        criarUsuario.euAcionoComandoCriarUsuario();
-        criarUsuario.euAcionoMenuGerenciarUsuario();
-        Assert.assertTrue(criarUsuario.euVerificoUsuarioCriadoEmGrid());
+        criarUsuario.acionarComandoConvidarUsuario();
+        criarUsuario.preencherCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
+        criarUsuario.preencherCampoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiro);
+        criarUsuario.preencherCampoEmail(PropriedadesUsuario.email);
+        criarUsuario.selecionarNivelAcesso(PropriedadesUsuario.nivelAcesso);
+        criarUsuario.acionarComandoCriarUsuario();
+        criarUsuario.acionarMenuGerenciarUsuario();
+        Assert.assertTrue(criarUsuario.verificarUsuarioCriadoEmGrid());
 
     }
 
     public void criarNovoUsuarioDesativado(){
 
-        criarUsuario.euAcionoComandoConvidarUsuario();
-        criarUsuario.euPreenchoCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
-        criarUsuario.euPreenchoCampoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiro);
-        criarUsuario.euPreenchoCampoEmail(PropriedadesUsuario.email);
-        criarUsuario.euSelecionoNivelAcesso(PropriedadesUsuario.nivelAcesso);
-        criarUsuario.euAcionoSelectParaUsuarioDesabilitado();
-        criarUsuario.euAcionoComandoCriarUsuario();
-        criarUsuario.euAcionoMenuGerenciarUsuario();
+        criarUsuario.acionarComandoConvidarUsuario();
+        criarUsuario.preencherCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
+        criarUsuario.preencherCampoNomeVerdadeiro(PropriedadesUsuario.nomeVerdadeiro);
+        criarUsuario.preencherCampoEmail(PropriedadesUsuario.email);
+        criarUsuario.selecionarNivelAcesso(PropriedadesUsuario.nivelAcesso);
+        criarUsuario.acionarSelectParaUsuarioDesabilitado();
+        criarUsuario.acionarComandoCriarUsuario();
+        criarUsuario.acionarMenuGerenciarUsuario();
 
     }
 
     @After
     public void tearDown(){
         criarUsuario.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

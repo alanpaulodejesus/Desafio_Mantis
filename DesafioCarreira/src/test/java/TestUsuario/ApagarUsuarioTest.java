@@ -32,10 +32,10 @@ public class ApagarUsuarioTest {
     @Test
     public void excluirUsuario(){
 
-        excluirUsuario.euAcionoNomeDeUsuarioEmGrid();
-        excluirUsuario.euAcionoComandoApagarUsuario();
-        excluirUsuario.euAcionoComandoApagarConta();
-        Assert.assertTrue(excluirUsuario.euVerificoQueNomeUsuarioNaoEstaEmGrid());
+        excluirUsuario.acionarNomeDeUsuarioEmGrid();
+        excluirUsuario.acionarComandoApagarUsuario();
+        excluirUsuario.acionarComandoApagarConta();
+        Assert.assertTrue(excluirUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
 
     }
 
@@ -43,6 +43,6 @@ public class ApagarUsuarioTest {
     public void tearDown(){
 
         excluirUsuario.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

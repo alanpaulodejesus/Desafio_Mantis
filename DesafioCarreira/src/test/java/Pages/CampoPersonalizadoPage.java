@@ -35,39 +35,37 @@ public class CampoPersonalizadoPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euAcionoComandoMenuGerenciar()  {
+    public void acionarComandoMenuGerenciar()  {
         Comando.clicar(menuGerenciar);
     }
 
-    public void euAcionoComandoApagarCampoPersonalizado(){
+    public void acionarComandoApagarCampoPersonalizado(){
         Comando.clicar(comandoApagarCampoPersonalizado);
     }
 
-    public void euAcionoComandoConfirmarApagarCampoPersonalizado(){
+    public void acionarComandoConfirmarApagarCampoPersonalizado(){
         Comando.clicar(comandoConfirmaApagarCampoPersonalizado);
     }
 
-    public void euPreenchoCampoNomePersonalizado(String texto)  {
+    public void preencherCampoNomePersonalizado(String texto)  {
 
         CampoTexto.preencher(campoNomePersonalizado, texto);
     }
 
-    public void euAcionoMenuCampoPersonalizado(){
+    public void acionarMenuCampoPersonalizado(){
         Tempo.aguardar(5, menuCampoPersonalizados);
         Comando.clicar(menuCampoPersonalizados);
     }
-
-
 
     public void euAcionoComandoNovoCampoPersonalizado(){
         Comando.clicar(comandoNovoCampoPersonalizado);
     }
 
-    public void euAcionoComandoAlterarCampoPersonalizado(){
+    public void acionarComandoAlterarCampoPersonalizado(){
         Comando.clicar(comandoNovoCampoPersonalizaoAlterar);
     }
 
-    public void euAcionoCampoPersonalizadoEmGrid(){
+    public void acionarCampoPersonalizadoEmGrid(){
 
         if(Label.textoPresente(campoPersonalizadoEmGrid)){
             Comando.clicar(campoPersonalizadoEmGrid);
@@ -75,7 +73,7 @@ public class CampoPersonalizadoPage {
 
     }
 
-    public void euAcionoCampoPersonalizadoParaAdicionarEmGrid(){
+    public void acionarCampoPersonalizadoParaAdicionarEmGrid(){
 
 
         if(Label.textoPresente(campoPersonalizadoEmGrid)){
@@ -84,7 +82,7 @@ public class CampoPersonalizadoPage {
 
     }
 
-    public Boolean euVerificoCampoPersonalizadoEmGrid() {
+    public Boolean verificarCampoPersonalizadoEmGrid() {
         Tempo.aguardar(15, campoPersonalizadoEmGrid);
         try {
             Label.textoPresente(campoPersonalizadoEmGrid);
@@ -95,7 +93,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public Boolean euVerificoCampoPersonalizadoAlteradoEmGrid() {
+    public Boolean verificarCampoPersonalizadoAlteradoEmGrid() {
         Tempo.aguardar(5, campoPersonalizadoAlteradoEmGrid);
         try {
 
@@ -107,8 +105,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public Boolean euVerificoCampoPersonalizadoExcluidoEmGrid() {
-        //Tempo.aguardar(5, campoPersonalizadoAlteradoEmGrid);
+    public Boolean verificarCampoPersonalizadoExcluidoEmGrid() {
         try {
 
             if (Label.textoNaoPresente(campoPersonalizadoEmGrid)){
@@ -122,7 +119,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void verificoSeExisteCampoPersonalidadoAExcluir(){
+    public void verificarSeExisteCampoPersonalidadoAExcluir(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuCampoPersonalizados);
@@ -135,7 +132,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void verificoSeExisteCampoPersonalidado(){
+    public void verificarSeExisteCampoPersonalidado(){
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuCampoPersonalizados);
@@ -150,19 +147,18 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void euAcionoProjetoParaCampoPersonalizado(){
+    public void acionarProjetoParaCampoPersonalizado(){
             Comando.clicar(projetoParaCampoPersonalizado);
 
 
     }
 
-    public void euAcionoComandoVincularProjeto(){
+    public void acionarComandoVincularProjeto(){
         Comando.clicar(comandoVincularProjeto);
     }
 
 
-    public Boolean euVerificoCampoVinculadoEmGrid() {
-        //Tempo.aguardar(15, comandoRemover);
+    public Boolean verificarCampoVinculadoEmGrid() {
         try {
             Label.textoPresente(comandoRemover);
             comandoRemover.getSize();
@@ -172,15 +168,15 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void euAcionoComandoRemover(){
+    public void acionarComandoRemover(){
         Comando.clicar(comandoRemover);
     }
 
-    public void euAcionoComandoConfirmaRemover(){
+    public void acionarComandoConfirmaRemover(){
         Comando.clicar(comandoConfirmaRemover);
     }
 
-    public void verificoSeExisteCampoPersonalizadoAdicionado() {
+    public void verificarSeExisteCampoPersonalizadoAdicionado() {
 
         AdicionarCampoPersonalizadoEmProjetoTest adicionar = new AdicionarCampoPersonalizadoEmProjetoTest();
         Comando.clicar(campoPersonalizadoEmGrid);
@@ -192,9 +188,4 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    /*
-    public void euAcionoProjetoEmGrid(){
-        Comando.clicar(projetoParaCampoPersonalizado);
-    }
-    */
 }

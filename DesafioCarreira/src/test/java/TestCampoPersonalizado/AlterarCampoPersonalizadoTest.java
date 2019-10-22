@@ -24,7 +24,7 @@ public class AlterarCampoPersonalizadoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        campoPersonalizado.verificoSeExisteCampoPersonalidado();
+        campoPersonalizado.verificarSeExisteCampoPersonalidado();
 
     }
 
@@ -32,11 +32,11 @@ public class AlterarCampoPersonalizadoTest {
     @Test
     public void alterarCampoPersonalizado(){
 
-        campoPersonalizado.euAcionoComandoMenuGerenciar();
-        campoPersonalizado.euAcionoMenuCampoPersonalizado();
-        campoPersonalizado.euAcionoCampoPersonalizadoEmGrid();
-        campoPersonalizado.euPreenchoCampoNomePersonalizado(PropriedadesCampoPersonalizado.nomeCampoPersonalizadoAlterado);
-        campoPersonalizado.euAcionoComandoAlterarCampoPersonalizado();
+        campoPersonalizado.acionarComandoMenuGerenciar();
+        campoPersonalizado.acionarMenuCampoPersonalizado();
+        campoPersonalizado.acionarCampoPersonalizadoEmGrid();
+        campoPersonalizado.preencherCampoNomePersonalizado(PropriedadesCampoPersonalizado.nomeCampoPersonalizadoAlterado);
+        campoPersonalizado.acionarComandoAlterarCampoPersonalizado();
 
 
     }
@@ -44,7 +44,7 @@ public class AlterarCampoPersonalizadoTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(campoPersonalizado.euVerificoCampoPersonalizadoAlteradoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoAlteradoEmGrid());
+        logout.realizarLogout();
     }
 }

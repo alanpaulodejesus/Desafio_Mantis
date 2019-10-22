@@ -25,9 +25,9 @@ public class RemoverCampoPersonalizadoEmProjetoTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        projeto.verificoSeExisteProjeto();
-        removerCampoPersonalizado.verificoSeExisteCampoPersonalidado();
-        removerCampoPersonalizado.verificoSeExisteCampoPersonalizadoAdicionado();
+        projeto.verificarSeExisteProjeto();
+        removerCampoPersonalizado.verificarSeExisteCampoPersonalidado();
+        removerCampoPersonalizado.verificarSeExisteCampoPersonalizadoAdicionado();
 
     }
 
@@ -35,11 +35,11 @@ public class RemoverCampoPersonalizadoEmProjetoTest {
     @Test
     public void removerCampoPersonalizadoEmProjeto(){
 
-        removerCampoPersonalizado.euAcionoComandoMenuGerenciar();
-        removerCampoPersonalizado.euAcionoMenuCampoPersonalizado();
-        removerCampoPersonalizado.euAcionoCampoPersonalizadoParaAdicionarEmGrid();
-        removerCampoPersonalizado.euAcionoComandoRemover();
-        removerCampoPersonalizado.euAcionoComandoConfirmaRemover();
+        removerCampoPersonalizado.acionarComandoMenuGerenciar();
+        removerCampoPersonalizado.acionarMenuCampoPersonalizado();
+        removerCampoPersonalizado.acionarCampoPersonalizadoParaAdicionarEmGrid();
+        removerCampoPersonalizado.acionarComandoRemover();
+        removerCampoPersonalizado.acionarComandoConfirmaRemover();
 
 
     }
@@ -47,7 +47,7 @@ public class RemoverCampoPersonalizadoEmProjetoTest {
 
     @After
     public void tearDown(){
-        Assert.assertFalse(removerCampoPersonalizado.euVerificoCampoVinculadoEmGrid());
-        logout.euRealizoLogout();
+        Assert.assertFalse(removerCampoPersonalizado.verificarCampoVinculadoEmGrid());
+        logout.realizarLogout();
     }
 }

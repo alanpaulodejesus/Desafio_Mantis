@@ -32,19 +32,19 @@ public class RepresentarUsuarioTest {
     @Test
     public void redefinirSenhaUsuario(){
 
-        representarUsuario.euAcionoNomeDeUsuarioEmGrid();
-        representarUsuario.euAcionoComandoRepresentarUsuario();
-        Assert.assertTrue(representarUsuario.euVerificoMensagemRepresentacaoRealizada());
-        representarUsuario.euAcionoComandoProsseguir();
+        representarUsuario.acionarNomeDeUsuarioEmGrid();
+        representarUsuario.acionarComandoRepresentarUsuario();
+        Assert.assertTrue(representarUsuario.verificarMensagemRepresentacaoRealizada());
+        representarUsuario.acionarComandoProsseguir();
 
     }
 
     @After
     public void tearDown(){
 
-        logout.euRealizoLogout();
+        logout.realizarLogout();
         login.realizarLoginValido();
         representarUsuario.excluirTodosUsuarios();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

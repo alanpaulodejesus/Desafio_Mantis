@@ -25,22 +25,22 @@ public class AlterarCategoriaEmTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        alterarTarefas.verificoSeExisteTarefa();
+        alterarTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }
 
     @Test
     public void alterarCategoriaAtividade(){
 
-        alterarTarefas.euAcionoComandoAtualizar();
-        alterarTarefas.euAcessoCategoriaTarefa(PropriedadesTarefas.categoriaDúvida);
-        alterarTarefas.euAcionoComandoAtualizacaoInformacaoEmTarefa();
-        Assert.assertEquals(PropriedadesTarefas.categoriaDúvida, alterarTarefas.euVerificoAlteracaoCategoria());
+        alterarTarefas.acionarComandoAtualizar();
+        alterarTarefas.acionarCategoriaTarefa(PropriedadesTarefas.categoriaDúvida);
+        alterarTarefas.acionarComandoAtualizacaoInformacaoEmTarefa();
+        Assert.assertEquals(PropriedadesTarefas.categoriaDúvida, alterarTarefas.verificarAlteracaoCategoria());
     }
 
     @After
     public void tearDown(){
 
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

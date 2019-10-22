@@ -31,40 +31,35 @@ public class LoginPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euPreenchoCampoUsername(String username)  {
+    public void preencherCampoUsername(String username)  {
         CampoTexto.preencher(campoUserName,username);
     }
 
-    public void euPreenchoCampoSenha(String password)  {
+    public void preencherCampoSenha(String password)  {
         CampoTexto.preencher(campoSenha, password);
     }
 
-    public void euAcionoComandoEntrar()  {
+    public void acionarComandoEntrar()  {
         Comando.clicar(comandoEntrar);
     }
 
 
-    public Boolean euValidoAcessoLogin(){
+    public Boolean validarAcessoLogin(){
         return Label.textoPresente(validaAcessoDeUsuario);
     }
 
-    public String euValidoAcessoNegado(){
+    public String validarAcessoNegado(){
         return Label.recuperaTexto(validaAcessoNegado);
     }
 
-    public Boolean euValidoLogoutComSucesso(){
-        Tempo.aguardar(5, comandoEntrar);
-        return Label.textoPresente(comandoEntrar);
-    }
-
-    public void euRealizoLogout(){
+    public void realizarLogout(){
         Tempo.aguardar(2, comandoSairUsuario);
         Comando.clicar(comandoSairUsuario);
         Tempo.aguardar(1,comandoSair);
         Comando.clicar(comandoSair);
     }
 
-    public void euRegistroLoginInvalido(){
+    public void registrarLoginInvalido(){
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
                         "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoLoginInvalido"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");

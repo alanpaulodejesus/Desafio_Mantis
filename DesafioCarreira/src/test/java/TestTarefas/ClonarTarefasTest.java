@@ -25,8 +25,8 @@ public class ClonarTarefasTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        validarProjeto.verificoSeExisteProjeto();
-        criarCloneTarefa.verificoSeExisteTarefa();
+        validarProjeto.verificarSeExisteProjeto();
+        criarCloneTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
 
     }
@@ -35,8 +35,8 @@ public class ClonarTarefasTest {
     @Test
     public void clonarTarefa(){
 
-        criarCloneTarefa.euAcionoComandoCriarCloneTarefa();
-        criarCloneTarefa.euAcionoComandoCriarTarefa();
+        criarCloneTarefa.acionarComandoCriarCloneTarefa();
+        criarCloneTarefa.acionarComandoCriarTarefa();
 
 
 
@@ -46,8 +46,8 @@ public class ClonarTarefasTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(criarCloneTarefa.euConfirmoCadastroComSucesso());
+        Assert.assertTrue(criarCloneTarefa.confirmarCadastroComSucesso());
         criarCloneTarefa.excluirTodasTarefas();
-        logout.euRealizoLogout();
+        logout.realizarLogout();
     }
 }

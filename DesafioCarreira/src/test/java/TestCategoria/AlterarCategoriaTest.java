@@ -23,7 +23,7 @@ public class AlterarCategoriaTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        categoria.euVerificoSeExisteCategoriaAAlterar();
+        categoria.verificarSeExisteCategoriaAAlterar();
 
     }
 
@@ -31,11 +31,11 @@ public class AlterarCategoriaTest {
     @Test
     public void alterarCategoria(){
 
-        categoria.euAcionoMenuGerenciar();
-        categoria.euAcionoMenuGerenciarProjetos();
-        categoria.euAcionoAlterarCategoria();
-        categoria.euPreenchoCampoNomeCategoria(PropriedadesCategoria.categoriaAlterada);
-        categoria.euAcionoComandoAtualizarCategoria();
+        categoria.acionarMenuGerenciar();
+        categoria.acionarMenuGerenciarProjetos();
+        categoria.acionarAlterarCategoria();
+        categoria.preencherCampoNomeCategoria(PropriedadesCategoria.categoriaAlterada);
+        categoria.acionarComandoAtualizarCategoria();
 
 
 
@@ -45,7 +45,7 @@ public class AlterarCategoriaTest {
     @After
     public void tearDown(){
 
-        Assert.assertTrue(categoria.euVerificoCategoriaEmGrid());
-        //logout.euRealizoLogout();
+        Assert.assertTrue(categoria.verificarCategoriaEmGrid());
+        logout.realizarLogout();
     }
 }

@@ -54,66 +54,66 @@ public class UsuarioPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void euAcionoComandoConvidarUsuario()  {
+    public void acionarComandoConvidarUsuario()  {
         Comando.clicar(comandoConvidarUsuario);
     }
 
-    public void euPreenchoCampoNomeUsuario(String texto){
+    public void preencherCampoNomeUsuario(String texto){
         CampoTexto.preencher(campoNomeDeUsuario, texto);
     }
 
-    public void euPreenchoCampoNomeVerdadeiro(String texto){
+    public void preencherCampoNomeVerdadeiro(String texto){
         CampoTexto.preencher(campoNomeVerdadeiro, texto);
     }
 
-    public void euPreenchoCampoEmail(String texto){
+    public void preencherCampoEmail(String texto){
         CampoTexto.preencher(campoEmail, texto);
     }
 
-    public void euAcionoComandoAdicionarUsuario(){
+    public void acionarComandoAdicionarUsuario(){
         Comando.clicar(comandoAdicionarUsuario);
     }
-    public void euSelecionoNivelAcesso(String texto){
+    public void selecionarNivelAcesso(String texto){
         Combo.selecionarCombo(campoNivelAcesso, texto);
     }
 
-    public void euSelecionoProjetoAUsuario(){
+    public void selecionarProjetoAUsuario(){
         Comando.clicar(projetoCombo);
     }
 
-    public void euAcionoComandoRemover(){
+    public void acionarComandoRemover(){
         Comando.clicar(comandoRemover);
     }
 
-    public void euAcionoComandoCriarUsuario(){
+    public void acionarComandoCriarUsuario(){
         Comando.clicar(comandoCriarUsuario);
     }
-    public void euAcionoMenuGerenciarUsuario(){
+    public void acionarMenuGerenciarUsuario(){
         Tempo.aguardar(30, menuGerenciarUsuario);
         Comando.clicar(menuGerenciarUsuario);
     }
 
-    public Boolean euVerificoUsuarioCriadoEmGrid(){
+    public Boolean verificarUsuarioCriadoEmGrid(){
         return Label.textoPresente(verificoUsuarioCriadoEmGrid);
     }
 
-    public Boolean euVerificoUsuarioCriadoEmGridAlterado(){
+    public Boolean verificarUsuarioCriadoEmGridAlterado(){
         return Label.textoPresente(nomeUsuarioEmGridAlterado);
     }
 
-    public void euAcionoMenuGerenciar(){
+    public void acionarMenuGerenciar(){
         Comando.clicar(menuGerenciar);
     }
 
-    public void euPreenchoFiltroUsuario(String texto){
+    public void preencherFiltroUsuario(String texto){
         CampoTexto.preencher(campoFiltroUsuario, texto);
     }
 
-    public void euAcionoComandoPesquisa(){
+    public void acionarComandoPesquisa(){
         Comando.clicar(comandoFiltroPesquisa);
     }
 
-    public void euAcionoNomeDeUsuarioEmGrid(){
+    public void acionarNomeDeUsuarioEmGrid(){
         Comando.clicar(nomeUsuarioEmGrid);
     }
 
@@ -121,16 +121,16 @@ public class UsuarioPage {
         Comando.clicar(nomeUsuarioEmGridAlterado);
     }
 
-    public void euAcionoComandoApagarUsuario(){
+    public void acionarComandoApagarUsuario(){
         Comando.clicar(comandoApagarUsuario);
     }
 
 
-    public void euAcionoComandoApagarConta(){
+    public void acionarComandoApagarConta(){
         Comando.clicar(comandoApagarConta);
     }
 
-    public Boolean euVerificoQueNomeUsuarioNaoEstaEmGrid(){
+    public Boolean verificarQueNomeUsuarioNaoEstaEmGrid(){
 
         try {
             Label.textoPresente(nomeUsuarioEmGrid);
@@ -142,20 +142,20 @@ public class UsuarioPage {
 
     }
 
-    public void euPreenchoAlteracaoNomeUsuario(String texto){
+    public void preencherAlteracaoNomeUsuario(String texto){
         CampoTexto.preencher(campoNomeDeUsuarioEditar, texto);
     }
 
-    public void euPreenchoAlteracaoNomeVerdadeiro(String texto){
+    public void preencherAlteracaoNomeVerdadeiro(String texto){
         CampoTexto.preencher(campoNomeVerdadeiroEditar, texto);
     }
 
-    public void euLimpoCamposDeDadosUsuarios(){
+    public void limparCamposDeDadosUsuarios(){
         CampoTexto.limpar(campoNomeDeUsuarioEditar);
         CampoTexto.limpar(campoNomeVerdadeiroEditar);
     }
 
-    public void euAcionoComandoAtualizarUsuario(){
+    public void acionarComandoAtualizarUsuario(){
         Comando.clicar(comandoAtualizarUsuario);
         DriverFactory.getDriver().navigate().refresh();
     }
@@ -170,14 +170,14 @@ public class UsuarioPage {
             excluiUsuarios.excluirUsuario();
         }else if(Label.textoPresente(nomeUsuarioEmGridAlterado)){
             euAcionoNomeDeUsuarioEmGridAlterado();
-            euAcionoComandoApagarUsuario();
-            euAcionoComandoApagarConta();
+            acionarComandoApagarUsuario();
+            acionarComandoApagarConta();
         }
 
     }
 
 
-    public void euVerificoSeExisteUsuarioCriado() {
+    public void verificarSeExisteUsuarioCriado() {
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarUsuario);
         CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
@@ -194,32 +194,32 @@ public class UsuarioPage {
         }
     }
 
-    public boolean euVerificoUsuarioAdicionadoEmProjeto() {
+    public boolean verificarUsuarioAdicionadoEmProjeto() {
         return Label.textoPresente(comandoRemover);
     }
 
-    public void euAcionoSelectParaUsuarioDesabilitado() {
+    public void acionarSelectParaUsuarioDesabilitado() {
         Tempo.aguardar(2, campoSelectHabilitado);
         Comando.clicar(campoSelectHabilitado);
     }
 
-    public boolean euVerificoUsuarioAtivoEmGrid() {
+    public boolean verificarUsuarioAtivoEmGrid() {
         return Label.textoPresente(validacaoUsuarioAtivo);
     }
 
-    public boolean euVerificoUsuarioNaoAtivoEmGrid() {
+    public boolean verificarUsuarioNaoAtivoEmGrid() {
         return Label.textoPresente(validacaoUsuarioNaoAtivo);
     }
 
-    public void euAcionoSelectPesquisaUsuarioDesabilitado() {
+    public void acionarSelectPesquisaUsuarioDesabilitado() {
         Comando.clicar(selectPesquisaUsuarioDesabilitado);
     }
 
-    public void euAcionoComandoRedefinirSenha() {
+    public void acionarComandoRedefinirSenha() {
         Comando.clicar(comandoRedefinirSenha);
     }
 
-    public boolean euVerificoMensagemValidacaoEnvioEmail() {
+    public boolean verificarMensagemValidacaoEnvioEmail() {
         Tempo.aguardar(10, mensagemEnvio);
         try {
             Label.textoPresente(mensagemEnvio);
@@ -229,7 +229,7 @@ public class UsuarioPage {
         }
     }
 
-    public boolean euVerificoMensagemRepresentacaoRealizada() {
+    public boolean verificarMensagemRepresentacaoRealizada() {
         Tempo.aguardar(10, mensagemRepresentacaoUsuario);
         try {
             Label.textoPresente(mensagemRepresentacaoUsuario);
@@ -240,11 +240,11 @@ public class UsuarioPage {
     }
 
 
-    public void euAcionoComandoRepresentarUsuario(){
+    public void acionarComandoRepresentarUsuario(){
         Comando.clicar(comandoRepresentarUsuario);
     }
 
-    public void euAcionoComandoProsseguir(){
+    public void acionarComandoProsseguir(){
         Comando.clicar(comandoProsseguir);
     }
 }
