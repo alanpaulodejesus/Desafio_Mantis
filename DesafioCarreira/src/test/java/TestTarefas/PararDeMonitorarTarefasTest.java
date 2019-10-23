@@ -2,6 +2,7 @@ package TestTarefas;
 
 import Core.Propriedades;
 import Pages.LoginPage;
+import Pages.ProjetoPage;
 import Pages.TarefasPage;
 import TestLogin.LoginValidoTest;
 import org.junit.After;
@@ -17,12 +18,15 @@ public class PararDeMonitorarTarefasTest {
     PesquisarTarefasTest pesquisaTarefa = new PesquisarTarefasTest();
     LoginPage logout = new LoginPage();
     TarefasPage monitorarTarefa = new TarefasPage();
+    ProjetoPage projeto = new ProjetoPage();
 
     @Before
     public void setUp(){
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
+        projeto.verificarSeExisteProjeto();
+        projeto.selecionarProjeto();
         monitorarTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
     }

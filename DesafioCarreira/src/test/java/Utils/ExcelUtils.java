@@ -11,13 +11,13 @@ import java.util.Iterator;
 
 public class ExcelUtils {
 
-    public void readXLSXFile(String fileName) {
+    static XSSFCell cell ;
+
+    public void ReadFile(String fileName) {
         InputStream XlsxFileToRead = null;
         XSSFWorkbook workbook = null;
         try {
             XlsxFileToRead = new FileInputStream(fileName);
-
-            //Getting the workbook instance for xlsx file
             workbook = new XSSFWorkbook(XlsxFileToRead);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -25,11 +25,9 @@ public class ExcelUtils {
             e.printStackTrace();
         }
 
-        //getting the first sheet from the workbook using sheet name.
-        // We can also pass the index of the sheet which starts from '0'.
         XSSFSheet sheet = workbook.getSheet("arquivo");
         XSSFRow row;
-        XSSFCell cell;
+
 
         //Iterating all the rows in the sheet
         Iterator rows = sheet.rowIterator();
@@ -47,7 +45,9 @@ public class ExcelUtils {
                 if (cell.getCellTypeEnum() == CellType.STRING) {
                     System.out.print(cell.getStringCellValue() + " ");
 
-                } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                }
+                /*
+                else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
                    // System.out.print(cell.getNumericCellValue() + " ");
                 } else if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
                     //System.out.print(cell.getBooleanCellValue() + " ");
@@ -58,9 +58,9 @@ public class ExcelUtils {
                     // XSSFCell.CELL_TYPE_FORMULA
                     // XSSFCell.CELL_TYPE_ERROR
                 }
-
+                */
             }
-            System.out.println();
+            //System.out.println();
             try {
                 XlsxFileToRead.close();
             } catch (IOException e) {
@@ -72,7 +72,7 @@ public class ExcelUtils {
     public static void main(String[] args) {
         ExcelUtils excelUtils = new ExcelUtils();
         String projectPath = System.getProperty("user.dir");
-    excelUtils.readXLSXFile(projectPath+File.separator +"src"+File.separator +"test" +File.separator +"resources"+ File.separator +"ArquivoExcel.xlsx");
+    excelUtils.ReadFile(projectPath+File.separator +"src"+File.separator +"test" +File.separator +"resources"+ File.separator +"ArquivoExcel.xlsx");
     }
 
 }

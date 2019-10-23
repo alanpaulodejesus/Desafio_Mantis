@@ -45,6 +45,7 @@ public class CriarCampoPersonalizadoTest {
     @After
     public void tearDown(){
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoEmGrid());
+        campoPersonalizado.excluirTodosCamposPersonalizados();
         logout.realizarLogout();
     }
 }

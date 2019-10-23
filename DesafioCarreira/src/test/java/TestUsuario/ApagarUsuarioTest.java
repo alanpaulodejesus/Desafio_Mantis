@@ -35,13 +35,14 @@ public class ApagarUsuarioTest {
         excluirUsuario.acionarNomeDeUsuarioEmGrid();
         excluirUsuario.acionarComandoApagarUsuario();
         excluirUsuario.acionarComandoApagarConta();
-        Assert.assertTrue(excluirUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
+
 
     }
 
     @After
     public void tearDown(){
 
+        Assert.assertTrue(excluirUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
         excluirUsuario.excluirTodosUsuarios();
         logout.realizarLogout();
     }

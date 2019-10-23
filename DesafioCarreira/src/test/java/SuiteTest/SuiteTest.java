@@ -25,6 +25,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 
+
         LoginInvalidoTest.class,
         LoginValidoTest.class,
         AdicionarUsuarioEmProjetoTest.class,
@@ -59,6 +60,7 @@ import org.junit.runners.Suite;
         RedefinirFiltroTarefasTest.class,
         //=====ERRO
         AlterarProjetoTest.class,
+
         AlterarVisibilidadeDeProjetoPrivadoTest.class,
         AlterarVisibilidadeDeProjetoPublicoTest.class,
         CriarProjetoTest.class,
@@ -77,6 +79,7 @@ import org.junit.runners.Suite;
         CriarCampoPersonalizadoTest.class,
         ExcluirMarcadorTest.class,
         RemoverCampoPersonalizadoEmProjetoTest.class
+
 
 })
 public class SuiteTest {

@@ -6,6 +6,7 @@ import Pages.LoginPage;
 import Pages.ProjetoPage;
 import Pages.TarefasPage;
 import TestLogin.LoginValidoTest;
+import Utils.ExcelUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,6 +36,7 @@ public class CriarTarefasTest {
     @Test
     public void criarNovaTarefa(){
 
+        ExcelUtils novo = new ExcelUtils();
         criarTarefa.acessarMenuCriarTarefas();
         criarTarefa.acionarCategoriaTarefa(PropriedadesTarefas.categoriaBug);
         criarTarefa.acessarFrequenciaTarefa(PropriedadesTarefas.frequenciaBug);

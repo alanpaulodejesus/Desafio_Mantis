@@ -33,15 +33,18 @@ public class CategoriaPage {
     }
 
     public void acionarMenuGerenciar()  {
+        Tempo.aguardar(2, menuGerenciar);
         Comando.clicar(menuGerenciar);
     }
 
 
     public void acionarMenuGerenciarProjetos(){
+        Tempo.aguardar(2,menuGerenciarProjetos );
         Comando.clicar(menuGerenciarProjetos);
     }
 
     public void preencherCampoNomeCategoria(String texto){
+        Tempo.aguardar(2, campoNomeCategoria);
         CampoTexto.limpar(campoNomeCategoria);
         CampoTexto.preencher(campoNomeCategoria, texto);
     }
@@ -101,18 +104,22 @@ public class CategoriaPage {
     }
 
     public void acionarAlterarCategoria() {
+        Tempo.aguardar(2, comandoAlterarCategoria);
         Comando.clicar(comandoAlterarCategoria);
     }
 
     public void acionarExcluirCategoria() {
+        Tempo.aguardar(2, comandoApagarCategoria);
         Comando.clicar(comandoApagarCategoria);
     }
 
     public void confirmarExcluirCategoria(){
+        Tempo.aguardar(2, confirmarExclusao);
         Comando.clicar(confirmarExclusao);
     }
 
     public void acionarComandoAtualizarCategoria() {
+        Tempo.aguardar(2, comandoAtualizarCategoria);
         Comando.clicar(comandoAtualizarCategoria);
     }
 }

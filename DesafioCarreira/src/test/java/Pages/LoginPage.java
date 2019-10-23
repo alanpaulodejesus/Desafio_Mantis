@@ -32,23 +32,28 @@ public class LoginPage {
     }
 
     public void preencherCampoUsername(String username)  {
+        Tempo.aguardar(2, campoUserName);
         CampoTexto.preencher(campoUserName,username);
     }
 
     public void preencherCampoSenha(String password)  {
+        Tempo.aguardar(2, campoSenha);
         CampoTexto.preencher(campoSenha, password);
     }
 
     public void acionarComandoEntrar()  {
+        Tempo.aguardar(2, comandoEntrar);
         Comando.clicar(comandoEntrar);
     }
 
 
     public Boolean validarAcessoLogin(){
+        Tempo.aguardar(2, validaAcessoDeUsuario);
         return Label.textoPresente(validaAcessoDeUsuario);
     }
 
     public String validarAcessoNegado(){
+        Tempo.aguardar(2, validaAcessoNegado);
         return Label.recuperaTexto(validaAcessoNegado);
     }
 

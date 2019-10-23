@@ -110,6 +110,7 @@ public class TarefasPage {
     }
 
     public void acionarCategoriaTarefa(String tipo){
+        Tempo.aguardar(6, categoriaBug);
         Combo.selecionarCombo(categoriaBug, tipo);
     }
 

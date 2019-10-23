@@ -5,6 +5,7 @@ import Core.PropriedadesMarcador;
 import Pages.LoginPage;
 import Pages.MarcadorPage;
 import TestLogin.LoginValidoTest;
+import Utils.ExcelUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,6 +18,7 @@ public class CriarMarcadorTest {
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
     MarcadorPage marcador = new MarcadorPage();
+    ExcelUtils novo = new ExcelUtils();
 
     @Before
     public void setUp(){
