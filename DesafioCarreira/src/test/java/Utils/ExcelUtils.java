@@ -13,7 +13,7 @@ public class ExcelUtils {
 
     static XSSFCell cell ;
 
-    public void ReadFile(String fileName) {
+    public String ReadFile(String fileName) {
         InputStream XlsxFileToRead = null;
         XSSFWorkbook workbook = null;
         try {
@@ -66,7 +66,9 @@ public class ExcelUtils {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println(cell.getStringCellValue());
         }
+        return cell.getStringCellValue();
     }
 
     public static void main(String[] args) {

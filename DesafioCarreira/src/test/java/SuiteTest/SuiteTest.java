@@ -54,13 +54,12 @@ import org.junit.runners.Suite;
         MarcarTarefaPegajosaTest.class,
         MonitorarTarefasTest.class,
         MoverTarefasTest.class,
-        //=====ERRO
+        //=====
         PararDeMonitorarTarefasTest.class,
         PesquisarTarefasTest.class,
         RedefinirFiltroTarefasTest.class,
-        //=====ERRO
+        //=====
         AlterarProjetoTest.class,
-
         AlterarVisibilidadeDeProjetoPrivadoTest.class,
         AlterarVisibilidadeDeProjetoPublicoTest.class,
         CriarProjetoTest.class,

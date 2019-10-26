@@ -9,7 +9,6 @@ import Utils.ExcelUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
 
@@ -30,7 +29,6 @@ public class CriarMarcadorTest {
     }
 
 
-    @Test
     public void criarMarcador(){
 
         marcador.acionarMenuGerenciar();
