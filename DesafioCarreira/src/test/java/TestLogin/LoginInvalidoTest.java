@@ -34,7 +34,7 @@ public class LoginInvalidoTest {
     @After
     public void tearDown(){
         Assert.assertEquals(login.mensagemAcessoInvalido,login.validarAcessoNegado());
-        login.registrarLoginInvalido();
+        //login.registrarLoginInvalido();
     }
 
 }

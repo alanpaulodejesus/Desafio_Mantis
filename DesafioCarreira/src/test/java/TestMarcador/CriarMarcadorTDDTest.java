@@ -1,18 +1,20 @@
 package TestMarcador;
 
 import Core.Propriedades;
-import Core.PropriedadesMarcador;
 import Pages.LoginPage;
 import Pages.MarcadorPage;
 import TestLogin.LoginValidoTest;
+import jxl.read.biff.BiffException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
 
-public class CriarMarcadorTest {
+public class CriarMarcadorTDDTest {
 
     LoginPage logout = new LoginPage();
     LoginValidoTest login = new LoginValidoTest();
@@ -23,25 +25,25 @@ public class CriarMarcadorTest {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
-        marcador.verificarSeExisteMarcadorAExcluir();
 
     }
 
     @Test
-    public void criarMarcador() {
+    public void criarMarcadorTDD() throws IOException, BiffException {
 
         marcador.acionarMenuGerenciar();
         marcador.acionarMenuGerenciaMarcador();
-        marcador.preencherCampoNomeMarcador(PropriedadesMarcador.nomeMacador);
-        marcador.preencherCampoDescricaoMarcador(PropriedadesMarcador.nomeDescricaoMarcador);
-        marcador.acionarComandoCriarMarcador();
+        marcador.preencherMarcadorTDD();
 
 
     }
 
     @After
     public void tearDown(){
-        Assert.assertTrue(marcador.verificarMarcadorEmGrid());
+
+
+        Assert.assertTrue(marcador.verificarMarcadoresTDDEmGrid());
+        marcador.excluirMarcadores();
         logout.realizarLogout();
     }
 }

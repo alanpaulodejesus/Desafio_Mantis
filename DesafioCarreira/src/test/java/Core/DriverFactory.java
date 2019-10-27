@@ -10,7 +10,7 @@ public class DriverFactory {
 
     private static WebDriver driver;
 
-    private DriverFactory() {}
+    protected DriverFactory() {}
 
     public static synchronized WebDriver getDriver() {
         if(driver == null) {
