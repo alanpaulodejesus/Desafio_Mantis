@@ -4,7 +4,6 @@ import Core.Propriedades;
 import Pages.LoginPage;
 import Pages.MarcadorPage;
 import TestLogin.LoginValidoTest;
-import jxl.read.biff.BiffException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,8 +27,9 @@ public class CriarMarcadorTDDTest {
 
     }
 
+    // , BiffException exceção tirei da jxl
     @Test
-    public void criarMarcadorTDD() throws IOException, BiffException {
+    public void criarMarcadorTDD() throws IOException {
 
         marcador.acionarMenuGerenciar();
         marcador.acionarMenuGerenciaMarcador();
