@@ -6,10 +6,10 @@ import java.util.logging.Logger;
 
 public class ConnetionFactory {
 
-    private static final String DRIVER ="com.mysql.jdbc.Driver";
+    private static final String DRIVER ="com.mysql.cj.jdbc.Driver";
     private static final  String URL ="jdbc:mysql://localhost:3306/ProjetoDesafiodeCarreira";
     private static final String USER = "root";
-    private static final String PASS= "root";
+    private static final String PASS= "";
 
     public static Connection getConnection() throws SQLException {
 
@@ -53,5 +53,10 @@ public class ConnetionFactory {
         }catch (SQLException e){
             Logger.getLogger(ConnetionFactory.class.getName()).log( Level.SEVERE, null, e );
         }
+    }
+
+    public static void main(String [] args) throws SQLException {
+
+        getConnection();
     }
 }

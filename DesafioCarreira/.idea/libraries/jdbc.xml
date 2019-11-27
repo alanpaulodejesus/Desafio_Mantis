@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jdbc">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/Pasta driver/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48.jar!/com/mysql/jdbc" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
