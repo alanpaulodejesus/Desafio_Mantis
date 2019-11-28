@@ -67,7 +67,7 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Monitorar\"]")private WebElement comandoMonitorar;
     @FindBy(xpath = "//input[@value=\"Parar de Monitorar\"]")private WebElement comandoPararDeMonitorar;
 
-    public TarefasPage() {
+    public TarefasPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -266,7 +266,7 @@ public class TarefasPage {
         }
     }
 
-    public void verificarSeExisteTarefa(){
+    public void verificarSeExisteTarefa() throws Exception {
 
         acionarMenuVerTarefas();
         CriarTarefasTest criaTarefa = new CriarTarefasTest();
@@ -278,7 +278,7 @@ public class TarefasPage {
         }
     }
 
-    public void verificarSeExisteTarefaParaImprimir(){
+    public void verificarSeExisteTarefaParaImprimir() throws Exception {
 
         acionarMenuVerTarefas();
         CriarTarefasTest criaTarefa = new CriarTarefasTest();
@@ -292,7 +292,7 @@ public class TarefasPage {
         }
     }
 
-    public void verificarSeTarefaEstaMarcada(){
+    public void verificarSeTarefaEstaMarcada() throws Exception {
 
         if(Label.textoPresente(comandoDesmarcarComoPegajosa)){
 
@@ -304,7 +304,7 @@ public class TarefasPage {
         }
     }
 
-    public void verificarSeTarefaEstaDesmarcada(){
+    public void verificarSeTarefaEstaDesmarcada() throws Exception {
 
         if(Label.textoPresente(comandoMarcarComoPegajosa)){
 
@@ -335,12 +335,12 @@ public class TarefasPage {
         return Label.textoPresente(atividadeGrid);
     }
 
-    public void retornarImpressao() {
+    public void retornarImpressao() throws Exception {
         getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
         getDriver().navigate().refresh();
     }
 
-    public void verificarSeTarefaPossuiMarcador() {
+    public void verificarSeTarefaPossuiMarcador() throws Exception {
 
         AdicionarMarcadorEmTarefasTest adicionarMarcador = new AdicionarMarcadorEmTarefasTest();
         MarcadorPage marcador = new MarcadorPage();
@@ -366,7 +366,7 @@ public class TarefasPage {
         Combo.selecionarCombo(comboAdministrador, texto);
     }
 
-    public void verificarSeExisteFiltroTarefa() {
+    public void verificarSeExisteFiltroTarefa() throws Exception {
 
         acionarMenuVerTarefas();
         if (Label.textoPresente(validarRedefinir)){

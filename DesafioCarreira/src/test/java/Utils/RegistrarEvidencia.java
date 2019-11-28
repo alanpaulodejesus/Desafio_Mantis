@@ -9,7 +9,7 @@ import static Core.DriverFactory.getDriver;
 
 public class RegistrarEvidencia {
 
-    public static void registrar( String arquivo){
+    public static void registrar( String arquivo) throws Exception {
 
         File screenshot=((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 

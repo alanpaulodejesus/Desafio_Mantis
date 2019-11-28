@@ -19,8 +19,11 @@ public class PesquisarUsuarioTest {
     UsuarioPage pesquisaUsuario = new UsuarioPage();
     CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
 
+    public PesquisarUsuarioTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -51,7 +54,7 @@ public class PesquisarUsuarioTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
         Assert.assertTrue(pesquisaUsuario.verificarUsuarioCriadoEmGrid());
         pesquisaUsuario.excluirTodosUsuarios();
         logout.realizarLogout();

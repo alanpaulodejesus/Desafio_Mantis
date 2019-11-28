@@ -19,9 +19,12 @@ public class AdicionarFiltroTarefasTest {
     LoginPage logout = new LoginPage();
     TarefasPage adicionarFiltroTarefa = new TarefasPage();
 
+    public AdicionarFiltroTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

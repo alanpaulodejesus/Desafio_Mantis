@@ -19,8 +19,11 @@ public class RepresentarUsuarioTest {
     CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
     PesquisarUsuarioTest pesquisaUsuario = new PesquisarUsuarioTest();
 
+    public RepresentarUsuarioTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -40,7 +43,7 @@ public class RepresentarUsuarioTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         logout.realizarLogout();
         login.realizarLoginValido();

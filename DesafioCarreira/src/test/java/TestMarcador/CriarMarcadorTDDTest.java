@@ -19,8 +19,11 @@ public class CriarMarcadorTDDTest {
     LoginValidoTest login = new LoginValidoTest();
     MarcadorPage marcador = new MarcadorPage();
 
+    public CriarMarcadorTDDTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -39,7 +42,7 @@ public class CriarMarcadorTDDTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
 
         Assert.assertTrue(marcador.verificarMarcadoresTDDEmGrid());

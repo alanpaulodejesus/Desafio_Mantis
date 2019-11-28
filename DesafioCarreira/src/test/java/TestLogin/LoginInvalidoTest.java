@@ -14,8 +14,11 @@ public class LoginInvalidoTest {
 
     LoginPage login = new LoginPage();
 
+    public LoginInvalidoTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
     }
 

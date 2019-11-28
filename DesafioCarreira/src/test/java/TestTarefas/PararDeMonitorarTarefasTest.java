@@ -20,8 +20,11 @@ public class PararDeMonitorarTarefasTest {
     TarefasPage monitorarTarefa = new TarefasPage();
     ProjetoPage projeto = new ProjetoPage();
 
+    public PararDeMonitorarTarefasTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

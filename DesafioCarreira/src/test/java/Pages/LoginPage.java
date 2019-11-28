@@ -27,7 +27,7 @@ public class LoginPage {
 
     public static String mensagemAcessoInvalido ="Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.";
 
-    public LoginPage() {
+    public LoginPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -64,13 +64,13 @@ public class LoginPage {
         Comando.clicar(comandoSair);
     }
 
-    public void registrarLoginInvalido(){
+    public void registrarLoginInvalido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
                         "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoLoginInvalido"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");
     }
 
-    public void euRegistroLoginValido(){
+    public void euRegistroLoginValido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
                         "src" + File.separator + "test" +  File.separator + "java" +File.separator +"ArquivoLoginValido"+ File.separator +"Login valido"+ Generetor.dataHora()+".png");

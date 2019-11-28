@@ -30,7 +30,7 @@ public class PerfilPage {
     @FindBy(name= "description") private WebElement campoDescricaoAdicionalAlteracao;
     @FindBy(name = "os_build") private WebElement campoVersaoOSAlteracao;
 
-    public PerfilPage() {
+    public PerfilPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -108,7 +108,7 @@ public class PerfilPage {
         CampoTexto.preencher(campoVersaoOSAlteracao, texto);
     }
 
-    public void verificarSeExistePerfilAExcluir(){
+    public void verificarSeExistePerfilAExcluir() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarPerfisGlobais);
@@ -121,7 +121,7 @@ public class PerfilPage {
         }
     }
 
-    public void verificarSeExistePerfil(){
+    public void verificarSeExistePerfil() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarPerfisGlobais);

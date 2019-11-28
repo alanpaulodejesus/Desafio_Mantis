@@ -17,9 +17,12 @@ public class ImprimirTarefasTest {
     LoginPage logout = new LoginPage();
     TarefasPage imprimirTarefas = new TarefasPage();
 
+    public ImprimirTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -35,7 +38,7 @@ public class ImprimirTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         Assert.assertTrue(imprimirTarefas.tarefaEmGriImprimir());
         imprimirTarefas.retornarImpressao();

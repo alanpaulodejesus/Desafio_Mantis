@@ -18,8 +18,11 @@ public class ExcluirPerfilTest {
     LoginValidoTest login = new LoginValidoTest();
     PerfilPage perfil = new PerfilPage();
 
+    public ExcluirPerfilTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

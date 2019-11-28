@@ -21,9 +21,12 @@ public class MoverTarefasTest {
     TarefasPage moverTarefas = new TarefasPage();
     ProjetoPage verProjeto= new ProjetoPage();
 
+    public MoverTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

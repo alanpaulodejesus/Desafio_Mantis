@@ -21,9 +21,12 @@ public class AdicionarMarcadorEmTarefasTest {
     TarefasPage adicionarMarcadorEmTarefa = new TarefasPage();
     MarcadorPage marcadorDeTarefas = new MarcadorPage();
 
+    public AdicionarMarcadorEmTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

@@ -23,7 +23,7 @@ public class TokenPage {
     @FindBy(xpath = "//td[contains(text(),'"+ PropriedadesToken.Token+"')]")private WebElement tokenEmGrid;
     @FindBy(xpath = "//input[@value=\"Revogar\"]") private WebElement comandoRevogarToken;
 
-    public TokenPage() {
+    public TokenPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -56,7 +56,7 @@ public class TokenPage {
         return Label.textoPresente(tokenEmGrid);
     }
 
-    public void verificarSeExisteToken() {
+    public void verificarSeExisteToken() throws Exception {
 
         acionarComandoSair();
         acionarComandoMinhaConta();
@@ -69,7 +69,7 @@ public class TokenPage {
         }
     }
 
-    public void verificarSeExisteTokenParaGerar() {
+    public void verificarSeExisteTokenParaGerar() throws Exception {
 
         acionarComandoSair();
         acionarComandoMinhaConta();

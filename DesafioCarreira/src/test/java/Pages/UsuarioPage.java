@@ -50,7 +50,7 @@ public class UsuarioPage {
     @FindBy(xpath = "//a[text()=\"Clique aqui para prosseguir\"]") private WebElement comandoProsseguir;
     @FindBy(xpath = "//input[@value=\"Representar Usuário\"]")private WebElement comandoRepresentarUsuario;
 
-    public UsuarioPage() {
+    public UsuarioPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -155,12 +155,12 @@ public class UsuarioPage {
         CampoTexto.limpar(campoNomeVerdadeiroEditar);
     }
 
-    public void acionarComandoAtualizarUsuario(){
+    public void acionarComandoAtualizarUsuario() throws Exception {
         Comando.clicar(comandoAtualizarUsuario);
         DriverFactory.getDriver().navigate().refresh();
     }
 
-    public void excluirTodosUsuarios(){
+    public void excluirTodosUsuarios() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarUsuario);
@@ -177,7 +177,7 @@ public class UsuarioPage {
     }
 
 
-    public void verificarSeExisteUsuarioCriado() {
+    public void verificarSeExisteUsuarioCriado() throws Exception {
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarUsuario);
         CriarUsuarioTest criarUsuario = new CriarUsuarioTest();

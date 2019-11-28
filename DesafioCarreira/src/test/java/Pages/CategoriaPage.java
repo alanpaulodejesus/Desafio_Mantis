@@ -28,7 +28,7 @@ public class CategoriaPage {
     @FindBy(xpath = "//input[@value=\"Atualizar Categoria\"]") private WebElement comandoAtualizarCategoria;
 
 
-    public CategoriaPage() {
+    public CategoriaPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -60,7 +60,7 @@ public class CategoriaPage {
         }else return false;
     }
 
-    public void verificarSeExisteCategoriaCriada(){
+    public void verificarSeExisteCategoriaCriada() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -72,7 +72,7 @@ public class CategoriaPage {
 
         }
     }
-    public void verificarSeExisteCategoriaAExcluir(){
+    public void verificarSeExisteCategoriaAExcluir() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -84,7 +84,7 @@ public class CategoriaPage {
             cadastrarCategoria.cadastraCategoria();
         }
     }
-    public void verificarSeExisteCategoriaAAlterar(){
+    public void verificarSeExisteCategoriaAAlterar() throws Exception {
 
         ApagarCategoriaTest apagarCategoria = new ApagarCategoriaTest();
         CadastrarCategoriaTest cadastrarCategoria = new CadastrarCategoriaTest();

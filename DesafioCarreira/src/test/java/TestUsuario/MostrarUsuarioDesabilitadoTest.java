@@ -19,8 +19,11 @@ public class MostrarUsuarioDesabilitadoTest {
     CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
     PesquisarUsuarioTest pesquisaUsuario = new PesquisarUsuarioTest();
 
+    public MostrarUsuarioDesabilitadoTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -37,7 +40,7 @@ public class MostrarUsuarioDesabilitadoTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
 
         mostrarUsuarioAtivo.excluirTodosUsuarios();

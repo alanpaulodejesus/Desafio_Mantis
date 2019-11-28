@@ -10,9 +10,16 @@ public class Propriedades {
 
     public static final Browsers browser = Browsers.CHROME;
 
+    public static final TipoExecucao TIPO_EXECUCAO = TipoExecucao.GRID;
+
     public enum Browsers {
         CHROME,
         FIREFOX
 
+    }
+
+    public enum TipoExecucao{
+        LOCAL,
+        GRID
     }
 }

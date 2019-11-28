@@ -21,8 +21,11 @@ public class AlterarUsuarioTest {
     PesquisarUsuarioTest pesquisaUsuario = new PesquisarUsuarioTest();
     ApagarUsuarioTest excluirUsuario = new ApagarUsuarioTest();
 
+    public AlterarUsuarioTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -32,7 +35,7 @@ public class AlterarUsuarioTest {
     }
 
     @Test
-    public void alterarUsuario(){
+    public void alterarUsuario() throws Exception {
 
         alterarUsuario.acionarNomeDeUsuarioEmGrid();
         alterarUsuario.limparCamposDeDadosUsuarios();
@@ -44,7 +47,7 @@ public class AlterarUsuarioTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         alterarUsuario.excluirTodosUsuarios();
         Assert.assertTrue(alterarUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());

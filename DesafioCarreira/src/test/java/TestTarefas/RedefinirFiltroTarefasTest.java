@@ -18,9 +18,12 @@ public class RedefinirFiltroTarefasTest {
     LoginPage logout = new LoginPage();
     TarefasPage redefinirFiltroTarefa = new TarefasPage();
 
+    public RedefinirFiltroTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

@@ -34,7 +34,7 @@ public class ProjetoPage {
     @FindBy(linkText = ""+PropriedadesProjeto.nomeProjetoMoverTarefa+"") private WebElement projetoTarefaMovida;
     @FindBy(id = "project-view-state") private WebElement comboVisibilidadeProjeto;
 
-    public ProjetoPage() {
+    public ProjetoPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -130,7 +130,7 @@ public class ProjetoPage {
     }
 
 
-    public void verificarSeExisteProjetoAExcluir(){
+    public void verificarSeExisteProjetoAExcluir() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -144,7 +144,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificarSeExisteProjeto(){
+    public void verificarSeExisteProjeto() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -159,7 +159,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificarSeExisteProjetoPrivado(){
+    public void verificarSeExisteProjetoPrivado() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);
@@ -174,7 +174,7 @@ public class ProjetoPage {
         }
     }
 
-    public void verificarSeExisteProjetoPublico(){
+    public void verificarSeExisteProjetoPublico() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarProjetos);

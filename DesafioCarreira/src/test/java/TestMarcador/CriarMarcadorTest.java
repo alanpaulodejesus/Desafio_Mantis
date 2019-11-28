@@ -18,8 +18,11 @@ public class CriarMarcadorTest {
     LoginValidoTest login = new LoginValidoTest();
     MarcadorPage marcador = new MarcadorPage();
 
+    public CriarMarcadorTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

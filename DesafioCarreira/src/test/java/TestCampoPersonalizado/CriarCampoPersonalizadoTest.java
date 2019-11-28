@@ -18,9 +18,12 @@ public class CriarCampoPersonalizadoTest {
     LoginValidoTest login = new LoginValidoTest();
     CampoPersonalizadoPage campoPersonalizado = new CampoPersonalizadoPage ();
 
+    public CriarCampoPersonalizadoTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -43,7 +46,7 @@ public class CriarCampoPersonalizadoTest {
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoEmGrid());
         campoPersonalizado.excluirTodosCamposPersonalizados();
         logout.realizarLogout();

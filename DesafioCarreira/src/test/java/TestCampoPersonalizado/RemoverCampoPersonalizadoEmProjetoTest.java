@@ -19,9 +19,12 @@ public class RemoverCampoPersonalizadoEmProjetoTest {
     CampoPersonalizadoPage removerCampoPersonalizado = new CampoPersonalizadoPage ();
     ProjetoPage projeto = new ProjetoPage();
 
+    public RemoverCampoPersonalizadoEmProjetoTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

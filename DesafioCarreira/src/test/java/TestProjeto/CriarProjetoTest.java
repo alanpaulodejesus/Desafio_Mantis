@@ -19,8 +19,11 @@ public class CriarProjetoTest {
     LoginValidoTest login = new LoginValidoTest();
     ProjetoPage projeto = new ProjetoPage();
 
+    public CriarProjetoTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

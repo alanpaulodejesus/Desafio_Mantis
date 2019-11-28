@@ -31,7 +31,7 @@ public class CampoPersonalizadoPage {
     @FindBy(xpath = "//a[@class='btn btn-primary btn-white btn-round btn-xs']") private WebElement comandoRemover;
     @FindBy(xpath = "//input[@value=\"Remover Campo\"]") private WebElement comandoConfirmaRemover;
 
-    public CampoPersonalizadoPage() {
+    public CampoPersonalizadoPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -125,7 +125,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void verificarSeExisteCampoPersonalidadoAExcluir(){
+    public void verificarSeExisteCampoPersonalidadoAExcluir() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuCampoPersonalizados);
@@ -138,7 +138,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void verificarSeExisteCampoPersonalidado(){
+    public void verificarSeExisteCampoPersonalidado() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuCampoPersonalizados);
@@ -186,7 +186,7 @@ public class CampoPersonalizadoPage {
         Comando.clicar(comandoConfirmaRemover);
     }
 
-    public void verificarSeExisteCampoPersonalizadoAdicionado() {
+    public void verificarSeExisteCampoPersonalizadoAdicionado() throws Exception {
 
         AdicionarCampoPersonalizadoEmProjetoTest adicionar = new AdicionarCampoPersonalizadoEmProjetoTest();
         Comando.clicar(campoPersonalizadoEmGrid);
@@ -198,7 +198,7 @@ public class CampoPersonalizadoPage {
         }
     }
 
-    public void excluirTodosCamposPersonalizados(){
+    public void excluirTodosCamposPersonalizados() throws Exception {
 
         ExcluirCampoPersonalizadoTest excluiCampoPersonalizado = new ExcluirCampoPersonalizadoTest();
         Comando.clicar(menuGerenciar);

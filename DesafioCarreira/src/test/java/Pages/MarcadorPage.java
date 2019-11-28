@@ -38,7 +38,7 @@ public class MarcadorPage {
     @FindBy(xpath = "//input[@value=\"Atualizar Marcador\"]") private WebElement comandoAtualizarMarcador;
 
 
-    public MarcadorPage() {
+    public MarcadorPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -121,7 +121,7 @@ public class MarcadorPage {
         Comando.clicar(comandoCriarMarcador);
     }
 
-    public void verificarSeExisteMarcadorAExcluir(){
+    public void verificarSeExisteMarcadorAExcluir() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarMarcadores);
@@ -155,7 +155,7 @@ public class MarcadorPage {
         return true;
     }
 
-    public boolean excluirMarcadores(){
+    public boolean excluirMarcadores() throws Exception {
         ExcluirMarcadorTest excluirMarcadores = new ExcluirMarcadorTest();
 
             while(Label.textoPresente( marcadorEmGrid )|| Label.textoPresente( marcadorEmGrid1 )
@@ -179,7 +179,7 @@ public class MarcadorPage {
 
     }
 
-    public void verificarSeExisteMarcador(){
+    public void verificarSeExisteMarcador() throws Exception {
 
         Comando.clicar(menuGerenciar);
         Comando.clicar(menuGerenciarMarcadores);

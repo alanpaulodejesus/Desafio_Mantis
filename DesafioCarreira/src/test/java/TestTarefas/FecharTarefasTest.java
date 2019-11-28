@@ -19,9 +19,12 @@ public class FecharTarefasTest {
     LoginPage logout = new LoginPage();
     TarefasPage fecharTarefas = new TarefasPage();
 
+    public FecharTarefasTest() throws Exception {
+    }
+
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();

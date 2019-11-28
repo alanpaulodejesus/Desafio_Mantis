@@ -18,8 +18,11 @@ public class RevogarTokenTest {
     LoginPage logout = new LoginPage();
     TokenPage token = new TokenPage();
 
+    public RevogarTokenTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
         token.verificarSeExisteToken();

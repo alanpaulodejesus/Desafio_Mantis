@@ -19,8 +19,12 @@ public class RemoverUsuarioEmProjetoTest {
     UsuarioPage removerUsuarioEmProjeto = new UsuarioPage();
     ProjetoPage projeto = new ProjetoPage();
     AdicionarUsuarioEmProjetoTest adicionaUsuario = new AdicionarUsuarioEmProjetoTest();
+
+    public RemoverUsuarioEmProjetoTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -39,7 +43,7 @@ public class RemoverUsuarioEmProjetoTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         Assert.assertFalse(removerUsuarioEmProjeto.verificarUsuarioAdicionadoEmProjeto());
         removerUsuarioEmProjeto.excluirTodosUsuarios();

@@ -19,8 +19,11 @@ public class ApagarUsuarioTest {
     CriarUsuarioTest criarUsuario = new CriarUsuarioTest();
     PesquisarUsuarioTest pesquisaUsuario = new PesquisarUsuarioTest();
 
+    public ApagarUsuarioTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
@@ -40,7 +43,7 @@ public class ApagarUsuarioTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         Assert.assertTrue(excluirUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
         excluirUsuario.excluirTodosUsuarios();

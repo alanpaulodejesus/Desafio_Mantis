@@ -18,8 +18,11 @@ public class AlterarPerfilTest {
     LoginValidoTest login = new LoginValidoTest();
     PerfilPage perfil = new PerfilPage();
 
+    public AlterarPerfilTest() throws Exception {
+    }
+
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
         login.realizarLoginValido();
