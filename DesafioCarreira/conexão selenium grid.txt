@@ -1,0 +1,8 @@
+Executando selenium grid
+
+cd C:\1 - Git Automação de Software\DesafioCarreira\.idea\libraries>java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+
+conectando máquina
+
+cd C:\1 - Git Automação de Software\DesafioCarreira\.idea\libraries>java -jar selenium-server-standalone-3.141.59.jar -role node

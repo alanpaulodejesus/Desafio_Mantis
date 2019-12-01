@@ -12,13 +12,13 @@ public class Propriedades {
 
     public static final TipoExecucao TIPO_EXECUCAO = TipoExecucao.GRID;
 
-    public enum Browsers {
+    public  static enum Browsers {
         CHROME,
         FIREFOX
 
     }
 
-    public enum TipoExecucao{
+    public static enum TipoExecucao{
         LOCAL,
         GRID
     }

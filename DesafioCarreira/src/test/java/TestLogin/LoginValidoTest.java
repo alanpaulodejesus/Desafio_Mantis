@@ -12,8 +12,8 @@ import static Core.DriverFactory.getDriver;
 
 public class LoginValidoTest {
 
-    LoginPage login = new LoginPage();
 
+    LoginPage login = new LoginPage();
     public LoginValidoTest() throws Exception {
     }
 
@@ -23,7 +23,7 @@ public class LoginValidoTest {
     }
 
     @Test
-    public void realizarLoginValido()  {
+    public void realizarLoginValido() throws Exception {
 
         login.preencherCampoUsername(Propriedades.USUARIO);
         login.acionarComandoEntrar();

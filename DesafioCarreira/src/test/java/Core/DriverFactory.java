@@ -1,6 +1,6 @@
 package Core;
 
-import Connection.SeleniumHub;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,9 +20,9 @@ public class DriverFactory {
     protected DriverFactory() {}
 
     public static synchronized WebDriver getDriver() throws Exception {
+        if (driver == null) {
+            if (Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.LOCAL) {
 
-        if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.LOCAL) {
-            if (driver == null) {
 
                 if (browser.name().equals( "FIREFOX" )) {
                     System.setProperty( "webdriver.gecko.driver", System.getProperty( "user.dir" ) + File.separator +
@@ -38,38 +38,45 @@ public class DriverFactory {
                     driver = new ChromeDriver();
 
                 }
-            }
-        }
-        if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID){
-            if (driver == null) {
-                SeleniumHub.executaSeleniumGrid();
+            } if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID) {
                 DesiredCapabilities cap = null;
-                switch (browser) {
-
-
-                    case CHROME:
-                        cap = DesiredCapabilities.chrome();
-                        break;
-                   case FIREFOX:
-                       cap = DesiredCapabilities.firefox();
-                        break;
+                switch (Propriedades.browser) {
+                    case FIREFOX: cap = DesiredCapabilities.firefox();
+                    cap.setPlatform( Platform.WINDOWS ); break;
+                    case CHROME: cap = DesiredCapabilities.chrome();
+                    cap.setPlatform( Platform.WINDOWS ); break;
                 }
-
                 try {
-                    driver = new RemoteWebDriver( new URL( "http://localhost:4443/grid/console" ), cap );
+                    URL url = new URL("http://localhost:4444/wd/hub");
+                    driver = new RemoteWebDriver(url, cap);
                 } catch (MalformedURLException e) {
-                    System.out.println( "Parrou aqui" );
+                    System.err.println("Falha na conexão com o GRID");
                     e.printStackTrace();
                 }
 
             }
+
+
+
+                /*
+                try {
+
+                    String url = "http://localhost:35602/wd/hub";
+
+                    //SeleniumHub.executaSeleniumGrid();
+                    driver = new RemoteWebDriver( new URL( url ), cap );
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                */
+
+                //}
+
+
         }
+            driver.manage().window().maximize();
+            return driver;
 
-        //http://localhost:4443/grid/console
-        //http://localhost:4443/wd/hb
-        //http://localhost:4443/grid/register
-        driver.manage().window().maximize();
-
-        return driver;
-    }
+        }
 }

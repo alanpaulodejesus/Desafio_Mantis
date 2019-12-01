@@ -20,7 +20,8 @@ public class SeleniumHub {
             GridLauncherV3.main(node);
         }
 
-/*
+
+
     public static void main(String []args) throws Exception {
         String[] hub = {"-port", "4443",
                 "-host", "localhost",
@@ -34,7 +35,8 @@ public class SeleniumHub {
                 "-servlets", "com.automation.remarks.remote.node.Video"};
         GridLauncherV3.main(node);
     }
-    */
+
+
 }
 
 
