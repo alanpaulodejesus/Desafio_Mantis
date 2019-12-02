@@ -37,7 +37,7 @@ public class LoginValidoTest {
     @After
     public void tearDown(){
 
-        login.realizarLogout();
+        //login.realizarLogout();
     }
 
 }

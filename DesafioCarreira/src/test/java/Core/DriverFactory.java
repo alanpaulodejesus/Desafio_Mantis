@@ -11,8 +11,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static Core.Propriedades.browser;
-
 public class DriverFactory {
 
     private static WebDriver driver;
@@ -20,11 +18,12 @@ public class DriverFactory {
     protected DriverFactory() {}
 
     public static synchronized WebDriver getDriver() throws Exception {
+
         if (driver == null) {
+
             if (Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.LOCAL) {
 
-
-                if (browser.name().equals( "FIREFOX" )) {
+                if (Propriedades.browser.name().equals( "FIREFOX" )) {
                     System.setProperty( "webdriver.gecko.driver", System.getProperty( "user.dir" ) + File.separator +
                             "src" + File.separator + "main" + File.separator + "resources" + File.separator +
                             "drivers" + File.separator + "geckodriver.exe" );
@@ -38,19 +37,26 @@ public class DriverFactory {
                     driver = new ChromeDriver();
 
                 }
-            } if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID) {
+            }
+
+            if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID) {
                 DesiredCapabilities cap = null;
                 switch (Propriedades.browser) {
                     case FIREFOX: cap = DesiredCapabilities.firefox();
                     cap.setPlatform( Platform.WINDOWS ); break;
-                    case CHROME: cap = DesiredCapabilities.chrome();
+                    case CHROME:
+                        cap = DesiredCapabilities.chrome();
+
+                    cap.setBrowserName("chrome" );
+                    cap.setCapability( "marionette", true );
                     cap.setPlatform( Platform.WINDOWS ); break;
                 }
                 try {
                     URL url = new URL("http://localhost:4444/wd/hub");
+
                     driver = new RemoteWebDriver(url, cap);
+
                 } catch (MalformedURLException e) {
-                    System.err.println("Falha na conexão com o GRID");
                     e.printStackTrace();
                 }
 
