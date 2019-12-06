@@ -31,7 +31,7 @@ public class ExcluirCampoPersonalizadoTest {
 
 
     @Test
-    public void excluirCampoPersonalizado(){
+    public void excluirCampoPersonalizado() throws InterruptedException {
 
         campoPersonalizado.acionarComandoMenuGerenciar();
         campoPersonalizado.acionarMenuCampoPersonalizado();
@@ -45,8 +45,9 @@ public class ExcluirCampoPersonalizadoTest {
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        campoPersonalizado.registrarExcluirCampoPersonalizadoEmProjeto();
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoExcluidoEmGrid());
         logout.realizarLogout();
     }

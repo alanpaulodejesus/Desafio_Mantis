@@ -48,7 +48,8 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+        adicionarCampoPersonalizado.registrarAddCampoPersonalizadoEmProjeto();
         Assert.assertTrue(adicionarCampoPersonalizado.verificarCampoVinculadoEmGrid());
         logout.realizarLogout();
     }

@@ -8,10 +8,14 @@ import DSL.Label;
 import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
 import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
 import TestCampoPersonalizado.ExcluirCampoPersonalizadoTest;
+import Utils.Generetor;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.File;
 
 import static Core.DriverFactory.getDriver;
 
@@ -56,7 +60,7 @@ public class CampoPersonalizadoPage {
     }
 
     public void acionarMenuCampoPersonalizado(){
-        Tempo.aguardar(5, menuCampoPersonalizados);
+        Tempo.aguardar(3, menuCampoPersonalizados);
         Comando.clicar(menuCampoPersonalizados);
     }
 
@@ -70,7 +74,7 @@ public class CampoPersonalizadoPage {
         Comando.clicar(comandoNovoCampoPersonalizaoAlterar);
     }
 
-    public void acionarCampoPersonalizadoEmGrid(){
+    public void acionarCampoPersonalizadoEmGrid() throws InterruptedException {
 
         if(Label.textoPresente(campoPersonalizadoEmGrid)){
             Comando.clicar(campoPersonalizadoEmGrid);
@@ -100,7 +104,7 @@ public class CampoPersonalizadoPage {
     }
 
     public Boolean verificarCampoPersonalizadoAlteradoEmGrid() {
-        Tempo.aguardar(5, campoPersonalizadoAlteradoEmGrid);
+        //Tempo.aguardar(8, campoPersonalizadoAlteradoEmGrid);
         try {
 
             Label.textoPresente(campoPersonalizadoAlteradoEmGrid);
@@ -215,5 +219,35 @@ public class CampoPersonalizadoPage {
             excluiCampoPersonalizado.excluirCampoPersonalizado();
         }
 
+    }
+
+    public void registrarAddCampoPersonalizadoEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"registrar Add Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarAlterarCampoPersonalizadoEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"registrar Alterar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarCampoPersonalizadoEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"registrar Criar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarExcluirCampoPersonalizadoEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"registrar Excluir Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarRemoverCampoPersonalizadoEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"registrar Remover Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
     }
 }

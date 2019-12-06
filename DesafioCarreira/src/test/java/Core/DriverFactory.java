@@ -3,6 +3,7 @@ package Core;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -41,15 +42,17 @@ public class DriverFactory {
 
             if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID) {
                 DesiredCapabilities cap = null;
+                ChromeOptions opt = new ChromeOptions();
                 switch (Propriedades.browser) {
                     case FIREFOX: cap = DesiredCapabilities.firefox();
                     cap.setPlatform( Platform.WINDOWS ); break;
                     case CHROME:
-                        cap = DesiredCapabilities.chrome();
-
+                    cap = DesiredCapabilities.chrome();
                     cap.setBrowserName("chrome" );
+                    opt.merge( cap );
                     cap.setCapability( "marionette", true );
-                    cap.setPlatform( Platform.WINDOWS ); break;
+                    cap.setPlatform( Platform.WINDOWS );
+                        break;
                 }
                 try {
                     URL url = new URL("http://localhost:4444/wd/hub");

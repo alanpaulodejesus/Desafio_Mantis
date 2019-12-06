@@ -49,7 +49,9 @@ public class RemoverCampoPersonalizadoEmProjetoTest {
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+
+        removerCampoPersonalizado.registrarRemoverCampoPersonalizadoEmProjeto();
         Assert.assertFalse(removerCampoPersonalizado.verificarCampoVinculadoEmGrid());
         logout.realizarLogout();
     }

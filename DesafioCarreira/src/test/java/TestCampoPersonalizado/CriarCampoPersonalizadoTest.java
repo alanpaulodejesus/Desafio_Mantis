@@ -33,12 +33,13 @@ public class CriarCampoPersonalizadoTest {
 
 
     @Test
-    public void criarCampoPersonalizado(){
+    public void criarCampoPersonalizado() throws InterruptedException {
 
         campoPersonalizado.acionarComandoMenuGerenciar();
         campoPersonalizado.acionarMenuCampoPersonalizado();
         campoPersonalizado.preencherCampoNomePersonalizado(PropriedadesCampoPersonalizado.nomeCampoPersonalizado);
         campoPersonalizado.euAcionoComandoNovoCampoPersonalizado();
+        Thread.sleep( 2000 );
         campoPersonalizado.acionarMenuCampoPersonalizado();
 
 
@@ -47,6 +48,9 @@ public class CriarCampoPersonalizadoTest {
 
     @After
     public void tearDown() throws Exception {
+
+
+        campoPersonalizado.registrarCriarCampoPersonalizadoEmProjeto();
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoEmGrid());
         campoPersonalizado.excluirTodosCamposPersonalizados();
         logout.realizarLogout();

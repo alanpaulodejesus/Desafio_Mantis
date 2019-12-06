@@ -33,7 +33,7 @@ public class AlterarCampoPersonalizadoTest {
 
 
     @Test
-    public void alterarCampoPersonalizado(){
+    public void alterarCampoPersonalizado() throws InterruptedException {
 
         campoPersonalizado.acionarComandoMenuGerenciar();
         campoPersonalizado.acionarMenuCampoPersonalizado();
@@ -46,7 +46,8 @@ public class AlterarCampoPersonalizadoTest {
 
     @After
     public void tearDown() throws Exception {
-
+        Thread.sleep( 2000 );
+        campoPersonalizado.registrarAlterarCampoPersonalizadoEmProjeto();
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoAlteradoEmGrid());
         campoPersonalizado.excluirTodosCamposPersonalizados();
         logout.realizarLogout();

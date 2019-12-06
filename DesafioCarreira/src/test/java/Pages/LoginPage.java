@@ -67,12 +67,12 @@ public class LoginPage {
     public void registrarLoginInvalido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoLoginInvalido"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");
     }
 
-    public void euRegistroLoginValido() throws Exception {
+    public void registrarLoginValido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" +  File.separator + "java" +File.separator +"ArquivoLoginValido"+ File.separator +"Login valido"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido"+ Generetor.dataHora()+".png");
     }
 }

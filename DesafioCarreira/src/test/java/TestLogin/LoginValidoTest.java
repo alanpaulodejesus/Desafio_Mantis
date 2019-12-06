@@ -29,15 +29,16 @@ public class LoginValidoTest {
         login.acionarComandoEntrar();
         login.preencherCampoSenha(Propriedades.SENHA);
         login.acionarComandoEntrar();
-        Assert.assertTrue(login.validarAcessoLogin());
-        //login.euRegistroLoginValido();
+
 
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
-        //login.realizarLogout();
+        Assert.assertTrue(login.validarAcessoLogin());
+        login.registrarLoginValido();
+        login.realizarLogout();
     }
 
 }
