@@ -1,3 +1,4 @@
+/*
 package Connection;
 
 import java.sql.*;
@@ -60,3 +61,4 @@ public class ConnetionFactory {
         getConnection();
     }
 }
+*/

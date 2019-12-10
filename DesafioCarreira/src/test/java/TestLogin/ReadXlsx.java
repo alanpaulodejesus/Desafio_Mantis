@@ -72,7 +72,7 @@ public class ReadXlsx {
     public static void main(String[] args) {
         ReadXlsx readXlsx = new ReadXlsx();
         String projectPath = System.getProperty("user.dir");
-    readXlsx.readXLSXFile(projectPath+File.separator +"src"+File.separator +"test" +File.separator +"resources"+ File.separator +"ArquivoExcel.xlsx");
+    readXlsx.readXLSXFile(projectPath+File.separator +"src"+File.separator +"relatorio" +File.separator +"resources"+ File.separator +"ArquivoExcel.xlsx");
     }
 
 }

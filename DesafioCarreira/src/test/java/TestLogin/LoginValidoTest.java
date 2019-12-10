@@ -14,13 +14,18 @@ public class LoginValidoTest {
 
 
     LoginPage login = new LoginPage();
+
+
     public LoginValidoTest() throws Exception {
     }
+
 
     @Before
     public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
+        login.startRelatorio();
     }
+
 
     @Test
     public void realizarLoginValido() throws Exception {
@@ -30,7 +35,6 @@ public class LoginValidoTest {
         login.preencherCampoSenha(Propriedades.SENHA);
         login.acionarComandoEntrar();
 
-
     }
 
     @After
@@ -39,6 +43,7 @@ public class LoginValidoTest {
         Assert.assertTrue(login.validarAcessoLogin());
         login.registrarLoginValido();
         login.realizarLogout();
+        login.closeRelatorio();
     }
 
 }
