@@ -16,6 +16,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
+import java.io.IOException;
 
 import static Core.DriverFactory.getDriver;
 
@@ -56,7 +57,7 @@ public class LoginPage {
     }
 
 
-    public Boolean validarAcessoLogin(){
+    public Boolean validarAcessoLogin() throws IOException {
         Tempo.aguardar(2, validaAcessoDeUsuario);
         //return Label.textoPresente(validaAcessoDeUsuario);
 
@@ -64,6 +65,9 @@ public class LoginPage {
         {
             test = extent.createTest( "Realizar Login com Sucesso" );
             test.log(Status.PASS, "Teste realizado com sucesso");
+            test.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido"+ Generetor.dataHora()+".png");
             return true;
 
         }else {
