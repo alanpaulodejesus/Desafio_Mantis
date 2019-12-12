@@ -2,7 +2,7 @@ Descrição de Projeto
 
 Este projeto possui:
 
-1 - 50 casos de testes manipulando o Mantis com Page Objects
-2 - O script "CriarMarcadorTDDTest" lê dados da planilha de excel implementando Data-Driven
-3 - Gravação de Screenshots de dos casos de testes executados
-4 - Relatório dos testes executados com prints dos Screenshots executados
+1 - 50 casos de testes com cenários do Mantis com Page Objects
+2 - script que lê dados da planilha de excel implementando Data-Driven
+3 - Gravação de Screenshots de casos de testes
+4 - Relatório dos cenários executados com prints
