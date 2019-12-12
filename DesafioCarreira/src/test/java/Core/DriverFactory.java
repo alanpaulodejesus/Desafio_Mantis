@@ -66,23 +66,6 @@ public class DriverFactory {
             }
 
 
-
-                /*
-                try {
-
-                    String url = "http://localhost:35602/wd/hub";
-
-                    //SeleniumHub.executaSeleniumGrid();
-                    driver = new RemoteWebDriver( new URL( url ), cap );
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                */
-
-                //}
-
-
         }
             driver.manage().window().maximize();
             return driver;

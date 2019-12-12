@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 
 public class LoginInvalidoTest {
@@ -20,6 +22,7 @@ public class LoginInvalidoTest {
     @Before
     public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
+        startRelatorio();
     }
 
     @Test
@@ -31,15 +34,14 @@ public class LoginInvalidoTest {
         login.acionarComandoEntrar();
 
 
-
     }
 
     @After
     public void tearDown() throws Exception {
 
-        Assert.assertEquals(login.mensagemAcessoInvalido,login.validarAcessoNegado());
+        Assert.assertTrue( login.validarAcessoNegado() );
         login.registrarLoginInvalido();
-
+        closeRelatorio();
     }
 
 }

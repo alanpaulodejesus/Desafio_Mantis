@@ -6,11 +6,8 @@ import DSL.Label;
 import Utils.Generetor;
 import Utils.RegistrarEvidencia;
 import Utils.Tempo;
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class LoginPage {
 
@@ -31,11 +29,6 @@ public class LoginPage {
     @FindBy(linkText = "Sair")private WebElement comandoSair;
     @FindBy(xpath = "//span[@class=\"user-info\"]") private WebElement comandoSairUsuario;
 
-    public static String mensagemAcessoInvalido ="Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.";
-
-    public static ExtentHtmlReporter htmlReporter;
-    public static ExtentReports extent;
-    public static ExtentTest test;
 
     public LoginPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -58,34 +51,44 @@ public class LoginPage {
 
 
     public Boolean validarAcessoLogin() throws IOException {
-        Tempo.aguardar(2, validaAcessoDeUsuario);
-        //return Label.textoPresente(validaAcessoDeUsuario);
 
+        ExtentTest test1;
+
+        test1 = extent.createTest( "Realizar Login com Sucesso" );
         if(Label.textoPresente( validaAcessoDeUsuario ))
         {
-            test = extent.createTest( "Realizar Login com Sucesso" );
-            test.log(Status.PASS, "Teste realizado com sucesso");
-            test.addScreenCaptureFromPath(
+
+            test1.log(Status.PASS, "Teste realizado com sucesso");
+
+            test1.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
                             "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido"+ Generetor.dataHora()+".png");
+            extent.flush();
             return true;
-
         }else {
-            test.log(Status.FAIL, "Ocorreu um erro no teste");
+            test1.log(Status.FAIL, "Ocorreu uma falha no teste");
+            extent.flush();
             return false;
         }
-
-    }
-    public void closeRelatorio()
-    {
-        extent.flush();
-
     }
 
 
-    public String validarAcessoNegado(){
-        Tempo.aguardar(2, validaAcessoNegado);
-        return Label.recuperaTexto(validaAcessoNegado);
+    public boolean validarAcessoNegado() throws IOException {
+
+        ExtentTest test2;
+        test2 = extent.createTest( "Validar Acesso Negado" );
+        if(Label.textoPresente( validaAcessoNegado )){
+
+            test2.log(Status.PASS, "Teste acesso negado com sucesso");
+            test2.addScreenCaptureFromPath(System.getProperty("user.dir") + File.separator +
+                    "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            extent.flush();
+            return false;
+        }
     }
 
     public void realizarLogout(){
@@ -107,24 +110,5 @@ public class LoginPage {
                         "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido"+ Generetor.dataHora()+".png");
     }
 
-    public void startRelatorio() {
-
-
-        htmlReporter = new ExtentHtmlReporter(System.getProperty( "user.dir" ) + File.separator +
-                "src" + File.separator + "test" + File.separator + "resources" + File.separator + "relatorio.html" );
-
-        htmlReporter.config().setEncoding("utf-8");
-        htmlReporter.config().setDocumentTitle("Desafio de Carreira");
-        htmlReporter.config().setReportName("Resultado de Automação de Testes");
-        htmlReporter.config().setTheme( Theme.DARK);
-
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
-
-        extent.setSystemInfo("Automation Tester", "Alan Paulo de Jesus");
-        extent.setSystemInfo("Organization", "Base2");
-
-
-    }
 
 }

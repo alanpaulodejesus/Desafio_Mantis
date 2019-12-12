@@ -1,24 +1,7 @@
 package SuiteTest;
 
-import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
-import TestCampoPersonalizado.AlterarCampoPersonalizadoTest;
-import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
-import TestCampoPersonalizado.RemoverCampoPersonalizadoEmProjetoTest;
-import TestCategoria.AlterarCategoriaTest;
-import TestCategoria.ApagarCategoriaTest;
-import TestCategoria.CadastrarCategoriaTest;
 import TestLogin.LoginInvalidoTest;
 import TestLogin.LoginValidoTest;
-import TestMarcador.AlterarMarcadorTest;
-import TestMarcador.CriarMarcadorTest;
-import TestMarcador.ExcluirMarcadorTest;
-import TestPerfil.AlterarPerfilTest;
-import TestPerfil.CriarPerfilTest;
-import TestProjeto.*;
-import TestTarefas.*;
-import TestToken.GerarTokenTest;
-import TestToken.RevogarTokenTest;
-import TestUsuario.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -28,6 +11,8 @@ import org.junit.runners.Suite;
 
         LoginInvalidoTest.class,
         LoginValidoTest.class,
+
+        /*
         AdicionarUsuarioEmProjetoTest.class,
         AlterarUsuarioTest.class,
         ApagarUsuarioTest.class,
@@ -79,7 +64,7 @@ import org.junit.runners.Suite;
         ExcluirMarcadorTest.class,
         RemoverCampoPersonalizadoEmProjetoTest.class
 
-
+        */
 })
 public class SuiteTest {
 
