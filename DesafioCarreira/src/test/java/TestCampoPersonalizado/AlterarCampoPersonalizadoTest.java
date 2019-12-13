@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarCampoPersonalizadoTest {
 
@@ -26,6 +28,7 @@ public class AlterarCampoPersonalizadoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         campoPersonalizado.verificarSeExisteCampoPersonalidado();
 
@@ -51,5 +54,6 @@ public class AlterarCampoPersonalizadoTest {
         Assert.assertTrue(campoPersonalizado.verificarCampoPersonalizadoAlteradoEmGrid());
         campoPersonalizado.excluirTodosCamposPersonalizados();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

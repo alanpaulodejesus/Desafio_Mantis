@@ -172,8 +172,10 @@ public class MarcadorPage {
         try {
             Label.textoPresente(marcadorEmGrid);
             marcadorEmGrid.getSize();
+
             return false;
         }catch (Exception e){
+
             return true;
         }
 

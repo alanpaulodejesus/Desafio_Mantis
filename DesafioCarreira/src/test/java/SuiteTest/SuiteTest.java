@@ -1,5 +1,9 @@
 package SuiteTest;
 
+import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
+import TestCampoPersonalizado.AlterarCampoPersonalizadoTest;
+import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
+import TestCampoPersonalizado.RemoverCampoPersonalizadoEmProjetoTest;
 import TestLogin.LoginInvalidoTest;
 import TestLogin.LoginValidoTest;
 import org.junit.runner.RunWith;
@@ -11,6 +15,12 @@ import org.junit.runners.Suite;
 
         LoginInvalidoTest.class,
         LoginValidoTest.class,
+
+
+        AdicionarCampoPersonalizadoEmProjetoTest.class,
+        AlterarCampoPersonalizadoTest.class,
+        CriarCampoPersonalizadoTest.class,
+        RemoverCampoPersonalizadoEmProjetoTest.class
 
         /*
         AdicionarUsuarioEmProjetoTest.class,
@@ -58,6 +68,8 @@ import org.junit.runners.Suite;
         AlterarCategoriaTest.class,
         ApagarCategoriaTest.class,
         CadastrarCategoriaTest.class,
+
+
         AdicionarCampoPersonalizadoEmProjetoTest.class,
         AlterarCampoPersonalizadoTest.class,
         CriarCampoPersonalizadoTest.class,

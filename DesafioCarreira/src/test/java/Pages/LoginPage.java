@@ -79,8 +79,9 @@ public class LoginPage {
         test2 = extent.createTest( "Validar Acesso Negado" );
         if(Label.textoPresente( validaAcessoNegado )){
 
-            test2.log(Status.PASS, "Teste acesso negado com sucesso");
-            test2.addScreenCaptureFromPath(System.getProperty("user.dir") + File.separator +
+            test2.log(Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
                     "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido"+ Generetor.dataHora()+".png");
             extent.flush();
             return true;

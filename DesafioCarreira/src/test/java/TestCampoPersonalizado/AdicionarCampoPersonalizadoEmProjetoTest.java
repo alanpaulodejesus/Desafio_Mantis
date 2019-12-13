@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AdicionarCampoPersonalizadoEmProjetoTest {
 
@@ -27,6 +29,7 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         projeto.verificarSeExisteProjeto();
         adicionarCampoPersonalizado.verificarSeExisteCampoPersonalidado();
@@ -49,8 +52,10 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
 
     @After
     public void tearDown() throws Exception {
-        adicionarCampoPersonalizado.registrarAddCampoPersonalizadoEmProjeto();
+
         Assert.assertTrue(adicionarCampoPersonalizado.verificarCampoVinculadoEmGrid());
+        adicionarCampoPersonalizado.registrarAddCampoPersonalizadoEmProjeto();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }
