@@ -19,8 +19,8 @@
       <file leaf-file-name="LoginValidoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="344">
+              <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -29,18 +29,8 @@
       <file leaf-file-name="SuiteTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/SuiteTest/SuiteTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdicionarCampoPersonalizadoEmProjetoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AdicionarCampoPersonalizadoEmProjetoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -49,18 +39,8 @@
       <file leaf-file-name="LoginInvalidoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestLogin/LoginInvalidoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Label.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/DSL/Label.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -69,21 +49,11 @@
       <file leaf-file-name="LoginPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/Pages/LoginPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+            <state relative-caret-position="223">
+              <caret line="107" column="16" lean-forward="false" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampoPersonalizadoPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Pages/CampoPersonalizadoPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1913">
-              <caret line="165" column="5" lean-forward="true" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -150,19 +120,19 @@
         <option value="$PROJECT_DIR$/src/test/java/Utils/TestCase1.java" />
         <option value="$PROJECT_DIR$/src/test/java/Utils/ExtentReport.java" />
         <option value="$PROJECT_DIR$/src/test/java/Utils/Relatorio.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Utils/RelatorioExtentReport.java" />
         <option value="$PROJECT_DIR$/src/test/java/Core/DriverFactory.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AlterarCampoPersonalizadoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/CriarCampoPersonalizadoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/ExcluirCampoPersonalizadoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Pages/MarcadorPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/RemoverCampoPersonalizadoEmProjetoTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/SuiteTest/SuiteTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AdicionarCampoPersonalizadoEmProjetoTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Pages/CampoPersonalizadoPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestLogin/LoginInvalidoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AdicionarCampoPersonalizadoEmProjetoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/SuiteTest/SuiteTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Pages/CampoPersonalizadoPage.java" />
       </list>
     </option>
   </component>
@@ -193,7 +163,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,14 +188,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DesafioCarreira" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DesafioCarreira" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ArquivoCenarioLogin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DesafioCarreira" type="b2602c69:ProjectViewProjectNode" />
@@ -318,7 +280,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
@@ -359,7 +321,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LoginInvalidoTest">
+  <component name="RunManager" selected="JUnit.SuiteTest">
     <configuration name="AdicionarCampoPersonalizadoEmProjetoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -417,7 +379,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="LoginValidoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginInvalidoTest.realizarLoginInvalido" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="TestLogin.*" />
@@ -428,9 +390,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="TestLogin" />
-      <option name="MAIN_CLASS_NAME" value="TestLogin.LoginValidoTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="TestLogin.LoginInvalidoTest" />
+      <option name="METHOD_NAME" value="realizarLoginInvalido" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -575,19 +537,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="MaxCompute SQL.BancoProjetoDesafio.sql" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.LoginValidoTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SuiteTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AdicionarCampoPersonalizadoEmProjetoTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.LoginValidoTest.realizarLoginValido" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SuiteTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AdicionarCampoPersonalizadoEmProjetoTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.LoginValidoTest.realizarLoginValido" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest.realizarLoginInvalido" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.LoginValidoTest.realizarLoginValido" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AdicionarCampoPersonalizadoEmProjetoTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.LoginValidoTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SuiteTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SuiteTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.LoginInvalidoTest.realizarLoginInvalido" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.LoginValidoTest.realizarLoginValido" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AdicionarCampoPersonalizadoEmProjetoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -605,35 +567,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AdicionarCampoPersonalizadoEmProjetoTest - 2019.12.13 at 00h 40m 31s.xml">
-      <configuration name="AdicionarCampoPersonalizadoEmProjetoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdicionarCampoPersonalizadoEmProjetoTest - 2019.12.13 at 00h 44m 30s.xml">
-      <configuration name="AdicionarCampoPersonalizadoEmProjetoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdicionarCampoPersonalizadoEmProjetoTest - 2019.12.13 at 00h 49m 25s.xml">
-      <configuration name="AdicionarCampoPersonalizadoEmProjetoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdicionarCampoPersonalizadoEmProjetoTest - 2019.12.13 at 00h 53m 05s.xml">
-      <configuration name="AdicionarCampoPersonalizadoEmProjetoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginInvalidoTest - 2019.12.13 at 00h 48m 30s.xml">
+    <history-entry file="LoginInvalidoTest - 2019.12.15 at 00h 26m 11s.xml">
       <configuration name="LoginInvalidoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginInvalidoTest - 2019.12.13 at 00h 57m 25s.xml">
-      <configuration name="LoginInvalidoTest" configurationId="JUnit" />
+    <history-entry file="LoginInvalidoTest_realizarLoginInvalido - 2019.12.15 at 00h 20m 16s.xml">
+      <configuration name="LoginInvalidoTest.realizarLoginInvalido" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest - 2019.12.13 at 00h 46m 18s.xml">
-      <configuration name="LoginValidoTest" configurationId="JUnit" />
+    <history-entry file="SuiteTest - 2019.12.14 at 23h 48m 20s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest - 2019.12.13 at 00h 47m 18s.xml">
-      <configuration name="LoginValidoTest" configurationId="JUnit" />
+    <history-entry file="SuiteTest - 2019.12.14 at 23h 51m 32s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest_realizarLoginValido - 2019.12.13 at 00h 55m 47s.xml">
-      <configuration name="LoginValidoTest.realizarLoginValido" configurationId="JUnit" />
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 28m 16s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest_realizarLoginValido - 2019.12.13 at 00h 56m 40s.xml">
-      <configuration name="LoginValidoTest.realizarLoginValido" configurationId="JUnit" />
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 31m 55s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 33m 35s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 46m 26s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 47m 26s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SuiteTest - 2019.12.15 at 00h 51m 44s.xml">
+      <configuration name="SuiteTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -659,10 +621,11 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31428573" sideWeight="0.74375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16" sideWeight="0.74375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2890625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -670,7 +633,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -678,7 +640,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -931,16 +893,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Utils/Relatorio.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/RelatorioExtentReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Core/DriverFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
@@ -967,7 +919,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DSL/Label.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="200">
           <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding />
         </state>
@@ -981,18 +933,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/CriarCampoPersonalizadoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
+        <state relative-caret-position="344">
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/RemoverCampoPersonalizadoEmProjetoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AdicionarCampoPersonalizadoEmProjetoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+        <state relative-caret-position="500">
+          <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -1000,55 +952,63 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AlterarCampoPersonalizadoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="53" column="59" lean-forward="false" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+          <caret line="53" column="55" lean-forward="true" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/SuiteTest/SuiteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="375">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/RemoverCampoPersonalizadoEmProjetoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="57" column="62" lean-forward="false" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Pages/CampoPersonalizadoPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1913">
-          <caret line="165" column="5" lean-forward="true" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
+        <state relative-caret-position="498">
+          <caret line="252" column="0" lean-forward="true" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/AdicionarCampoPersonalizadoEmProjetoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestCampoPersonalizado/CriarCampoPersonalizadoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="369">
+          <caret line="56" column="56" lean-forward="false" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestLogin/LoginInvalidoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+        <state relative-caret-position="500">
+          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/RelatorioExtentReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Pages/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+        <state relative-caret-position="223">
+          <caret line="107" column="16" lean-forward="false" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -53,8 +53,8 @@ public class AdicionarCampoPersonalizadoEmProjetoTest {
     @After
     public void tearDown() throws Exception {
 
-        Assert.assertTrue(adicionarCampoPersonalizado.verificarCampoVinculadoEmGrid());
         adicionarCampoPersonalizado.registrarAddCampoPersonalizadoEmProjeto();
+        Assert.assertTrue(adicionarCampoPersonalizado.verificarCampoVinculadoEmGrid());
         logout.realizarLogout();
         closeRelatorio();
     }

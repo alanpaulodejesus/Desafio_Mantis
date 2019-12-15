@@ -43,8 +43,8 @@ public class LoginValidoTest {
     @After
     public void tearDown() throws Exception {
 
-        Assert.assertTrue(login.validarAcessoLogin());
         login.registrarLoginValido();
+        Assert.assertTrue(login.validarAcessoLogin());
         login.realizarLogout();
         closeRelatorio();
 

@@ -8,7 +8,6 @@ import DSL.Label;
 import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
 import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
 import TestCampoPersonalizado.ExcluirCampoPersonalizadoTest;
-import Utils.Generetor;
 import Utils.RegistrarEvidencia;
 import Utils.Tempo;
 import com.aventstack.extentreports.ExtentTest;
@@ -96,7 +95,7 @@ public class CampoPersonalizadoPage {
 
     }
 
-    public Boolean verificarCampoPersonalizadoEmGrid() {
+    public Boolean verificarCampoPersonalizadoEmGrid() throws IOException {
         Tempo.aguardar(15, campoPersonalizadoEmGrid);
         ExtentTest test4;
         test4 = extent.createTest( "Criar Campo Personalizado Alterado" );
@@ -106,17 +105,21 @@ public class CampoPersonalizadoPage {
             test4.log(Status.PASS, "Teste realizado com sucesso");
             test4.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
             extent.flush();
             return true;
         } catch (Exception e) {
             test4.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test4.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+
             extent.flush();
             return false;
         }
     }
 
-    public Boolean verificarCampoPersonalizadoAlteradoEmGrid() {
+    public Boolean verificarCampoPersonalizadoAlteradoEmGrid() throws IOException {
 
         ExtentTest test3;
         test3 = extent.createTest( "Alterar Campo Personalizado Em Projeto" );
@@ -127,11 +130,15 @@ public class CampoPersonalizadoPage {
             test3.log(Status.PASS, "Teste realizado com sucesso");
             test3.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
             extent.flush();
             return true;
         } catch (Exception e) {
             test3.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test3.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+
             extent.flush();
             return false;
         }
@@ -147,14 +154,14 @@ public class CampoPersonalizadoPage {
                 test5.log(Status.PASS, "Teste excluir campo personalizado com sucesso");
                 test5.addScreenCaptureFromPath(
                         System.getProperty("user.dir") + File.separator +
-                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
                 extent.flush();
             }else if(Label.textoNaoPresente(campoPersonalizadoAlteradoEmGrid)){
                 campoPersonalizadoAlteradoEmGrid.getSize();
                 test5.log(Status.PASS, "Teste excluir campo personalizado com sucesso");
                 test5.addScreenCaptureFromPath(
                         System.getProperty("user.dir") + File.separator +
-                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
                 extent.flush();
             }
             return false;
@@ -206,7 +213,7 @@ public class CampoPersonalizadoPage {
     }
 
 
-    public Boolean verificarCampoVinculadoEmGrid() {
+    public Boolean verificarCampoVinculadoEmGrid() throws IOException {
         ExtentTest test1;
         test1 = extent.createTest( "Adicionar Campo Personalizado Em Projeto" );
         try {
@@ -215,11 +222,15 @@ public class CampoPersonalizadoPage {
             test1.log( Status.PASS, "Teste realizado com sucesso");
             test1.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Add Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Add Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
             extent.flush();
             return true;
         } catch (Exception e) {
             test1.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test1.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Add Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+
             extent.flush();
             return false;
         }
@@ -232,6 +243,10 @@ public class CampoPersonalizadoPage {
             Label.textoPresente(comandoRemover);
             comandoRemover.getSize();
             test6.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test6.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Remover Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+
             extent.flush();
             return false;
         } catch (Exception e) {
@@ -240,7 +255,7 @@ public class CampoPersonalizadoPage {
 
             test6.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Remover Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioCampoPersonalizado" + File.separator +"Remover Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
             extent.flush();
             return true;
         }
@@ -290,30 +305,30 @@ public class CampoPersonalizadoPage {
     public void registrarAddCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Add Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Add Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarAlterarCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarCriarCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarExcluirCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarRemoverCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Remover Campo Personalizado Em Projeto"+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Remover Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 }

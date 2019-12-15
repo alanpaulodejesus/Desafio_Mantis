@@ -22,6 +22,7 @@ import org.junit.runners.Suite;
         CriarCampoPersonalizadoTest.class,
         RemoverCampoPersonalizadoEmProjetoTest.class
 
+
         /*
         AdicionarUsuarioEmProjetoTest.class,
         AlterarUsuarioTest.class,

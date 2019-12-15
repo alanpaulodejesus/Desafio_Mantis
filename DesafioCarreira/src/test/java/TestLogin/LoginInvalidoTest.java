@@ -39,8 +39,8 @@ public class LoginInvalidoTest {
     @After
     public void tearDown() throws Exception {
 
-        Assert.assertTrue( login.validarAcessoNegado() );
         login.registrarLoginInvalido();
+        Assert.assertTrue( login.validarAcessoNegado() );
         closeRelatorio();
     }
 
