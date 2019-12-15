@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarCategoriaTest {
 
@@ -25,6 +27,7 @@ public class AlterarCategoriaTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         categoria.verificarSeExisteCategoriaAAlterar();
 
@@ -40,15 +43,15 @@ public class AlterarCategoriaTest {
         categoria.preencherCampoNomeCategoria(PropriedadesCategoria.categoriaAlterada);
         categoria.acionarComandoAtualizarCategoria();
 
-
-
     }
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        categoria.registrarAlterarCategoria();
         Assert.assertTrue(categoria.verificarCategoriaEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

@@ -6,7 +6,10 @@ import DSL.Comando;
 import DSL.Label;
 import TestMarcador.CriarMarcadorTest;
 import TestMarcador.ExcluirMarcadorTest;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -21,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class MarcadorPage {
 
@@ -37,6 +41,7 @@ public class MarcadorPage {
     @FindBy(xpath = "//input[@value=\"Apagar Marcador\"]") private WebElement comandoApagarMarcador;
     @FindBy(xpath = "//input[@value=\"Atualizar Marcador\"]") private WebElement comandoAtualizarMarcador;
 
+    public static ExtentTest test2=null;
 
     public MarcadorPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -134,25 +139,72 @@ public class MarcadorPage {
         }
     }
 
-    public Boolean verificarMarcadorEmGrid(){
+    public Boolean verificarMarcadorEmGrid() throws IOException {
         Tempo.aguardar(5, marcadorEmGrid);
+        test2 = extent.createTest( "Alterar Marcador" );
         try {
             Label.textoPresente(marcadorEmGrid);
             marcadorEmGrid.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Marcador.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Marcador.png");
+            extent.flush();
             return false;
         }
     }
 
-    public Boolean verificarMarcadoresTDDEmGrid(){
+    public Boolean verificarMarcadorCriadoEmGrid() throws IOException {
+        Tempo.aguardar(5, marcadorEmGrid);
+        test2 = extent.createTest( "Criar Marcador" );
+        try {
+            Label.textoPresente(marcadorEmGrid);
+            marcadorEmGrid.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Marcador.png");
+            extent.flush();
+            return true;
+        }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Marcador.png");
+            extent.flush();
+            return false;
+        }
+    }
 
+    public Boolean verificarMarcadoresTDDEmGrid() throws IOException {
+
+        test2 = extent.createTest( "Data Driven Criar Marcador" );
         if(Label.textoPresente( marcadorEmGrid )|| Label.textoPresente( marcadorEmGrid1 )
                 || Label.textoPresente( marcadorEmGrid2 )|| Label.textoPresente( marcadorEmGrid3 )||
                 Label.textoPresente( marcadorEmGrid4 )){
 
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"TDD criar Marcador.png");
+            extent.flush();
+            return true;
         }
-        return true;
+        else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"TDD criar Marcador.png");
+            extent.flush();
+            return false;
+        }
     }
 
     public boolean excluirMarcadores() throws Exception {
@@ -167,14 +219,25 @@ public class MarcadorPage {
 
     }
 
-    public Boolean verificarMarcadorNaoEstaEmGrid(){
+    public Boolean verificarMarcadorNaoEstaEmGrid() throws IOException {
 
-        try {
-            Label.textoPresente(marcadorEmGrid);
-            marcadorEmGrid.getSize();
+        test2 = extent.createTest( "Excluir Marcador" );
+
+           if( Label.textoPresente(marcadorEmGrid)){
+            //marcadorEmGrid.getSize();
+               test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+               test2.addScreenCaptureFromPath(
+                       System.getProperty("user.dir") + File.separator +
+                               "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Marcador.png");
+               extent.flush();
 
             return false;
-        }catch (Exception e){
+        }else{
+               test2.log( Status.PASS, "Teste realizado com sucesso");
+               test2.addScreenCaptureFromPath(
+                       System.getProperty("user.dir") + File.separator +
+                               "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Marcador.png");
+               extent.flush();
 
             return true;
         }
@@ -193,6 +256,30 @@ public class MarcadorPage {
             criarMarcador.criarMarcador();
 
         }
+    }
+
+    public void registrarAlterarMarcador() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Marcador.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarMarcador() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Criar Marcador.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarExcluirMarcador() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Excluir Marcador.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarTDDCriarMarcador() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"TDD criar Marcador.png" );//+ Generetor.dataHora()+".png");
     }
 
 

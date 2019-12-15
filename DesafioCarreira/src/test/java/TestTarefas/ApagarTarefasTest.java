@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class ApagarTarefasTest {
 
@@ -25,6 +27,7 @@ public class ApagarTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         excluirTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
@@ -43,5 +46,6 @@ public class ApagarTarefasTest {
         excluirTarefas.excluirTodasTarefas();
         Assert.assertTrue(excluirTarefas.verificarGridVazio());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

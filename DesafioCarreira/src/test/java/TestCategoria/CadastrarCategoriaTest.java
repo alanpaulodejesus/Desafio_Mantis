@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class CadastrarCategoriaTest {
 
@@ -25,6 +27,7 @@ public class CadastrarCategoriaTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         categoria.verificarSeExisteCategoriaCriada();
     }
@@ -43,9 +46,11 @@ public class CadastrarCategoriaTest {
 
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
-        Assert.assertTrue(categoria.verificarCategoriaEmGrid());
+        categoria.registrarCadastrarCategoria();
+        Assert.assertTrue(categoria.verificarCategoriaCadastradaEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

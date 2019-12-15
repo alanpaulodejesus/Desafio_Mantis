@@ -12,6 +12,8 @@ import org.junit.Test;
 import java.io.IOException;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class CriarMarcadorTDDTest {
 
@@ -26,11 +28,11 @@ public class CriarMarcadorTDDTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
 
     }
 
-    // , BiffException exceção tirei da jxl
     @Test
     public void criarMarcadorTDD() throws IOException {
 
@@ -44,9 +46,10 @@ public class CriarMarcadorTDDTest {
     @After
     public void tearDown() throws Exception {
 
-
+        marcador.registrarTDDCriarMarcador();
         Assert.assertTrue(marcador.verificarMarcadoresTDDEmGrid());
         marcador.excluirMarcadores();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

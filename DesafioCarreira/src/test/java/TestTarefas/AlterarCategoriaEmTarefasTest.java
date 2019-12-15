@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarCategoriaEmTarefasTest {
 
@@ -27,6 +29,7 @@ public class AlterarCategoriaEmTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         alterarTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
@@ -38,12 +41,14 @@ public class AlterarCategoriaEmTarefasTest {
         alterarTarefas.acionarComandoAtualizar();
         alterarTarefas.acionarCategoriaTarefa(PropriedadesTarefas.categoriaDúvida);
         alterarTarefas.acionarComandoAtualizacaoInformacaoEmTarefa();
-        Assert.assertEquals(PropriedadesTarefas.categoriaDúvida, alterarTarefas.verificarAlteracaoCategoria());
+
     }
 
     @After
     public void tearDown(){
 
+        Assert.assertEquals(PropriedadesTarefas.categoriaDúvida, alterarTarefas.verificarAlteracaoCategoria());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarMarcadorTest {
 
@@ -25,6 +27,7 @@ public class AlterarMarcadorTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         alterarMarcador.verificarSeExisteMarcador();
 
@@ -47,8 +50,10 @@ public class AlterarMarcadorTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+        alterarMarcador.registrarAlterarMarcador();
         Assert.assertTrue(alterarMarcador.verificarMarcadorEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

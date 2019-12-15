@@ -4,8 +4,13 @@ import TestCampoPersonalizado.AdicionarCampoPersonalizadoEmProjetoTest;
 import TestCampoPersonalizado.AlterarCampoPersonalizadoTest;
 import TestCampoPersonalizado.CriarCampoPersonalizadoTest;
 import TestCampoPersonalizado.RemoverCampoPersonalizadoEmProjetoTest;
+import TestCategoria.CadastrarCategoriaTest;
 import TestLogin.LoginInvalidoTest;
 import TestLogin.LoginValidoTest;
+import TestMarcador.AlterarMarcadorTest;
+import TestMarcador.CriarMarcadorTDDTest;
+import TestMarcador.CriarMarcadorTest;
+import TestMarcador.ExcluirMarcadorTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -20,8 +25,19 @@ import org.junit.runners.Suite;
         AdicionarCampoPersonalizadoEmProjetoTest.class,
         AlterarCampoPersonalizadoTest.class,
         CriarCampoPersonalizadoTest.class,
-        RemoverCampoPersonalizadoEmProjetoTest.class
+        RemoverCampoPersonalizadoEmProjetoTest.class,
 
+
+
+        //==>AlterarCategoriaEmTarefasTest.class,
+        //==>ApagarCategoriaTest.class,
+        CadastrarCategoriaTest.class,
+
+
+        AlterarMarcadorTest.class,
+        CriarMarcadorTest.class,
+        ExcluirMarcadorTest.class,
+        CriarMarcadorTDDTest.class
 
         /*
         AdicionarUsuarioEmProjetoTest.class,
@@ -38,10 +54,10 @@ import org.junit.runners.Suite;
         RevogarTokenTest.class,
         AdicionarFiltroTarefasTest.class,
         AdicionarMarcadorEmTarefasTest.class,
-        AlterarCategoriaEmTarefasTest.class,
+
         AlterarStatusTarefasTest.class,
         ApagarMarcadorEmTarefasTest.class,
-        ApagarTarefasTest.class,
+
         ClonarTarefasTest.class,
         CriarTarefasTest.class,
         DesmarcarTarefaPegajosaTest.class,
@@ -63,12 +79,9 @@ import org.junit.runners.Suite;
         AlterarPerfilTest.class,
         CriarPerfilTest.class,
         ExcluirProjetoTest.class,
-        AlterarMarcadorTest.class,
-        CriarMarcadorTest.class,
-        ExcluirMarcadorTest.class,
         AlterarCategoriaTest.class,
         ApagarCategoriaTest.class,
-        CadastrarCategoriaTest.class,
+
 
 
         AdicionarCampoPersonalizadoEmProjetoTest.class,
