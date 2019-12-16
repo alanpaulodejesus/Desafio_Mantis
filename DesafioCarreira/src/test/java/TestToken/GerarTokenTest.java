@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 
 public class GerarTokenTest {
@@ -26,6 +28,7 @@ public class GerarTokenTest {
     @Before
     public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         token.verificarSeExisteTokenParaGerar();
     }
@@ -45,10 +48,12 @@ public class GerarTokenTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        token.registrarGerarToken();
         Assert.assertTrue(token.verificarTokenEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
 
     }
 

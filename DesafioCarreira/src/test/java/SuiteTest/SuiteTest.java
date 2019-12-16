@@ -11,6 +11,15 @@ import TestMarcador.AlterarMarcadorTest;
 import TestMarcador.CriarMarcadorTDDTest;
 import TestMarcador.CriarMarcadorTest;
 import TestMarcador.ExcluirMarcadorTest;
+import TestPerfil.AlterarPerfilTest;
+import TestPerfil.CriarPerfilTest;
+import TestPerfil.ExcluirPerfilTest;
+import TestProjeto.AlterarProjetoTest;
+import TestProjeto.AlterarVisibilidadeDeProjetoPrivadoTest;
+import TestProjeto.AlterarVisibilidadeDeProjetoPublicoTest;
+import TestProjeto.ExcluirProjetoTest;
+import TestToken.GerarTokenTest;
+import TestToken.RevogarTokenTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -21,24 +30,32 @@ import org.junit.runners.Suite;
         LoginInvalidoTest.class,
         LoginValidoTest.class,
 
-
         AdicionarCampoPersonalizadoEmProjetoTest.class,
         AlterarCampoPersonalizadoTest.class,
         CriarCampoPersonalizadoTest.class,
         RemoverCampoPersonalizadoEmProjetoTest.class,
 
-
-
         //==>AlterarCategoriaEmTarefasTest.class,
         //==>ApagarCategoriaTest.class,
         CadastrarCategoriaTest.class,
 
-
         AlterarMarcadorTest.class,
         CriarMarcadorTest.class,
         ExcluirMarcadorTest.class,
-        CriarMarcadorTDDTest.class
+        CriarMarcadorTDDTest.class,
 
+        AlterarPerfilTest.class,
+        CriarPerfilTest.class,
+        ExcluirPerfilTest.class,
+
+        //==>CriarProjetoTest.class,
+        AlterarProjetoTest.class,
+        AlterarVisibilidadeDeProjetoPublicoTest.class,
+        AlterarVisibilidadeDeProjetoPrivadoTest.class,
+        ExcluirProjetoTest.class,
+
+        GerarTokenTest.class,
+        RevogarTokenTest.class
         /*
         AdicionarUsuarioEmProjetoTest.class,
         AlterarUsuarioTest.class,
@@ -80,7 +97,6 @@ import org.junit.runners.Suite;
         CriarPerfilTest.class,
         ExcluirProjetoTest.class,
         AlterarCategoriaTest.class,
-        ApagarCategoriaTest.class,
 
 
 

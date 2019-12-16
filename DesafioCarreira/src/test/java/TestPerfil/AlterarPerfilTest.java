@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarPerfilTest {
 
@@ -25,6 +27,7 @@ public class AlterarPerfilTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         perfil.verificarSeExistePerfil();
 
@@ -50,9 +53,12 @@ public class AlterarPerfilTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+
+        perfil.registrarAlterarPerfil();
         Assert.assertTrue(perfil.verificarPerfilEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 
 }

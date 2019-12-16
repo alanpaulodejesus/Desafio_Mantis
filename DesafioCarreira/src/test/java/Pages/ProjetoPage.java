@@ -7,12 +7,19 @@ import DSL.Combo;
 import DSL.Label;
 import TestProjeto.CriarProjetoTest;
 import TestProjeto.ExcluirProjetoTest;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class ProjetoPage {
 
@@ -33,6 +40,8 @@ public class ProjetoPage {
     @FindBy(xpath = "//i[@class=\"ace-icon fa fa-angle-down bigger-110\"]") private WebElement selecionarProjeto;
     @FindBy(linkText = ""+PropriedadesProjeto.nomeProjetoMoverTarefa+"") private WebElement projetoTarefaMovida;
     @FindBy(id = "project-view-state") private WebElement comboVisibilidadeProjeto;
+
+    public static ExtentTest test2=null;
 
     public ProjetoPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -62,44 +71,117 @@ public class ProjetoPage {
         Comando.clicar(comandoAdicionarProjeto);
     }
 
-    public Boolean verificarProjetoEmGrid(){
+    public Boolean verificarProjetoEmGrid() throws IOException {
+        test2 = extent.createTest( "Alterar Projeto" );
+
         Tempo.aguardar(5, projetoEmGrid);
         try {
             Label.textoPresente(projetoEmGrid);
             projetoEmGrid.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Projeto.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Projeto.png");
+            extent.flush();
             return false;
         }
 
     }
-    public Boolean verificarProjetoNaoEstaEmGrid(){
+
+    public Boolean verificarCriarProjetoEmGrid() throws IOException {
+        test2 = extent.createTest( "Criar Projeto" );
+
+        Tempo.aguardar(5, projetoEmGrid);
         try {
             Label.textoPresente(projetoEmGrid);
             projetoEmGrid.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Projeto.png");
+            extent.flush();
+            return true;
+        }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Projeto.png");
+            extent.flush();
+            return false;
+        }
+
+    }
+
+    public Boolean verificarProjetoNaoEstaEmGrid() throws IOException {
+        test2 = extent.createTest( "Excluir Projeto" );
+
+        try {
+            Label.textoPresente(projetoEmGrid);
+            projetoEmGrid.getSize();
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Projeto.png");
+            extent.flush();
             return false;
 
         }catch (Exception e){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Projeto.png");
+            extent.flush();
             return true;
         }
 
     }
 
-    public Boolean verificarProjetoPrivadoEmGrid(){
+    public Boolean verificarProjetoPrivadoEmGrid() throws IOException {
+
+        test2 = extent.createTest( "Visibilidade Projeto Privado" );
 
         if (Label.textoPresente(projetoPublicoEmGrid) && Label.textoPresente(projetoPrivado)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Visibilidade Projeto Privado.png");
+            extent.flush();
             return true;
         }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Visibilidade Projeto Privado.png");
+            extent.flush();
             return false;
         }
 
     }
 
-    public Boolean verificarProjetoPublicoEmGrid(){
+    public Boolean verificarProjetoPublicoEmGrid() throws IOException {
+
+        test2 = extent.createTest( "Visibilidade Projeto Publico" );
 
         if (Label.textoPresente(projetoPrivadoEmGrid) && Label.textoPresente(projetoPublico)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Visibilidade Projeto Publico.png");
+            extent.flush();
             return true;
         }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Visibilidade Projeto Publico.png");
+            extent.flush();
             return false;
         }
 
@@ -223,5 +305,35 @@ public class ProjetoPage {
 
     public void selecionarComboVisibilidadeProjetoPrivado(String texto){
         Combo.selecionarCombo(comboVisibilidadeProjeto, texto);
+    }
+
+    public void registrarAlterarProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Projeto.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarVisibilidadeProjetoPrivado() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Visibilidade Projeto Privado.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarVisibilidadeProjetoPublico() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Visibilidade Projeto Publico.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarExcluirProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Excluir Projeto.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Criar Projeto.png" );//+ Generetor.dataHora()+".png");
     }
 }

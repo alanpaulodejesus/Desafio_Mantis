@@ -6,12 +6,19 @@ import DSL.Combo;
 import DSL.Label;
 import TestPerfil.CriarPerfilTest;
 import TestPerfil.ExcluirPerfilTest;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class PerfilPage {
 
@@ -29,6 +36,8 @@ public class PerfilPage {
     @FindBy(id = "description") private WebElement campoDescricaoAdicional;
     @FindBy(name= "description") private WebElement campoDescricaoAdicionalAlteracao;
     @FindBy(name = "os_build") private WebElement campoVersaoOSAlteracao;
+
+    public static ExtentTest test2=null;
 
     public PerfilPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -62,26 +71,93 @@ public class PerfilPage {
     }
 
 
-    public Boolean verificarPerfilEmGrid(){
+    public Boolean verificarPerfilEmGrid() throws IOException {
+        test2 = extent.createTest( "Alterar Perfil" );
+
         Tempo.aguardar(5, comboSelecionarPerfil);
         try {
             Label.textoPresente(comboSelecionarPerfil);
             comboSelecionarPerfil.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Perfil.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Perfil.png");
+            extent.flush();
             return false;
         }
 
     }
-    public Boolean verificarPerfilNaoEstaEmGrid(){
+
+    public Boolean verificarPerfilCriadoEmGrid() throws IOException {
+        test2 = extent.createTest( "Criar Perfil" );
+
+        Tempo.aguardar(5, comboSelecionarPerfil);
         try {
             Label.textoPresente(comboSelecionarPerfil);
             comboSelecionarPerfil.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Perfil.png");
+            extent.flush();
+            return true;
+        }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Perfil.png");
+            extent.flush();
+            return false;
+        }
+
+    }
+
+    public Boolean verificarPerfilNaoEstaEmGrid() throws IOException {
+        test2 = extent.createTest( "Excluir Perfil" );
+        try {
+            Label.textoPresente(comboSelecionarPerfil);
+            comboSelecionarPerfil.getSize();
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Perfil.png");
+            extent.flush();
             return false;
         }catch (Exception e){
+
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Perfil.png");
+            extent.flush();
             return true;
         }
 
+    }
+
+    public void registrarAlterarPerfil() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Perfil.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarPerfil() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Criar Perfil.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarExcluirPerfil() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Excluir Perfil.png" );//+ Generetor.dataHora()+".png");
     }
 
     public void selecionarComboPerfil(String texto){

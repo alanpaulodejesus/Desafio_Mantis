@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarProjetoTest {
 
@@ -25,6 +27,7 @@ public class AlterarProjetoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         projeto.verificarSeExisteProjeto();
 
@@ -44,8 +47,11 @@ public class AlterarProjetoTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+
+        projeto.registrarAlterarProjeto();
         Assert.assertTrue(projeto.verificarProjetoEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

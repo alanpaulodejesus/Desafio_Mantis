@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class ExcluirProjetoTest {
 
@@ -24,6 +26,7 @@ public class ExcluirProjetoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         projeto.verificarSeExisteProjeto();
 
@@ -43,8 +46,11 @@ public class ExcluirProjetoTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
+
+        projeto.registrarExcluirProjeto();
         Assert.assertTrue(projeto.verificarProjetoNaoEstaEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

@@ -6,11 +6,18 @@ import DSL.Comando;
 import DSL.Label;
 import TestToken.GerarTokenTest;
 import TestToken.RevogarTokenTest;
+import Utils.RegistrarEvidencia;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class TokenPage {
 
@@ -22,6 +29,8 @@ public class TokenPage {
     @FindBy(xpath = "//div[@class=\"well\"]") private WebElement tokenGerado;
     @FindBy(xpath = "//td[contains(text(),'"+ PropriedadesToken.Token+"')]")private WebElement tokenEmGrid;
     @FindBy(xpath = "//input[@value=\"Revogar\"]") private WebElement comandoRevogarToken;
+
+    public static ExtentTest test2=null;
 
     public TokenPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -52,8 +61,50 @@ public class TokenPage {
         Comando.clicar(comandoCriarToken);
     }
 
-    public boolean verificarTokenEmGrid(){
-        return Label.textoPresente(tokenEmGrid);
+    public boolean verificarTokenEmGrid() throws IOException {
+        test2 = extent.createTest( "Gerar Token" );
+
+        if (Label.textoPresente( tokenEmGrid )){
+
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Gerar Token.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Gerar Token.png");
+            extent.flush();
+            return false;
+        }
+
+    }
+
+    public boolean verificarTokenRevogadoEmGrid() throws IOException {
+        test2 = extent.createTest( "Gerar Token Revogado" );
+
+        if (Label.textoPresente( tokenEmGrid )){
+
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Gerar Token Revogado.png");
+            extent.flush();
+            return false;
+
+        }else {
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Gerar Token Revogado.png");
+            extent.flush();
+            return true;
+
+        }
+
     }
 
     public void verificarSeExisteToken() throws Exception {
@@ -85,5 +136,17 @@ public class TokenPage {
 
     public void acionarComandoRevogarToken(){
         Comando.clicar(comandoRevogarToken);
+    }
+
+    public void registrarGerarToken() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Gerar Token.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarGerarTokenRevogado() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Gerar Token Revogado.png" );//+ Generetor.dataHora()+".png");
     }
 }
