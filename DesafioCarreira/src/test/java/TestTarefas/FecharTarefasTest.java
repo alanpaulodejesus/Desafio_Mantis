@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class FecharTarefasTest {
 
@@ -27,6 +29,7 @@ public class FecharTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         fecharTarefas.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
@@ -38,13 +41,15 @@ public class FecharTarefasTest {
         fecharTarefas.acionarComandoFecharTarefa();
         fecharTarefas.adicionarInformacaoTarefa(PropriedadesTarefas.informacaoAdicionadaEmTarefa);
         fecharTarefas.confirmarFechamentoComandoFecharTarefa();
-        Assert.assertTrue(fecharTarefas.verificarStatusFechado());
 
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        fecharTarefas.registrarFecharTarefas();
+        Assert.assertTrue(fecharTarefas.verificarStatusFechado());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

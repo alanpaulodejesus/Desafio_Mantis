@@ -45,9 +45,10 @@ public class AlterarCategoriaEmTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
-        Assert.assertEquals(PropriedadesTarefas.categoriaDúvida, alterarTarefas.verificarAlteracaoCategoria());
+        alterarTarefas.registrarAlterarCategotiaTarefas();
+        Assert.assertTrue( alterarTarefas.verificarAlteracaoCategoria() );
         logout.realizarLogout();
         closeRelatorio();
     }

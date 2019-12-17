@@ -7,13 +7,20 @@ import DSL.Comando;
 import DSL.Combo;
 import DSL.Label;
 import TestTarefas.*;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class TarefasPage {
 
@@ -67,6 +74,8 @@ public class TarefasPage {
     @FindBy(xpath = "//input[@value=\"Monitorar\"]")private WebElement comandoMonitorar;
     @FindBy(xpath = "//input[@value=\"Parar de Monitorar\"]")private WebElement comandoPararDeMonitorar;
 
+    public static ExtentTest test2=null;
+
     public TarefasPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
     }
@@ -89,14 +98,66 @@ public class TarefasPage {
         Combo.selecionarCombo(comboMarcador, texto);
     }
 
-    public Boolean verificarAlteracaoStatusEmAtividade(){
-        return Label.textoPresente(alteracaoStatusGravidade);
+    public Boolean verificarAlteracaoStatusEmAtividade() throws IOException {
+        test2 = extent.createTest( "Alterar Status Em Tarefas" );
+
+        if(Label.textoPresente(alteracaoStatusGravidade)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Status Tarefas.png");
+            extent.flush();
+            return true;
+        }
+        else {
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Status Tarefas.png");
+            extent.flush();
+            return false;
+        }
     }
 
-    public Boolean verificarMarcadorEmTarefa(){
+    public Boolean verificarMarcadorEmTarefa() throws IOException {
+
+        test2 = extent.createTest( "Adicionar Marcador Em Tarefas" );
+
             if(Label.textoPresente(macardorEmTarefa)){
+                test2.log( Status.PASS, "Teste realizado com sucesso");
+                test2.addScreenCaptureFromPath(
+                        System.getProperty("user.dir") + File.separator +
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Marcador Tarefa.png");
+                extent.flush();
                 return true;
-            }else return false;
+            }else {
+                test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+                test2.addScreenCaptureFromPath(
+                        System.getProperty("user.dir") + File.separator +
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Marcador Tarefa.png");
+                extent.flush();
+                return false;
+            }
+    }
+
+    public Boolean verificarApagarMarcadorEmTarefa() throws IOException {
+        test2 = extent.createTest( "Apagar Marcador Em Tarefas" );
+
+        if(Label.textoPresente(macardorEmTarefa)){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Marcador Tarefa.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Marcador Tarefa.png");
+            extent.flush();
+            return false;
+        }
     }
 
     public void acionarIconeEditar(){
@@ -150,23 +211,94 @@ public class TarefasPage {
         CampoTexto.preencher(reproduzirBug, tipo);
     }
 
-    public Boolean confirmarCadastroComSucesso(){
+    public Boolean confirmarCadastroComSucesso() throws IOException {
         Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
-        return  Label.textoPresente(confirmoCadastroTarefaRealizada);
+
+        test2 = extent.createTest( "Clonar Tarefas" );
+
+        if (Label.textoPresente(confirmoCadastroTarefaRealizada)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Clonar Tarefa.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Clonar Tarefa.png");
+            extent.flush();
+            return false;
+        }
     }
+
+    public Boolean confirmarCriarTarefaComSucesso() throws IOException {
+        Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
+
+        test2 = extent.createTest( "Criar Tarefas" );
+
+        if (Label.textoPresente(confirmoCadastroTarefaRealizada)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Tarefa.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Tarefa.png");
+            extent.flush();
+            return false;
+        }
+    }
+
     public String verificarIdTarefaCriada(){
         Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
         return Label.recuperaTexto(confirmoCadastroTarefaRealizada);
     }
 
-    public Boolean verificarStatusFechado(){
+    public Boolean verificarStatusFechado() throws IOException {
         Tempo.aguardar(20, confirmoStatusFechado);
-        return Label.textoPresente(confirmoStatusFechado);
+        test2 = extent.createTest( "Fechar Tarefas" );
+
+        if (Label.textoPresente(confirmoStatusFechado)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Fechar Tarefa.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Fechar Tarefa.png");
+            extent.flush();
+            return false;
+        }
     }
 
-    public Boolean verificarPesquisaIdTarefaCriada(){
+    public Boolean verificarPesquisaIdTarefaCriada() throws IOException {
         Tempo.aguardar(20, confirmoCadastroTarefaRealizada);
-        return Label.textoPresente(confirmoCadastroTarefaRealizada);
+        test2 = extent.createTest( "Pesquisar Tarefas" );
+        if(Label.textoPresente(confirmoCadastroTarefaRealizada)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Pesquisar Tarefa.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Pesquisar Tarefa.png");
+            extent.flush();
+            return false;
+        }
     }
 
 
@@ -193,36 +325,68 @@ public class TarefasPage {
         Comando.clicar(comandoDesmarcarComoPegajosa);
     }
 
-    public Boolean verificarGridVazio(){
-
+    public Boolean verificarGridVazio() throws IOException {
+        test2 = extent.createTest( "Apagar Tarefas" );
         try {
             Label.textoPresente(selecionarTarefaParaAcao);
             selecionarTarefaParaAcao.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Apagar Tarefas.png");
+            extent.flush();
             return false;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Apagar Tarefas.png");
+            extent.flush();
             return true;
         }
 
     }
 
-    public Boolean verificarTarefaMarcarda(){
+    public Boolean verificarTarefaMarcarda() throws IOException {
+        test2 = extent.createTest( "Marcar Tarefa Pegajosa" );
 
         try {
             Label.textoPresente(comandoDesmarcarComoPegajosa);
             comandoDesmarcarComoPegajosa.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Marcar Tarefa Pegajosa.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Marcar Tarefa Pegajosa.png");
+            extent.flush();
             return false;
         }
 
     }
-    public Boolean verificarTarefaDesmarcarda(){
+    public Boolean verificarTarefaDesmarcarda() throws IOException {
 
+        test2 = extent.createTest( "Desmarcar Tarefa Pegajosa" );
         try {
             Label.textoPresente(comandoMarcarComoPegajosa);
             comandoMarcarComoPegajosa.getSize();
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Desmarcar Tarefa Pegajosa.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Desmarcar Tarefa Pegajosa.png");
+            extent.flush();
             return false;
         }
 
@@ -232,8 +396,24 @@ public class TarefasPage {
         Tempo.aguardar(3, comandoAplicarFiltro);
         Comando.clicar(comandoAplicarFiltro);
     }
-    public String verificarAlteracaoCategoria(){
-        return Label.recuperaTexto(informacaoCategoria);
+    public boolean verificarAlteracaoCategoria() throws IOException {
+        test2 = extent.createTest( "Alterar Categoria Em Tarefas" );
+
+        if (Label.textoPresente(informacaoCategoria )){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Categoria Tarefas.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Categoria Tarefas.png");
+            extent.flush();
+            return false;
+        }
     }
 
     public void acionarComandoAtualizar(){
@@ -322,18 +502,66 @@ public class TarefasPage {
         Comando.clicar(comandoImprimirTarefa);
     }
 
-    public Boolean tarefaEmGriImprimir(){
+    public Boolean tarefaEmGriImprimir() throws IOException {
+        test2 = extent.createTest( "Imprimir Tarefas" );
         try{
             Label.textoPresente(confirmoCadastroTarefaRealizada);
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Imprimir Tarefa Tarefa.png");
+            extent.flush();
             return true;
         } catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Imprimir Tarefa.png");
+            extent.flush();
             return false;
         }
     }
 
-    public Boolean verificarTarefaEmGrid(){
-        return Label.textoPresente(atividadeGrid);
+    public Boolean verificarTarefaEmGrid() throws IOException {
+
+        test2 = extent.createTest( "Adicionar Filtro Tarefa" );
+
+        if(Label.textoPresente(atividadeGrid)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefa.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefa.png");
+            extent.flush();
+            return false;}
     }
+
+    public Boolean verificarMoverTarefa() throws IOException {
+
+        test2 = extent.createTest( "Mover Tarefas" );
+
+        if(Label.textoPresente(atividadeGrid)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Mover Tarefa.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Mover Tarefa.png");
+            extent.flush();
+            return false;}
+    }
+
 
     public void retornarImpressao() throws Exception {
         getDriver().navigate().to("https://localhost/mantis/view_all_bug_page.php");
@@ -385,13 +613,23 @@ public class TarefasPage {
         Comando.clicar(comandoRedefinir);
     }
 
-    public boolean verificarRedefinicaoTarefa() {
-
+    public boolean verificarRedefinicaoTarefa() throws IOException {
+        test2 = extent.createTest( "Redefinir Filtro Tarefas" );
         try {
-            if(Label.textoPresente(validarRedefinir)){
+                if(Label.textoPresente(validarRedefinir)){
+                    test2.log( Status.PASS, "Teste realizado com sucesso");
+                    test2.addScreenCaptureFromPath(
+                            System.getProperty("user.dir") + File.separator +
+                                    "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Redefinir Filtro Tarefa.png");
+                    extent.flush();
                 return true;
             }
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Redefinir Filtro Tarefa.png");
+            extent.flush();
             return false;
         }
         return verificarRedefinicaoTarefa();
@@ -430,23 +668,146 @@ public class TarefasPage {
         }
     }
 
-    public boolean verificarTarefaMonitorada() {
+    public boolean verificarTarefaMonitorada() throws IOException {
+        test2 = extent.createTest( "Monitorar Tarefas" );
 
         try{
             Label.textoPresente(comandoPararDeMonitorar);
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Monitorar Tarefa.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Monitorar Tarefa.png");
+            extent.flush();
             return false;
         }
     }
 
-    public boolean verificarTarefaSemEstarMonitorada() {
-
+    public boolean verificarTarefaSemEstarMonitorada() throws IOException {
+        test2 = extent.createTest( "Parar De Monitorar Tarefas" );
         try{
             Label.textoPresente(comandoMonitorar);
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Parar Monitorar Tarefa.png");
+            extent.flush();
             return true;
         }catch (Exception e){
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Parar Monitorar Tarefa");
+            extent.flush();
             return false;
         }
+    }
+
+    public void registrarAdicionarFiltroTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Filtro Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarAdicionarMarcadorTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Marcador Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarAlterarCategotiaTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Categoria Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarAlterarStatusTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Status Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarApagarMarcadorTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Filtro Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarApagarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Apagar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarClonarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Clonar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Criar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarDesmarcarTarefaPegajosa() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Filtro Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarFecharTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Fechar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarImprimirTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Imprimir Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarMarcarTarefaPegajosa() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Marcar Tarefa Pegajosa.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarMonitorarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Monitorar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarMoverTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Mover Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarParaMonitorarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Parar Monitorar Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarPesquisarTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Pesquisa Tarefas.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registraRedefinirTarefas() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Redefinir Filtro Tarefa.png" );//+ Generetor.dataHora()+".png");
     }
 }

@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class DesmarcarTarefaPegajosaTest {
 
@@ -25,6 +27,7 @@ public class DesmarcarTarefaPegajosaTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         desMarcarTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
@@ -40,9 +43,11 @@ public class DesmarcarTarefaPegajosaTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        desMarcarTarefa.registrarDesmarcarTarefaPegajosa();
         Assert.assertTrue(desMarcarTarefa.verificarTarefaDesmarcarda());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

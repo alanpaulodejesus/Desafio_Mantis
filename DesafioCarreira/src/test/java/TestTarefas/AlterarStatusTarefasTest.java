@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarStatusTarefasTest {
 
@@ -26,6 +28,7 @@ public class AlterarStatusTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         alterarStatusTarefas.verificarSeExisteTarefa();
 
@@ -42,10 +45,12 @@ public class AlterarStatusTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        alterarStatusTarefas.registrarAlterarStatusTarefas();
         Assert.assertTrue(alterarStatusTarefas.verificarAlteracaoStatusEmAtividade());
         alterarStatusTarefas.excluirTodasTarefas();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

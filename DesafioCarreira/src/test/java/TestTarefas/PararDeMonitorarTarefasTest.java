@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class PararDeMonitorarTarefasTest {
 
@@ -27,6 +29,7 @@ public class PararDeMonitorarTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         projeto.verificarSeExisteProjeto();
         projeto.selecionarProjeto();
@@ -42,9 +45,11 @@ public class PararDeMonitorarTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        monitorarTarefa.registrarParaMonitorarTarefas();
         Assert.assertTrue(monitorarTarefa.verificarTarefaSemEstarMonitorada());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

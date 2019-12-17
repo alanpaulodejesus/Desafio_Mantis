@@ -41,9 +41,10 @@ public class ApagarTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
         excluirTarefas.excluirTodasTarefas();
+        excluirTarefas.registrarApagarTarefas();
         Assert.assertTrue(excluirTarefas.verificarGridVazio());
         logout.realizarLogout();
         closeRelatorio();

@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class PesquisarTarefasTest {
 
@@ -24,6 +26,7 @@ public class PesquisarTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         pesquisaTarefa.verificarSeExisteTarefa();
     }
@@ -37,9 +40,11 @@ public class PesquisarTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        pesquisaTarefa.registrarPesquisarTarefas();
         Assert.assertTrue((pesquisaTarefa.verificarPesquisaIdTarefaCriada()));
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

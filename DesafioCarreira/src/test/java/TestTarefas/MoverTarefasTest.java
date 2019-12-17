@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class MoverTarefasTest {
 
@@ -29,6 +31,7 @@ public class MoverTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         verProjeto.verificarSeExisteProjeto();
         verProjeto.verificarSeExisteProjetoParaMoverTarefa();
@@ -48,10 +51,12 @@ public class MoverTarefasTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
-        Assert.assertTrue(moverTarefas.verificarTarefaEmGrid());
+        moverTarefas.registrarMoverTarefas();
+        Assert.assertTrue(moverTarefas.verificarMoverTarefa());
         moverTarefas.excluirTodasTarefas();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

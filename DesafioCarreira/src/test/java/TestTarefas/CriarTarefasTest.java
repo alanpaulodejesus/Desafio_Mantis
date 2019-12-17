@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class CriarTarefasTest {
 
@@ -28,6 +30,7 @@ public class CriarTarefasTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         validarProjeto.verificarSeExisteProjeto();
 
@@ -48,12 +51,15 @@ public class CriarTarefasTest {
         criarTarefa.informarReproducaoBug(PropriedadesTarefas.reproduzirBug);
         criarTarefa.acionarComandoCriarTarefa();
         criarTarefa.verificarIdTarefaCriada();
-        Assert.assertTrue(criarTarefa.confirmarCadastroComSucesso());
+
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
 
+        criarTarefa.registrarCriarTarefas();
+        Assert.assertTrue(criarTarefa.confirmarCriarTarefaComSucesso());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }
