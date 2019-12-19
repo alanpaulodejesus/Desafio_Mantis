@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class CriarUsuarioTest {
 
@@ -25,12 +27,13 @@ public class CriarUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
     }
 
 
     @Test
-    public void criarNovoUsuario(){
+    public void criarNovoUsuario() throws Exception {
 
         criarUsuario.acionarComandoConvidarUsuario();
         criarUsuario.preencherCampoNomeUsuario(PropriedadesUsuario.nomeUsuario);
@@ -39,6 +42,7 @@ public class CriarUsuarioTest {
         criarUsuario.selecionarNivelAcesso(PropriedadesUsuario.nivelAcesso);
         criarUsuario.acionarComandoCriarUsuario();
         criarUsuario.acionarMenuGerenciarUsuario();
+        criarUsuario.registrarCriarUsuarioEmProjeto();
         Assert.assertTrue(criarUsuario.verificarUsuarioCriadoEmGrid());
 
     }
@@ -60,5 +64,6 @@ public class CriarUsuarioTest {
     public void tearDown() throws Exception {
         criarUsuario.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

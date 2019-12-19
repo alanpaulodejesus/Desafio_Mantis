@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AlterarUsuarioTest {
 
@@ -28,6 +30,7 @@ public class AlterarUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
         pesquisaUsuario.pesquisaUsuario();
@@ -50,7 +53,9 @@ public class AlterarUsuarioTest {
     public void tearDown() throws Exception {
 
         alterarUsuario.excluirTodosUsuarios();
+        alterarUsuario.registrarAlterarUsuarioEmProjeto();
         Assert.assertTrue(alterarUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

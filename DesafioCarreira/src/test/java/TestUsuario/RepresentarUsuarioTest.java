@@ -9,7 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class RepresentarUsuarioTest {
 
@@ -26,6 +30,7 @@ public class RepresentarUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
         pesquisaUsuario.pesquisaUsuario();
@@ -33,7 +38,7 @@ public class RepresentarUsuarioTest {
     }
 
     @Test
-    public void redefinirSenhaUsuario(){
+    public void redefinirSenhaUsuario() throws IOException {
 
         representarUsuario.acionarNomeDeUsuarioEmGrid();
         representarUsuario.acionarComandoRepresentarUsuario();
@@ -49,5 +54,6 @@ public class RepresentarUsuarioTest {
         login.realizarLoginValido();
         representarUsuario.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

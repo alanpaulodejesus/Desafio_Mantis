@@ -9,7 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class MostrarUsuarioHabilitadoTest {
 
@@ -26,6 +30,7 @@ public class MostrarUsuarioHabilitadoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
         pesquisaUsuario.pesquisaUsuario();
@@ -33,7 +38,7 @@ public class MostrarUsuarioHabilitadoTest {
     }
 
     @Test
-    public void mostrarUsuarioAtivo(){
+    public void mostrarUsuarioAtivo() throws IOException {
 
         Assert.assertTrue(mostrarUsuarioAtivo.verificarUsuarioAtivoEmGrid());
 
@@ -45,6 +50,7 @@ public class MostrarUsuarioHabilitadoTest {
 
         mostrarUsuarioAtivo.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
 
     }
 }

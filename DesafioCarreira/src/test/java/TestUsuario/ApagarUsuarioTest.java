@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class ApagarUsuarioTest {
 
@@ -26,6 +28,7 @@ public class ApagarUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
         pesquisaUsuario.pesquisaUsuario();
@@ -45,8 +48,10 @@ public class ApagarUsuarioTest {
     @After
     public void tearDown() throws Exception {
 
-        Assert.assertTrue(excluirUsuario.verificarQueNomeUsuarioNaoEstaEmGrid());
+        excluirUsuario.registrarApagarUsuarioEmProjeto();
+        Assert.assertTrue(excluirUsuario.verificarNomeUsuarioApagadoEmGrid());
         excluirUsuario.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

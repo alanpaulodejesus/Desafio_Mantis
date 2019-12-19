@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class PesquisarUsuarioTest {
 
@@ -26,6 +28,7 @@ public class PesquisarUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
     }
@@ -55,8 +58,9 @@ public class PesquisarUsuarioTest {
 
     @After
     public void tearDown() throws Exception {
-        Assert.assertTrue(pesquisaUsuario.verificarUsuarioCriadoEmGrid());
+        Assert.assertTrue(pesquisaUsuario.verificarUsuarioPesquisadoEmGrid());
         pesquisaUsuario.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

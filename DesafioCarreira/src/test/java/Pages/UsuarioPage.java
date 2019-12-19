@@ -10,12 +10,19 @@ import DSL.Label;
 import TestUsuario.ApagarUsuarioTest;
 import TestUsuario.CriarUsuarioTest;
 import TestUsuario.PesquisarUsuarioTest;
+import Utils.RegistrarEvidencia;
 import Utils.Tempo;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.extent;
 
 public class UsuarioPage {
 
@@ -49,6 +56,8 @@ public class UsuarioPage {
     @FindBy(xpath = "//p[text()=\"Operação realizada com sucesso.\"]") private WebElement mensagemRepresentacaoUsuario;
     @FindBy(xpath = "//a[text()=\"Clique aqui para prosseguir\"]") private WebElement comandoProsseguir;
     @FindBy(xpath = "//input[@value=\"Representar Usuário\"]")private WebElement comandoRepresentarUsuario;
+
+    public static ExtentTest test2=null;
 
     public UsuarioPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -93,8 +102,46 @@ public class UsuarioPage {
         Comando.clicar(menuGerenciarUsuario);
     }
 
-    public Boolean verificarUsuarioCriadoEmGrid(){
-        return Label.textoPresente(verificoUsuarioCriadoEmGrid);
+    public Boolean verificarUsuarioPesquisadoEmGrid() throws IOException {
+        test2 = extent.createTest( "Pesquisar Usuario Em Projeto" );
+
+        if(Label.textoPresente(verificoUsuarioCriadoEmGrid)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Pesquisar Usuario Em Projeto.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Pesquisar Usuario Em Projeto.png");
+            extent.flush();
+            return false;
+        }
+
+    }
+
+    public Boolean verificarUsuarioCriadoEmGrid() throws IOException {
+        test2 = extent.createTest( "Criar Usuario Em Projeto" );
+
+        if(Label.textoPresente(verificoUsuarioCriadoEmGrid)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Usuario Em Projeto.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Usuario Em Projeto.png");
+            extent.flush();
+            return false;
+        }
+
     }
 
     public Boolean verificarUsuarioCriadoEmGridAlterado(){
@@ -130,14 +177,52 @@ public class UsuarioPage {
         Comando.clicar(comandoApagarConta);
     }
 
-    public Boolean verificarQueNomeUsuarioNaoEstaEmGrid(){
+    public Boolean verificarQueNomeUsuarioNaoEstaEmGrid() throws IOException {
 
-        try {
-            Label.textoPresente(nomeUsuarioEmGrid);
-            nomeUsuarioEmGrid.getSize();
-            return false;
-        }catch (Exception e){
+        test2 = extent.createTest( "Alterar Usuario Em Projeto" );
+
+            if(Label.textoPresente(nomeUsuarioEmGrid)){
+                test2.log( Status.PASS, "Teste realizado com sucesso");
+                test2.addScreenCaptureFromPath(
+                        System.getProperty("user.dir") + File.separator +
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Usuario Em Projeto.png");
+                extent.flush();
+                return true;
+        }else{
+
+                nomeUsuarioEmGrid.getSize();
+                test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+                test2.addScreenCaptureFromPath(
+                        System.getProperty("user.dir") + File.separator +
+                                "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Usuario Em Projeto.png");
+                extent.flush();
+                return false;
+
+        }
+
+    }
+
+    public Boolean verificarNomeUsuarioApagadoEmGrid() throws IOException {
+
+        test2 = extent.createTest( "Apagar Usuario Em Projeto" );
+
+        if(Label.textoPresente(nomeUsuarioEmGrid)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Apagar Usuario Em Projeto.png");
+            extent.flush();
             return true;
+        }else{
+
+            nomeUsuarioEmGrid.getSize();
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Apagar Usuario Em Projeto.png");
+            extent.flush();
+            return false;
+
         }
 
     }
@@ -163,6 +248,7 @@ public class UsuarioPage {
     public void excluirTodosUsuarios() throws Exception {
 
         Comando.clicar(menuGerenciar);
+        Tempo.aguardar( 5, menuGerenciarUsuario );
         Comando.clicar(menuGerenciarUsuario);
 
         if(Label.textoPresente(nomeUsuarioEmGrid)){
@@ -194,8 +280,48 @@ public class UsuarioPage {
         }
     }
 
-    public boolean verificarUsuarioAdicionadoEmProjeto() {
-        return Label.textoPresente(comandoRemover);
+    public boolean verificarUsuarioRemovidoEmProjeto() throws IOException {
+        test2 = extent.createTest( "Remover Usuario Em Projeto" );
+
+        if(Label.textoPresente(comandoRemover)){
+
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Remover Usuario Em Projeto.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log( Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Remover Usuario Em Projeto.png");
+            extent.flush();
+
+            return false;
+        }
+    }
+
+    public boolean verificarUsuarioAdicionadoEmProjeto() throws IOException {
+        test2 = extent.createTest( "Adicionar Usuario Em Projeto" );
+        //return Label.textoPresente(comandoRemover);
+        if(Label.textoPresente(comandoRemover)){
+
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Usuario Em Projeto.png");
+            extent.flush();
+            return true;
+        }else {
+            test2.log( Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Usuario Em Projeto.png");
+            extent.flush();
+
+            return false;
+        }
     }
 
     public void acionarSelectParaUsuarioDesabilitado() {
@@ -203,12 +329,43 @@ public class UsuarioPage {
         Comando.clicar(campoSelectHabilitado);
     }
 
-    public boolean verificarUsuarioAtivoEmGrid() {
-        return Label.textoPresente(validacaoUsuarioAtivo);
+    public boolean verificarUsuarioAtivoEmGrid() throws IOException {
+        test2 = extent.createTest( "Usuario Ativo Em Projeto" );
+        if (Label.textoPresente(validacaoUsuarioAtivo)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Usuario Ativo Em Projeto.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Usuario Ativo Em Projeto.png");
+            extent.flush();
+            return false;
+        }
     }
 
-    public boolean verificarUsuarioNaoAtivoEmGrid() {
-        return Label.textoPresente(validacaoUsuarioNaoAtivo);
+    public boolean verificarUsuarioNaoAtivoEmGrid() throws IOException {
+        test2 = extent.createTest( "Usuario Não Ativo Em Projeto" );
+
+        if (Label.textoPresente(validacaoUsuarioNaoAtivo)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Usuario Não Ativo Em Projeto.png");
+            extent.flush();
+            return true;
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Usuario Não Ativo Em Projeto.png");
+            extent.flush();
+            return false;
+        }
     }
 
     public void acionarSelectPesquisaUsuarioDesabilitado() {
@@ -219,24 +376,46 @@ public class UsuarioPage {
         Comando.clicar(comandoRedefinirSenha);
     }
 
-    public boolean verificarMensagemValidacaoEnvioEmail() {
+    public boolean verificarMensagemValidacaoEnvioEmail() throws IOException {
         Tempo.aguardar(10, mensagemEnvio);
-        try {
-            Label.textoPresente(mensagemEnvio);
+        test2 = extent.createTest( "Validação Envio Email" );
+        if(Label.textoPresente(mensagemEnvio)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Validação Envio Email.png");
+            extent.flush();
             return true;
-        }catch (Exception e){
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Validação Envio Email.png");
+            extent.flush();
             return false;
         }
     }
 
-    public boolean verificarMensagemRepresentacaoRealizada() {
+    public boolean verificarMensagemRepresentacaoRealizada() throws IOException {
         Tempo.aguardar(10, mensagemRepresentacaoUsuario);
-        try {
-            Label.textoPresente(mensagemRepresentacaoUsuario);
+        test2 = extent.createTest( "Representar Usuario" );
+
+        if(Label.textoPresente(mensagemRepresentacaoUsuario)){
+            test2.log( Status.PASS, "Teste realizado com sucesso");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Representar Usuario.png");
+            extent.flush();
             return true;
-        }catch (Exception e){
+        }else{
+            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
+            test2.addScreenCaptureFromPath(
+                    System.getProperty("user.dir") + File.separator +
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Representar Usuario.png");
+            extent.flush();
             return false;
         }
+
     }
 
 
@@ -246,5 +425,29 @@ public class UsuarioPage {
 
     public void acionarComandoProsseguir(){
         Comando.clicar(comandoProsseguir);
+    }
+
+    public void registrarAdicionarUsuarioEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Usuario Em Projeto.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarAlterarUsuarioEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Alterar Usuario Em Projeto.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarApagarUsuarioEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Apagar Usuario Em Projeto.png" );//+ Generetor.dataHora()+".png");
+    }
+
+    public void registrarCriarUsuarioEmProjeto() throws Exception {
+        RegistrarEvidencia.registrar(
+                System.getProperty("user.dir") + File.separator +
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Criar Usuario Em Projeto.png" );//+ Generetor.dataHora()+".png");
     }
 }

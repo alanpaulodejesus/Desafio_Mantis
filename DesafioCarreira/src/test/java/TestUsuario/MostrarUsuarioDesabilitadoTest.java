@@ -9,7 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class MostrarUsuarioDesabilitadoTest {
 
@@ -26,6 +30,7 @@ public class MostrarUsuarioDesabilitadoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuarioDesativado();
         pesquisaUsuario.pesquisaUsuarioDesabilitado();
@@ -33,7 +38,7 @@ public class MostrarUsuarioDesabilitadoTest {
     }
 
     @Test
-    public void mostrarUsuarioNaoAtivo(){
+    public void mostrarUsuarioNaoAtivo() throws IOException {
 
         Assert.assertFalse(mostrarUsuarioAtivo.verificarUsuarioNaoAtivoEmGrid());
 
@@ -42,9 +47,9 @@ public class MostrarUsuarioDesabilitadoTest {
     @After
     public void tearDown() throws Exception {
 
-
         mostrarUsuarioAtivo.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
 
     }
 }

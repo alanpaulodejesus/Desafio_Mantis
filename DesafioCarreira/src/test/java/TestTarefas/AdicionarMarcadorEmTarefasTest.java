@@ -36,10 +36,12 @@ public class AdicionarMarcadorEmTarefasTest {
         marcadorDeTarefas.verificarSeExisteMarcador();
         adicionarMarcadorEmTarefa.verificarSeExisteTarefa();
         pesquisaTarefa.pesquisarAtividade();
+        adicionarMarcadorEmTarefa.verificaMarcadorJaAdicionado();
+
     }
 
     @Test
-    public void adicionarMarcadorEmAtividade(){
+    public void adicionarMarcadorEmAtividade() throws InterruptedException {
 
         adicionarMarcadorEmTarefa.selecionarMarcador(PropriedadesMarcador.nomeMacador);
         adicionarMarcadorEmTarefa.acionarComandoAplicar();

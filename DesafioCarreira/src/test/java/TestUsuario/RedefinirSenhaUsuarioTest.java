@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class RedefinirSenhaUsuarioTest {
 
@@ -26,6 +28,7 @@ public class RedefinirSenhaUsuarioTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         criarUsuario.criarNovoUsuario();
         pesquisaUsuario.pesquisaUsuario();
@@ -47,5 +50,6 @@ public class RedefinirSenhaUsuarioTest {
         Assert.assertTrue(redefinirSenha.verificarMensagemValidacaoEnvioEmail());
         redefinirSenha.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

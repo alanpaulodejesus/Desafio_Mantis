@@ -38,7 +38,7 @@ public class CriarTarefasTest {
 
 
     @Test
-    public void criarNovaTarefa(){
+    public void criarNovaTarefa() throws InterruptedException {
 
         criarTarefa.acessarMenuCriarTarefas();
         criarTarefa.acionarCategoriaTarefa(PropriedadesTarefas.categoriaBug);

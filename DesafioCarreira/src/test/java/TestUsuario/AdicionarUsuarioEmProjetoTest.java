@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.RelatorioExtentReport.closeRelatorio;
+import static Utils.RelatorioExtentReport.startRelatorio;
 
 public class AdicionarUsuarioEmProjetoTest {
 
@@ -26,6 +28,7 @@ public class AdicionarUsuarioEmProjetoTest {
     public void setUp() throws Exception {
 
         getDriver().get(Propriedades.URL);
+        startRelatorio();
         login.realizarLoginValido();
         projeto.verificarSeExisteProjeto();
         adicionaUsuarioEmProjeto.verificarSeExisteUsuarioCriado();
@@ -46,8 +49,10 @@ public class AdicionarUsuarioEmProjetoTest {
     @After
     public void tearDown() throws Exception {
 
+        adicionaUsuarioEmProjeto.registrarAdicionarUsuarioEmProjeto();
         Assert.assertTrue(adicionaUsuarioEmProjeto.verificarUsuarioAdicionadoEmProjeto());
         adicionaUsuarioEmProjeto.excluirTodosUsuarios();
         logout.realizarLogout();
+        closeRelatorio();
     }
 }

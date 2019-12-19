@@ -36,7 +36,7 @@ public class AlterarCategoriaEmTarefasTest {
     }
 
     @Test
-    public void alterarCategoriaAtividade(){
+    public void alterarCategoriaAtividade() throws InterruptedException {
 
         alterarTarefas.acionarComandoAtualizar();
         alterarTarefas.acionarCategoriaTarefa(PropriedadesTarefas.categoriaDúvida);

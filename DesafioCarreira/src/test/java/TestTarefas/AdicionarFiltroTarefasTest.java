@@ -35,11 +35,12 @@ public class AdicionarFiltroTarefasTest {
     }
 
     @Test
-    public void adicionarFiltroAtividade(){
+    public void adicionarFiltroAtividade() throws InterruptedException {
 
         adicionarFiltroTarefa.acionarMenuVerTarefas();
         adicionarFiltroTarefa.acionarRelatorGrid();
-        adicionarFiltroTarefa.selecionarRelator(PropriedadesTarefas.relatorAdministrador);
+        //Thread.sleep( 2000 );
+        adicionarFiltroTarefa.selecionarRelator( PropriedadesTarefas.relatorAdministrador);
         adicionarFiltroTarefa.acionarComandoAplicaFiltro();
 
     }

@@ -73,6 +73,8 @@ public class TarefasPage {
     @FindBy(name = "project_id")private WebElement comboMoverProjeto;
     @FindBy(xpath = "//input[@value=\"Monitorar\"]")private WebElement comandoMonitorar;
     @FindBy(xpath = "//input[@value=\"Parar de Monitorar\"]")private WebElement comandoPararDeMonitorar;
+    @FindBy(xpath = "//a[text()=\"Marcador em teste\"]") private WebElement marcadorPersente;
+    @FindBy(xpath = "//div[@class='widget-main no-padding']//a[2]") private  WebElement iconeMarcadorPresente;
 
     public static ExtentTest test2=null;
 
@@ -95,6 +97,7 @@ public class TarefasPage {
     }
 
     public void selecionarMarcador(String texto){
+
         Combo.selecionarCombo(comboMarcador, texto);
     }
 
@@ -170,10 +173,12 @@ public class TarefasPage {
         Comando.clicar(comandoCriarNovaTarefa);
     }
 
-    public void acionarCategoriaTarefa(String tipo){
-        Tempo.aguardar(6, categoriaBug);
+
+    public void acionarCategoriaTarefa(String tipo) throws InterruptedException {
+        Tempo.aguardar(15, categoriaBug);
         Combo.selecionarCombo(categoriaBug, tipo);
     }
+
 
     public void acionarComandoFecharTarefa(){
         Comando.clicar(comandoFecharTarefa);
@@ -212,7 +217,7 @@ public class TarefasPage {
     }
 
     public Boolean confirmarCadastroComSucesso() throws IOException {
-        Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
+        //Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
 
         test2 = extent.createTest( "Clonar Tarefas" );
 
@@ -234,7 +239,7 @@ public class TarefasPage {
     }
 
     public Boolean confirmarCriarTarefaComSucesso() throws IOException {
-        Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
+        //Tempo.aguardar(15, confirmoCadastroTarefaRealizada);
 
         test2 = extent.createTest( "Criar Tarefas" );
 
@@ -261,7 +266,7 @@ public class TarefasPage {
     }
 
     public Boolean verificarStatusFechado() throws IOException {
-        Tempo.aguardar(20, confirmoStatusFechado);
+        //Tempo.aguardar(20, confirmoStatusFechado);
         test2 = extent.createTest( "Fechar Tarefas" );
 
         if (Label.textoPresente(confirmoStatusFechado)){
@@ -282,7 +287,7 @@ public class TarefasPage {
     }
 
     public Boolean verificarPesquisaIdTarefaCriada() throws IOException {
-        Tempo.aguardar(20, confirmoCadastroTarefaRealizada);
+       // Tempo.aguardar(20, confirmoCadastroTarefaRealizada);
         test2 = extent.createTest( "Pesquisar Tarefas" );
         if(Label.textoPresente(confirmoCadastroTarefaRealizada)){
             test2.log( Status.PASS, "Teste realizado com sucesso");
@@ -446,6 +451,13 @@ public class TarefasPage {
         }
     }
 
+    public void verificaMarcadorJaAdicionado(){
+
+        if(Label.textoPresente(marcadorPersente)){
+            Comando.clicar( iconeMarcadorPresente );
+        }
+    }
+
     public void verificarSeExisteTarefa() throws Exception {
 
         acionarMenuVerTarefas();
@@ -530,14 +542,14 @@ public class TarefasPage {
             test2.log( Status.PASS, "Teste realizado com sucesso");
             test2.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefa.png");
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefas.png");
             extent.flush();
             return true;
         }else {
             test2.log(Status.FAIL, "Ocorreu uma falha no teste");
             test2.addScreenCaptureFromPath(
                     System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefa.png");
+                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Adicionar Filtro Tarefas.png");
             extent.flush();
             return false;}
     }
@@ -590,7 +602,7 @@ public class TarefasPage {
     }
 
     public void selecionarRelator(String texto) {
-        Tempo.aguardar(2, comboAdministrador);
+        Tempo.aguardar(4, comboAdministrador);
         Combo.selecionarCombo(comboAdministrador, texto);
     }
 
@@ -718,7 +730,7 @@ public class TarefasPage {
     public void registrarAdicionarMarcadorTarefas() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Marcador Tarefas.png" );//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Adicionar Marcador Tarefa.png" );//+ Generetor.dataHora()+".png");
     }
 
     public void registrarAlterarCategotiaTarefas() throws Exception {
