@@ -9,7 +9,6 @@ public class CampoTexto {
         elemento.sendKeys(valor);
     }
 
-
     public static void limpar(WebElement elemento) {
 
         elemento.clear();

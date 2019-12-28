@@ -7,6 +7,7 @@ import Utils.RegistrarEvidencia;
 import Utils.Tempo;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,9 +41,21 @@ public class LoginPage {
         CampoTexto.preencher(campoUserName,username);
     }
 
+    public void preencherCampoUsernameComJavaScript() throws Exception {
+        Tempo.aguardar(2, campoUserName);
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("document.getElementById('username').value='administrator'" );
+    }
+
     public void preencherCampoSenha(String password)  {
         Tempo.aguardar(2, campoSenha);
         CampoTexto.preencher(campoSenha, password);
+    }
+
+    public void preencherCampoSenhaComJavaScript() throws Exception {
+        Tempo.aguardar(2, campoSenha);
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("document.getElementById('password').value='123'" );
     }
 
     public void acionarComandoEntrar()  {
@@ -50,6 +63,12 @@ public class LoginPage {
         Comando.clicar(comandoEntrar);
     }
 
+    public void acionarComandoEntrarComJavaScript() throws Exception {
+        Tempo.aguardar(2, comandoEntrar);
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("arguments[0].click();", comandoEntrar );
+
+    }
 
     public Boolean validarAcessoLogin() throws IOException, InterruptedException {
 
@@ -105,16 +124,24 @@ public class LoginPage {
         Comando.clicar(comandoSair);
     }
 
+    public void realizarLogoutComJavaScript() throws Exception {
+        Tempo.aguardar(2, comandoSairUsuario);
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("arguments[0].click();", comandoSairUsuario );
+        Tempo.aguardar(1,comandoSair);
+        js.executeScript("arguments[0].click();", comandoSair );
+    }
+
     public void registrarLoginInvalido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Login Inválido.png");
     }
 
     public void registrarLoginValido() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido.png" );//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" +  File.separator + "java" +File.separator + "Arquivo" + File.separator +"Login valido.png" );
     }
 
 

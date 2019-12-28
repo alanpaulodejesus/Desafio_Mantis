@@ -9,4 +9,12 @@ public class Comando {
         botao.click();
 
     }
+
+    public static void clicarComJavaScript(WebElement botao) {
+
+        botao.click();
+
+    }
+
+
 }

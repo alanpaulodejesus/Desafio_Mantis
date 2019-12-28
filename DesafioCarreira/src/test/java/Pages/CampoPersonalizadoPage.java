@@ -305,30 +305,30 @@ public class CampoPersonalizadoPage {
     public void registrarAddCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Add Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Add Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarAlterarCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Alterar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Alterar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarCriarCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Criar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Criar Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarExcluirCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Excluir Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Excluir Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 
     public void registrarRemoverCampoPersonalizadoEmProjeto() throws Exception {
         RegistrarEvidencia.registrar(
                 System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioCampoPersonalizado"+ File.separator +"Remover Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
+                        "src" + File.separator + "test" + File.separator + "java" +File.separator +"Arquivo"+ File.separator +"Remover Campo Personalizado Em Projeto.png");//+ Generetor.dataHora()+".png");
     }
 }

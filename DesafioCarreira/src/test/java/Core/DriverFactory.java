@@ -41,20 +41,23 @@ public class DriverFactory {
             }
 
             if(Propriedades.TIPO_EXECUCAO == Propriedades.TipoExecucao.GRID) {
-                DesiredCapabilities cap = null;
-                ChromeOptions opt = new ChromeOptions();
+               DesiredCapabilities cap = new DesiredCapabilities( );
+
                 switch (Propriedades.browser) {
                     case FIREFOX: cap = DesiredCapabilities.firefox();
-                    cap.setPlatform( Platform.WINDOWS ); break;
+                        cap.setPlatform( Platform.WINDOWS ); break;
                     case CHROME:
-                    cap = DesiredCapabilities.chrome();
-                    cap.setBrowserName("chrome" );
-                    opt.merge( cap );
-                    cap.setCapability( "marionette", true );
-                    cap.setPlatform( Platform.WINDOWS );
+                        cap.setBrowserName("chrome" );
+                        ChromeOptions opt = new ChromeOptions();
+                        opt.merge( cap );
+                        cap = DesiredCapabilities.chrome();
+                        cap.setCapability( "marionette", true );
+                        cap.setPlatform( Platform.WINDOWS );
                         break;
                 }
+
                 try {
+
                     URL url = new URL("http://localhost:4444/wd/hub");
 
                     driver = new RemoteWebDriver(url, cap);
@@ -63,12 +66,13 @@ public class DriverFactory {
                     e.printStackTrace();
                 }
 
+
             }
 
 
         }
-            driver.manage().window().maximize();
-            return driver;
+        driver.manage().window().maximize();
+        return driver;
 
-        }
+    }
 }
