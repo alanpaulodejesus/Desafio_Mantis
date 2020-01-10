@@ -1,5 +1,6 @@
 package Pages;
 
+import Core.DriverFactory;
 import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Label;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import static Core.DriverFactory.getDriver;
 import static Utils.RelatorioExtentReport.extent;
@@ -29,11 +31,45 @@ public class LoginPage {
     @FindBy(linkText = "Sair")private WebElement comandoSair;
     @FindBy(xpath = "//span[@class=\"user-info\"]") private WebElement comandoSairUsuario;
 
+    @FindBy(id = "details-button")private WebElement linkAvanca;
+    @FindBy(id = "proceed-link")private WebElement linkNaoSeguro;
+
     public static ExtentTest test2=null;
     public static  ExtentTest test1=null;
 
     public LoginPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
+    }
+
+    public static void atualizaBrowser() throws Exception {
+
+        String parentWindow = DriverFactory.getDriver().getWindowHandle();
+
+        Set<String> allwindows = DriverFactory.getDriver().getWindowHandles();
+        for (String curWindow: allwindows){
+            DriverFactory.getDriver().switchTo().window( curWindow );
+        }
+
+    }
+
+    public void verificaSite(){
+
+        if(Label.textoPresente( comandoEntrar )){
+
+        }
+        else {
+            clicaLinkAvanca();
+            clicaLinkNaoSeguro();
+        }
+    }
+
+
+    public void clicaLinkAvanca(){
+        Comando.clicar( linkAvanca );
+    }
+
+    public void clicaLinkNaoSeguro(){
+        Comando.clicar( linkNaoSeguro );
     }
 
     public void preencherCampoUsername(String username)  {

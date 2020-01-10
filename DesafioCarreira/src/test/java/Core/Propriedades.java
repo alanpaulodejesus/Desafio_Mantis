@@ -2,7 +2,9 @@ package Core;
 
 public class Propriedades {
 
-    public static final String URL = "https://localhost/mantis";
+    //public static final String URL = "https://localhost/mantis";
+    public static final String URL = "https://localhost/mantis/login_page.php";
+
     public static final String USUARIO = "administrator";
     public static final String SENHA = "123";
 

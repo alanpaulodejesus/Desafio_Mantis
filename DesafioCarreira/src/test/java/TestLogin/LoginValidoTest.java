@@ -27,6 +27,7 @@ public class LoginValidoTest {
     public void setUp() throws Exception {
         getDriver().get(Propriedades.URL);
         startRelatorio();
+        login.verificaSite();
     }
 
 
