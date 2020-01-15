@@ -1,4 +1,4 @@
-package Utils;
+package DataBaseConector;
 
 
 import java.sql.*;
@@ -6,11 +6,9 @@ import java.sql.*;
 public class DataBaseConector {
 
     static Connection conn = null;
-    public static String nomeProjeto;
+    public static String dadoBanco;
 
    public static void  iniciaConexao() {
-
-
 
         String DRIVER="com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://127.0.0.1:3306/";
@@ -26,21 +24,21 @@ public class DataBaseConector {
 
             System.out.println( "Conexão Com sucesso!" );
 
-            String sqlQuery ="select * from TabelaNomeProjeto";
-            Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery( sqlQuery );
-            result.next();
-
-            nomeProjeto = result.getString( "nome" );
-            System.out.println( nomeProjeto );
-
-
         }catch (Exception e){
             System.out.println( "Falha de execução: " + e);
         }
 
+    }
 
+    public static void pesquisaBanco(String acao,String dadoBco, String coluna) throws SQLException {
 
+        Statement statement = conn.createStatement();
+        ResultSet result = statement.executeQuery(acao);
+        result.next();
+
+        dadoBanco = result.getString( coluna );
+        dadoBco = dadoBanco;
+        System.out.println( dadoBanco );
     }
 
     public static void fecharConexao() throws SQLException {

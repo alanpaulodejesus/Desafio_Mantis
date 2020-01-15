@@ -17,8 +17,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static Core.DriverFactory.getDriver;
+import static DataBaseConector.DataBaseConector.dadoBanco;
+import static DataBaseConector.DataBaseConector.pesquisaBanco;
 import static Utils.RelatorioExtentReport.extent;
 
 public class ProjetoPage {
@@ -64,6 +67,12 @@ public class ProjetoPage {
     public void preencherCampoNomeProjeto(String texto){
 
         CampoTexto.preencher(campoNomeProjeto, texto);
+    }
+
+    public void preencherCampoNomeProjetoComDadosDoBanco() throws SQLException {
+        String sqlQuery ="select * from TabelaNomeProjeto";
+        pesquisaBanco(sqlQuery,dadoBanco,"nome");
+        CampoTexto.preencher(campoNomeProjeto, dadoBanco);
     }
 
     public void acionarComandoAdicionarProjeto(){

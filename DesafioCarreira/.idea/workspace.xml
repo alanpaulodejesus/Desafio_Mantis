@@ -36,21 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CriarProjetoTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CriarProjetoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestProjeto/CriarProjetoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjetoPage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjetoPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/Pages/ProjetoPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="97" column="19" lean-forward="false" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
+            <state relative-caret-position="186">
+              <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -66,21 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PropriedadesProjeto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Core/PropriedadesProjeto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataBaseConector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Utils/DataBaseConector.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DataBaseConector/DataBaseConector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="-414">
+              <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -130,12 +120,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/TestPerfil/ExcluirPerfilTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestProjeto/AlterarProjetoTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestProjeto/AlterarVisibilidadeDeProjetoPrivadoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestProjeto/AlterarVisibilidadeDeProjetoPublicoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestProjeto/ExcluirProjetoTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Pages/ProjetoPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestToken/GerarTokenTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Pages/TokenPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestToken/RevogarTokenTest.java" />
@@ -179,8 +165,12 @@
         <option value="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/TestLogin/LoginValidoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Core/PropriedadesProjeto.java" />
         <option value="$PROJECT_DIR$/src/test/java/Utils/DataBaseConector.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestProjeto/CriarProjetoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Pages/ProjetoPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DataBaseConector/teste.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DataBaseConector/DataBaseConector.java" />
       </list>
     </option>
   </component>
@@ -238,6 +228,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DesafioCarreira" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DesafioCarreira" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DataBaseConector" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DesafioCarreira" type="b2602c69:ProjectViewProjectNode" />
@@ -356,11 +354,11 @@
     <configuration name="DataBaseConector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="Utils.*" />
+          <option name="PATTERN" value="DataBaseConector.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="Utils.DataBaseConector" />
+      <option name="MAIN_CLASS_NAME" value="DataBaseConector.DataBaseConector" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -551,20 +549,20 @@
     <history-entry file="CriarProjetoTest - 2020.01.14 at 23h 45m 10s.xml">
       <configuration name="CriarProjetoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.14 at 23h 33m 17s.xml">
-      <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.14 at 23h 43m 07s.xml">
       <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.14 at 23h 46m 01s.xml">
       <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest - 2020.01.07 at 23h 18m 30s.xml">
-      <configuration name="LoginValidoTest" configurationId="JUnit" />
+    <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.14 at 23h 58m 23s.xml">
+      <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginValidoTest - 2020.01.08 at 00h 48m 55s.xml">
-      <configuration name="LoginValidoTest" configurationId="JUnit" />
+    <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.15 at 00h 32m 20s.xml">
+      <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CriarProjetoTest_criarNovoProjeto - 2020.01.15 at 00h 47m 02s.xml">
+      <configuration name="CriarProjetoTest.criarNovoProjeto" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -590,7 +588,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28685713" sideWeight="0.74375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2857143" sideWeight="0.74375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -614,7 +612,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/tetet/CursoSelenium/src/main/java/TesteAlert.java" />
     <entry file="file://$USER_HOME$/Downloads/tetet/CursoSelenium/src/main/java/TesteCampoTreinamento.java" />
     <entry file="file://$PROJECT_DIR$/conexão selenium grid.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -924,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Core/PropriedadesProjeto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -938,26 +935,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/DataBaseConector.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/DataBaseConector/teste.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="600">
+          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Pages/ProjetoPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/DataBaseConector/DataBaseConector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="97" column="19" lean-forward="false" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
+        <state relative-caret-position="-414">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestProjeto/CriarProjetoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="253">
+          <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Pages/ProjetoPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
           <folding />
         </state>
       </provider>
