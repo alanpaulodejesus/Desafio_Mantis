@@ -1,6 +1,6 @@
-create database BancoNomeProjeto;
+create database BancoNomesProjeto;
 
-use BancoNomeProjeto;
+use BancoNomesProjeto;
 create table TabelaNomeProjeto(
 id INT,
 nome varchar(20)

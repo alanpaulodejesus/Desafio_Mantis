@@ -1,43 +1,56 @@
 package Utils;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DataBaseConector {
 
-    public static void  main (String[] args){
+    static Connection conn = null;
+    public static String nomeProjeto;
 
-        Connection conn = null;
+   public static void  iniciaConexao() {
 
+
+
+        String DRIVER="com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://127.0.0.1:3306/";
         String dataBaseName="BancoNomeProjeto";
         String username="root";
-        String password="alanpaulo2112";
+        String password="";
+
 
         try{
-            Class.forName( "com.mysql.jdbc.Driver" ).newInstance();
-            conn = DriverManager.getConnection( url+dataBaseName, username, password);
-            //conn = DriverManager.getConnection( url+dataBaseName, username, "" );
+            Class.forName( DRIVER );
 
+            conn = DriverManager.getConnection( url+dataBaseName );
+
+            System.out.println( "Conexão Com sucesso!" );
 
             String sqlQuery ="select * from TabelaNomeProjeto";
             Statement statement = conn.createStatement();
             ResultSet result = statement.executeQuery( sqlQuery );
             result.next();
-            System.out.println( result.getString( "Id: "+"id" ) );
-            System.out.println( result.getString( "Nome: "+"nome" ) );
+
+            nomeProjeto = result.getString( "nome" );
+            System.out.println( nomeProjeto );
+
 
         }catch (Exception e){
-            System.out.println( "Aqui" );
+            System.out.println( "Falha de execução: " + e);
         }
 
-        finally {
-            if (conn!=null){
-                conn=null;
-            }
-        }
+
+
     }
+
+    public static void fecharConexao() throws SQLException {
+
+            if (conn!=null){
+                conn.close();
+                System.out.println( "Conexão fechada sucesso!" );
+            }
+
+    }
+
+
 }

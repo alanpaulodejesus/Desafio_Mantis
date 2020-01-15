@@ -5,12 +5,15 @@ import Core.PropriedadesProjeto;
 import Pages.LoginPage;
 import Pages.ProjetoPage;
 import TestLogin.LoginValidoTest;
+import Utils.DataBaseConector;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static Core.DriverFactory.getDriver;
+import static Utils.DataBaseConector.fecharConexao;
+import static Utils.DataBaseConector.iniciaConexao;
 import static Utils.RelatorioExtentReport.closeRelatorio;
 import static Utils.RelatorioExtentReport.startRelatorio;
 
@@ -38,10 +41,11 @@ public class CriarProjetoTest {
     @Test
     public void criarNovoProjeto(){
 
+        iniciaConexao();
         projeto.acionarMenuGerenciar();
         projeto.acionarMenuGerenciarProjetos();
         projeto.acionarComandoCriarProjetos();
-        projeto.preencherCampoNomeProjeto(PropriedadesProjeto.nomeProjeto);
+        projeto.preencherCampoNomeProjeto( DataBaseConector.nomeProjeto);
         projeto.acionarComandoAdicionarProjeto();
 
     }
@@ -72,9 +76,12 @@ public class CriarProjetoTest {
     @After
     public void tearDown() throws Exception {
 
+        fecharConexao();
         projeto.registrarCriarProjeto();
+        Thread.sleep( 4000 );
         Assert.assertTrue(projeto.verificarCriarProjetoEmGrid());
         logout.realizarLogout();
         closeRelatorio();
+
     }
 }
