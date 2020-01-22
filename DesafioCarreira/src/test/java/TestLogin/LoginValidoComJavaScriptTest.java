@@ -33,6 +33,7 @@ public class LoginValidoComJavaScriptTest {
     @Test
     public void realizarLoginValidoComJavaScript() throws Exception {
 
+        login.verificaSite();
         login.preencherCampoUsernameComJavaScript();
         login.acionarComandoEntrarComJavaScript();
         login.preencherCampoSenhaComJavaScript();

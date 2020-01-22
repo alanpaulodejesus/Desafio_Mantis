@@ -12,7 +12,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Set;
 
 public class DriverFactory {
 
@@ -48,20 +47,22 @@ public class DriverFactory {
                 switch (Propriedades.browser) {
                     case FIREFOX:
 
-                        cap.setBrowserName("firefox" );
-                        FirefoxOptions opt1 = new FirefoxOptions(  );
-                        opt1.merge( cap );
+                       // cap.setBrowserName("firefox" );
+
                         cap = DesiredCapabilities.firefox();
                         cap.setBrowserName( "firefox" );
-                        cap.setPlatform( Platform.WINDOWS ); break;
+                        cap.setPlatform( Platform.WINDOWS );
+                        FirefoxOptions opt1 = new FirefoxOptions(  );
+                        opt1.merge( cap );break;
                     case CHROME:
-                        cap.setBrowserName("chrome" );
-                        ChromeOptions opt = new ChromeOptions();
-                        opt.merge( cap );
+                        //cap.setBrowserName("chrome" );
+
                         cap = DesiredCapabilities.chrome();
                         cap.setBrowserName( "chrome" );
                         //cap.setCapability( "marionette", true );
                         cap.setPlatform( Platform.WINDOWS );
+                        ChromeOptions opt = new ChromeOptions();
+                        opt.merge( cap );
                         break;
                 }
 

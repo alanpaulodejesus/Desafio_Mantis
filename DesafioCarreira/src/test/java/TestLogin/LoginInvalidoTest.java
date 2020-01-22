@@ -28,6 +28,7 @@ public class LoginInvalidoTest {
     @Test
     public void realizarLoginInvalido()  {
 
+        login.verificaSite();
         login.preencherCampoUsername(Propriedades.USUARIO);
         login.acionarComandoEntrar();
         login.preencherCampoSenha(Propriedades.SENHA_INVALIDA);

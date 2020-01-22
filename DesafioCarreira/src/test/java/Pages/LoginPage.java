@@ -5,9 +5,9 @@ import DSL.CampoTexto;
 import DSL.Comando;
 import DSL.Label;
 import Utils.RegistrarEvidencia;
+import Utils.RelatórioStatus;
 import Utils.Tempo;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +36,8 @@ public class LoginPage {
 
     public static ExtentTest test2=null;
     public static  ExtentTest test1=null;
+
+    RelatórioStatus relatorio = new RelatórioStatus();
 
     public LoginPage() throws Exception {
         PageFactory.initElements(getDriver(), this);
@@ -73,7 +75,7 @@ public class LoginPage {
     }
 
     public void preencherCampoUsername(String username)  {
-        Tempo.aguardar(2, campoUserName);
+       Tempo.aguardar(2, campoUserName);
         CampoTexto.preencher(campoUserName,username);
     }
 
@@ -111,21 +113,11 @@ public class LoginPage {
         test1 = extent.createTest( "Realizar Login com Sucesso" );
         if(Label.textoPresente( validaAcessoDeUsuario ))
         {
-
-            test1.log(Status.PASS, "Teste realizado com sucesso");
-
-            test1.addScreenCaptureFromPath(
-                    System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido.png");//+ Generetor.dataHora()+".png");
-            extent.flush();
+            relatorio.testStatusPass( test1,"Login valido.png" );
             return true;
         }else {
-            test1.log(Status.FAIL, "Ocorreu uma falha no teste");
-            test1.addScreenCaptureFromPath(
-                    System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" +  File.separator + "java" +File.separator + "ArquivoCenarioLogin" + File.separator +"Login valido.png");//+ Generetor.dataHora()+".png");
 
-            extent.flush();
+            relatorio.testStatusFail( test1,"Login valido.png" );
             return false;
         }
     }
@@ -136,19 +128,10 @@ public class LoginPage {
         test2 = extent.createTest( "Validar Acesso Negado" );
         if(Label.textoPresente( validaAcessoNegado )){
 
-            test2.log(Status.PASS, "Teste realizado com sucesso");
-            test2.addScreenCaptureFromPath(
-                    System.getProperty("user.dir") + File.separator +
-                    "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido.png");//+ Generetor.dataHora()+".png");
-            extent.flush();
+            relatorio.testStatusPass( test2,"Login Invalido.png" );
             return true;
         }else{
-            test2.log(Status.FAIL, "Ocorreu uma falha no teste");
-            test2.addScreenCaptureFromPath(
-                    System.getProperty("user.dir") + File.separator +
-                            "src" + File.separator + "test" + File.separator + "java" +File.separator +"ArquivoCenarioLogin"+ File.separator +"Login Inválido.png");//+ Generetor.dataHora()+".png");
-
-            extent.flush();
+            relatorio.testStatusFail( test2,"Login Invalido.png" );
             return false;
         }
     }
